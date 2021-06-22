@@ -10,11 +10,16 @@ import Foundation
 struct Meal {
     var id = UUID()
     var name: String
-    var image: String
-    var mealType: MealType
-    var isVegan: Bool
+    var imageName: String
+    var type: MealType
+    var diet: Diet
     var isPlanned: Bool
     var foods: [Food]
+}
+
+enum Diet {
+    case regular
+    case veggie
 }
 
 enum MealType {

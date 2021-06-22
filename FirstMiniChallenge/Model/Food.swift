@@ -12,11 +12,11 @@ struct Food {
         return name
     }
     var name: String
-    var typeOfFood: TypeOfFood
-    var isVeggie: Bool
+    var category: Category
+    var diet: Diet
 }
 
-enum TypeOfFood {
+enum Category {
     case feijoes
     case cereais
     case raizesETuberculos

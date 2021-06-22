@@ -60,9 +60,9 @@
 		5BE68FFD26826351000DC284 /* FirstMiniChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				5BE6901826827705000DC284 /* Views */,
 				5BE6900F26826384000DC284 /* Model */,
 				5BE68FFE26826351000DC284 /* FirstMiniChallengeApp.swift */,
-				5BE6900026826351000DC284 /* ContentView.swift */,
 				5BE6900226826354000DC284 /* Assets.xcassets */,
 				5BE6900726826354000DC284 /* Info.plist */,
 				5BE6900426826354000DC284 /* Preview Content */,
@@ -87,6 +87,14 @@
 				5BE69014268263AC000DC284 /* Week.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5BE6901826827705000DC284 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BE6900026826351000DC284 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
