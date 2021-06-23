@@ -7,23 +7,23 @@
 
 import Foundation
 
-func planDay(isBreakfastEnabled: Bool, isLunchEnabled: Bool, isSnackEnabled: Bool, isDinnerEnabled: Bool, diet: Diet, feijoes: [Food], cereais: [Food], raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food]) -> Day {
+func planDay(day: Day, diet: Diet, feijoes: [Food], cereais: [Food], raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food]) -> Day {
     
     var meals: [Meal] = []
     var plannedMeals: [MealType] = []
     var isFullyPlanned = false
     
-    if isBreakfastEnabled {
-        meals.append(generateMeal(type: .cafeDaManha, mealOption: data.breakfastOption1, diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+    if day.isBreakfastEnabled {
+        meals.append(generateMeal(type: .cafeDaManha, mealOption: data.mealOptions[0], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
     }
-    if isLunchEnabled {
-        meals.append(generateMeal(type: .almoco, mealOption: data.lunchOption1, diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+    if day.isLunchEnabled {
+        meals.append(generateMeal(type: .almoco, mealOption: data.mealOptions[1], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
     }
-    if isSnackEnabled {
-        meals.append(generateMeal(type: .lanche, mealOption: data.breakfastOption1, diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+    if day.isSnackEnabled {
+        meals.append(generateMeal(type: .lanche, mealOption: data.mealOptions[0], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
     }
-    if isDinnerEnabled {
-        meals.append(generateMeal(type: .janta, mealOption: data.lunchOption1, diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+    if day.isDinnerEnabled {
+        meals.append(generateMeal(type: .janta, mealOption: data.mealOptions[1], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
     }
     
     for i in 0..<meals.count {
@@ -41,12 +41,11 @@ func planDay(isBreakfastEnabled: Bool, isLunchEnabled: Bool, isSnackEnabled: Boo
         }
     }
     
-    if plannedMeals.count > 3 {
-        isFullyPlanned = true
-    }
+    isFullyPlanned = true
     
-    let plannedDay = Day(date: Date(), plannedMeals: plannedMeals, meals: meals, isFullyPlanned: isFullyPlanned)
-    
+    let plannedDay = Day(name: day.name, date: day.date, plannedMeals: plannedMeals, meals: meals, isFullyPlanned: isFullyPlanned)
+    print("________________________________________")
+    print("Refeições do dia \(plannedDay.name):")
     print(plannedDay)
     
     return plannedDay

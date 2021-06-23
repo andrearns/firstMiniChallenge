@@ -18,6 +18,7 @@
 		5BE6901B2682CAA0000DC284 /* generateMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6901A2682CAA0000DC284 /* generateMeal.swift */; };
 		5BE6901D2682F63C000DC284 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6901C2682F63C000DC284 /* Data.swift */; };
 		5BE6901F2682FAEA000DC284 /* planDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6901E2682FAEA000DC284 /* planDay.swift */; };
+		5BE690212683B003000DC284 /* planWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE690202683B003000DC284 /* planWeek.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		5BE6901A2682CAA0000DC284 /* generateMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateMeal.swift; sourceTree = "<group>"; };
 		5BE6901C2682F63C000DC284 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		5BE6901E2682FAEA000DC284 /* planDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = planDay.swift; sourceTree = "<group>"; };
+		5BE690202683B003000DC284 /* planWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = planWeek.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				5BE6901A2682CAA0000DC284 /* generateMeal.swift */,
 				5BE6901E2682FAEA000DC284 /* planDay.swift */,
+				5BE690202683B003000DC284 /* planWeek.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				5BE68FFF26826351000DC284 /* FirstMiniChallengeApp.swift in Sources */,
 				5BE6901126826394000DC284 /* Food.swift in Sources */,
 				5BE6901B2682CAA0000DC284 /* generateMeal.swift in Sources */,
+				5BE690212683B003000DC284 /* planWeek.swift in Sources */,
 				5BE6901D2682F63C000DC284 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

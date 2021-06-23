@@ -74,6 +74,8 @@ func generateMeal(type: MealType, mealOption: MealOption, diet: Diet, feijoes: [
     
     let meal = Meal(name: name, imageName: mealOption.imageName, type: type, diet: diet, isPlanned: true, foods: foods)
     
+    print("________________________________________")
+    print("Refeição: \(meal.type)")
     print(meal)
     return meal
 }
