@@ -11,6 +11,6 @@ struct Day {
     var id = UUID()
     var date: Date
     var plannedMeals: [MealType]
-    var meals: [MealType: Meal?]
+    var meals: [Meal]
     var isFullyPlanned: Bool
 }

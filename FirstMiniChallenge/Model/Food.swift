@@ -25,4 +25,5 @@ enum Category {
     case castanhasENozes
     case leiteEQueijos
     case carnesEOvos
+    case none
 }

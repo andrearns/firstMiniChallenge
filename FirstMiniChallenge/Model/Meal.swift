@@ -17,9 +17,17 @@ struct Meal {
     var foods: [Food]
 }
 
+struct MealOption {
+    var id = UUID()
+    var name: String
+    var imageName: String
+    var categoriesIncluded: [Category]
+}
+
 enum Diet {
     case regular
     case veggie
+    case none
 }
 
 enum MealType {
@@ -27,4 +35,5 @@ enum MealType {
     case almoco
     case lanche
     case janta
+    case none
 }
