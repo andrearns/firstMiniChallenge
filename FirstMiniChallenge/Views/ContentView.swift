@@ -48,7 +48,7 @@ struct ContentView: View {
                     }
                     
                     
-                    let plannedMeal = generateMeal(type: mealType, mealOption: mealOption, diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos)
+                    let plannedMeal = generateMeal(type: mealType, mealOption: mealOption, diet: data.diet, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
                     meal = plannedMeal
                 }) {
                     Text("Planejar refeição")
@@ -60,7 +60,7 @@ struct ContentView: View {
             }
             
             Button(action:{
-                let plannedDay = planDay(day: data.week.days[0], diet: .regular, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos)
+                let plannedDay = planDay(day: data.week.days[0], diet: .regular, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
                 day = plannedDay
             }) {
                 Text("Planejar dia")
@@ -72,7 +72,7 @@ struct ContentView: View {
             .padding(.bottom, 10)
             
             Button(action:{
-                let plannedWeek = planWeek(week: data.week, diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos)
+                let plannedWeek = planWeek(week: data.week, diet: data.diet, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
                 week = plannedWeek
             }) {
                 Text("Planejar semana")

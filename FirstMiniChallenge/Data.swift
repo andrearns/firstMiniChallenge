@@ -12,13 +12,14 @@ var data = Data()
 struct Data {
     var username: String = "André"
     var diet: Diet = .regular
+    var today = Date()
     
-    var feijoes: [Food] = [
+    var allFeijoes: [Food] = [
         Food(name: "Feijão preto", category: .feijoes, diet: .veggie),
         Food(name: "Feijão carioca", category: .feijoes, diet: .veggie)
     ]
     
-    var cereais: [Food] = [
+    var allCereais: [Food] = [
         Food(name: "Arroz integral", category: .cereais, diet: .veggie),
         Food(name: "Arroz branco", category: .cereais, diet: .veggie),
         Food(name: "Milho", category: .cereais, diet: .veggie),
@@ -26,14 +27,14 @@ struct Data {
         Food(name: "Aveia", category: .cereais, diet: .veggie)
     ]
     
-    var raizesETuberculos: [Food] = [
+    var allRaizesETuberculos: [Food] = [
         Food(name: "Batata", category: .raizesETuberculos, diet: .veggie),
         Food(name: "Mandioca", category: .raizesETuberculos, diet: .veggie),
         Food(name: "Batata doce", category: .raizesETuberculos, diet: .veggie),
         Food(name: "Inhame", category: .raizesETuberculos, diet: .veggie)
     ]
     
-    var legumesEVerduras: [Food] = [
+    var allLegumesEVerduras: [Food] = [
         Food(name: "Abóbora", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Abobrinha", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Acelga", category: .legumesEVerduras, diet: .veggie),
@@ -57,7 +58,7 @@ struct Data {
         Food(name: "Repolho", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Tomate", category: .legumesEVerduras, diet: .veggie)]
     
-    var frutas: [Food] = [
+    var allFrutas: [Food] = [
         Food(name: "Abacate", category: .frutas, diet: .veggie),
         Food(name: "Abacaxi", category: .frutas, diet: .veggie),
         Food(name: "Acerola", category: .frutas, diet: .veggie),
@@ -84,26 +85,79 @@ struct Data {
         Food(name: "Uva", category: .frutas, diet: .veggie)
     ]
     
-    var castanhasENozes: [Food] = [
+    var allCastanhasENozes: [Food] = [
         Food(name: "Castanha de caju", category: .castanhasENozes, diet: .veggie),
         Food(name: "Amendoas defumadas", category: .castanhasENozes, diet: .veggie),
         Food(name: "Nozes", category: .castanhasENozes, diet: .veggie),
         Food(name: "Amendoim", category: .castanhasENozes, diet: .veggie)
     ]
     
-    var leitesEQueijos: [Food] = [
+    var allLeitesEQueijos: [Food] = [
         Food(name: "Leite de vaca", category: .leiteEQueijos, diet: .veggie),
         Food(name: "Queijo", category: .leiteEQueijos, diet: .veggie),
         Food(name: "Iogurte", category: .leiteEQueijos, diet: .veggie)
     ]
     
-    var carnesEOvos: [Food] = [
+    var allCarnesEOvos: [Food] = [
         Food(name: "ovos", category: .carnesEOvos, diet: .veggie),
         Food(name: "PTS", category: .carnesEOvos, diet: .veggie),
         Food(name: "Seitan", category: .carnesEOvos, diet: .veggie),
         Food(name: "Frango", category: .carnesEOvos, diet: .regular),
         Food(name: "Carne bovina", category: .carnesEOvos, diet: .regular),
         Food(name: "Carne de porco", category: .carnesEOvos, diet: .regular),
+        Food(name: "Peixe", category: .carnesEOvos, diet: .regular)
+    ]
+    
+    var selectedFeijoes: [Food] = [
+        Food(name: "Feijão preto", category: .feijoes, diet: .veggie),
+    ]
+    
+    var selectedCereais: [Food] = [
+        Food(name: "Arroz integral", category: .cereais, diet: .veggie),
+        Food(name: "Pão", category: .cereais, diet: .veggie),
+    ]
+    
+    var selectedRaizesETuberculos: [Food] = [
+        Food(name: "Batata", category: .raizesETuberculos, diet: .veggie),
+        Food(name: "Mandioca", category: .raizesETuberculos, diet: .veggie),
+    ]
+    
+    var selectedLegumesEVerduras: [Food] = [
+        Food(name: "Abóbora", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Abobrinha", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Alface", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Berinjela", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Beterraba", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Brócolis", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Cenoura", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Couve", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Pepino", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Quiabo", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Tomate", category: .legumesEVerduras, diet: .veggie)]
+    
+    var selectedFrutas: [Food] = [
+        Food(name: "Abacate", category: .frutas, diet: .veggie),
+        Food(name: "Abacaxi", category: .frutas, diet: .veggie),
+        Food(name: "Banana", category: .frutas, diet: .veggie),
+        Food(name: "Manga", category: .frutas, diet: .veggie),
+        Food(name: "Tangerina", category: .frutas, diet: .veggie),
+        Food(name: "Uva", category: .frutas, diet: .veggie)
+    ]
+    
+    var selectedCastanhasENozes: [Food] = [
+        Food(name: "Castanha de caju", category: .castanhasENozes, diet: .veggie),
+        Food(name: "Amendoas defumadas", category: .castanhasENozes, diet: .veggie),
+    ]
+    
+    var selectedLeitesEQueijos: [Food] = [
+        Food(name: "Queijo", category: .leiteEQueijos, diet: .veggie),
+        Food(name: "Iogurte", category: .leiteEQueijos, diet: .veggie)
+    ]
+    
+    var selectedCarnesEOvos: [Food] = [
+        Food(name: "ovos", category: .carnesEOvos, diet: .veggie),
+        Food(name: "Frango", category: .carnesEOvos, diet: .regular),
+        Food(name: "Carne bovina", category: .carnesEOvos, diet: .regular),
         Food(name: "Peixe", category: .carnesEOvos, diet: .regular)
     ]
     

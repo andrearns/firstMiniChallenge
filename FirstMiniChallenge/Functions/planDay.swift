@@ -14,16 +14,16 @@ func planDay(day: Day, diet: Diet, feijoes: [Food], cereais: [Food], raizesETube
     var isFullyPlanned = false
     
     if day.isBreakfastEnabled {
-        meals.append(generateMeal(type: .cafeDaManha, mealOption: data.mealOptions[0], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+        meals.append(generateMeal(type: .cafeDaManha, mealOption: data.mealOptions[0], diet: data.diet, feijoes: feijoes, cereais: cereais, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos))
     }
     if day.isLunchEnabled {
-        meals.append(generateMeal(type: .almoco, mealOption: data.mealOptions[1], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+        meals.append(generateMeal(type: .almoco, mealOption: data.mealOptions[1], diet: data.diet, feijoes: feijoes, cereais: cereais, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos))
     }
     if day.isSnackEnabled {
-        meals.append(generateMeal(type: .lanche, mealOption: data.mealOptions[0], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+        meals.append(generateMeal(type: .lanche, mealOption: data.mealOptions[0], diet: data.diet, feijoes: feijoes, cereais: cereais, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos))
     }
     if day.isDinnerEnabled {
-        meals.append(generateMeal(type: .janta, mealOption: data.mealOptions[1], diet: data.diet, feijoes: data.feijoes, cereais: data.cereais, raizesETuberculos: data.raizesETuberculos, legumesEVerduras: data.legumesEVerduras, frutas: data.frutas, castanhasENozes: data.castanhasENozes, leitesEQueijos: data.leitesEQueijos, carnesEOvos: data.carnesEOvos))
+        meals.append(generateMeal(type: .janta, mealOption: data.mealOptions[1], diet: data.diet, feijoes: feijoes, cereais: cereais, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos))
     }
     
     for i in 0..<meals.count {
