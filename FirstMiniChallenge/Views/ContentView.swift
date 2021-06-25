@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var meal = Meal(name: "", imageName: "", type: .none, diet: .none, isPlanned: false, foods: [])
-    @State var day = Day(name: "Hoje", date: Date(), plannedMeals: [], meals: [], isFullyPlanned: false)
-    @State var week = Week(startDate: Date(), endDate: Date(), isFullyPlanned: false, days: [])
+    @State var meal = Meal(name: "", imageName: "", type: .none, option: MealOption(name: "", type: .none, imageName: "", categoriesIncluded: []), diet: .none,isPlanned: false, foods: [])
+    @State var day = Day(name: "Hoje", date: Date(), plannedMeals: [], meals: [], isPlanned: false)
+    @State var week = Week(startDate: Date(), endDate: Date(), isPlanned: false, days: [])
+    
     @State var selectedMeal = "Café da Manhã"
     
     let mealTypes = ["Café da Manhã", "Almoço", "Lanche", "Janta"]
@@ -27,28 +28,28 @@ struct ContentView: View {
                     }.pickerStyle(WheelPickerStyle())
                 }
                 Button(action:{
-                    var mealType: MealType = .cafeDaManha
-                    var mealOption: MealOption = data.mealOptions[0]
+                    var mealType: MealType!
+                    var mealOption: MealOption!
                     
                     switch selectedMeal {
                     case "Café da Manhã":
                         mealType = .cafeDaManha
-                        mealOption = data.mealOptions[0]
+                        mealOption = sortMealOption(mealOptions: data.breakfastOptions)
                     case "Almoço":
                         mealType = .almoco
-                        mealOption = data.mealOptions[1]
+                        mealOption = sortMealOption(mealOptions: data.lunchOptions)
                     case "Lanche":
                         mealType = .lanche
-                        mealOption = data.mealOptions[0]
+                        mealOption = sortMealOption(mealOptions: data.snackOptions)
                     case "Janta":
                         mealType = .janta
-                        mealOption = data.mealOptions[1]
+                        mealOption = sortMealOption(mealOptions: data.dinnerOptions)
                     default:
                         print("Não existe nenhuma categoria com esse nome")
                     }
                     
                     
-                    let plannedMeal = generateMeal(type: mealType, mealOption: mealOption, diet: data.diet, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
+                    let plannedMeal = generateMeal(type: mealType, mealOption: mealOption, diet: data.diet, feijoes: data.selectedFeijoes, cereaisCafeELanche: data.selectedCereaisCafeELanche, cereaisAlmocoEJanta: data.selectedCereaisAlmocoEJanta, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos, bebidas: data.selectedBebidas)
                     meal = plannedMeal
                 }) {
                     Text("Planejar refeição")
@@ -60,7 +61,7 @@ struct ContentView: View {
             }
             
             Button(action:{
-                let plannedDay = planDay(day: data.week.days[0], diet: .regular, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
+                let plannedDay = planDay(day: data.week.days[0], diet: .regular, feijoes: data.selectedFeijoes, cereaisCafeELanche: data.selectedCereaisCafeELanche, cereaisAlmocoEJanta: data.selectedCereaisAlmocoEJanta, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos, bebidas: data.selectedBebidas)
                 day = plannedDay
             }) {
                 Text("Planejar dia")
@@ -72,7 +73,7 @@ struct ContentView: View {
             .padding(.bottom, 10)
             
             Button(action:{
-                let plannedWeek = planWeek(week: data.week, diet: data.diet, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
+                let plannedWeek = planWeek(week: data.week, diet: data.diet, feijoes: data.selectedFeijoes, cereaisCafeELanche: data.selectedCereaisCafeELanche, cereaisAlmocoEJanta: data.selectedCereaisAlmocoEJanta, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos, bebidas: data.selectedBebidas)
                 week = plannedWeek
             }) {
                 Text("Planejar semana")

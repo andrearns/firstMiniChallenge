@@ -11,6 +11,6 @@ struct Week {
     var id = UUID()
     var startDate: Date
     var endDate: Date
-    var isFullyPlanned: Bool
+    var isPlanned: Bool
     var days: [Day]
 }

@@ -12,6 +12,7 @@ struct Meal {
     var name: String
     var imageName: String
     var type: MealType
+    var option: MealOption
     var diet: Diet
     var isPlanned: Bool
     var foods: [Food]
@@ -20,6 +21,7 @@ struct Meal {
 struct MealOption {
     var id = UUID()
     var name: String
+    var type: MealType
     var imageName: String
     var categoriesIncluded: [Category]
 }

@@ -17,5 +17,5 @@ struct Day {
     var isLunchEnabled: Bool = false
     var isSnackEnabled: Bool = false
     var isDinnerEnabled: Bool = false
-    var isFullyPlanned: Bool
+    var isPlanned: Bool = false
 }

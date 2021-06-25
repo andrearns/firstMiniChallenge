@@ -7,55 +7,88 @@
 
 import Foundation
 
-func generateMeal(type: MealType, mealOption: MealOption, diet: Diet, feijoes: [Food], cereais: [Food], raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food]) -> Meal {
+func generateMeal(type: MealType, mealOption: MealOption, diet: Diet, feijoes: [Food], cereaisCafeELanche: [Food], cereaisAlmocoEJanta: [Food] , raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food], bebidas: [Food]) -> Meal {
     
     var foods = [Food]()
     
+    var feijao: Food?
+    var cerealCafeELanche: Food?
+    var cerealAlmocoEJanta: Food?
+    var raizETuberculo: Food?
+    var legumeEVerdura1: Food?
+    var legumeEVerdura2: Food?
+    var fruta: Food?
+    var castanhaENozes: Food?
+    var leiteEQueijo: Food?
+    var carneEOvos: Food?
+    var bebida: Food?
+    
     var categoriesIncluded = [Category]()
     var optionHasFeijao = false
-    var optionHasCereais = false
+    var optionHasCereaisCafeELanche = false
+    var optionHasCereaisAlmocoEJanta = false
     var optionHasRaizesETuberculos = false
     var optionHasLegumesEVerduras = false
     var optionHasFrutas = false
     var optionHasCastanhasENozes = false
     var optionHasLeitesEQueijos = false
     var optionHasCarnesEOvos = false
+    var optionHasBebidas = false
     
     for i in 0..<mealOption.categoriesIncluded.count {
         switch mealOption.categoriesIncluded[i] {
         case .feijoes:
             optionHasFeijao = true
             categoriesIncluded.append(.feijoes)
-            foods.append(sortFood(in: .feijoes, foods: feijoes))
-        case .cereais:
-            optionHasCereais = true
-            categoriesIncluded.append(.cereais)
-            foods.append(sortFood(in: .cereais, foods: cereais))
+            feijao = sortFood(in: .feijoes, foods: feijoes)
+            foods.append(feijao!)
+        case .cereaisCafeELanche:
+            optionHasCereaisCafeELanche = true
+            categoriesIncluded.append(.cereaisCafeELanche)
+            cerealCafeELanche = sortFood(in: .cereaisCafeELanche, foods: cereaisCafeELanche)
+            foods.append(cerealCafeELanche!)
+        case .cereaisAlmocoEJanta:
+            optionHasCereaisAlmocoEJanta = true
+            categoriesIncluded.append(.cereaisAlmocoEJanta)
+            cerealAlmocoEJanta = sortFood(in: .cereaisAlmocoEJanta, foods: cereaisAlmocoEJanta)
+            foods.append(cerealAlmocoEJanta!)
         case .raizesETuberculos:
             optionHasRaizesETuberculos = true
             categoriesIncluded.append(.raizesETuberculos)
-            foods.append(sortFood(in: .raizesETuberculos, foods: raizesETuberculos))
+            raizETuberculo = sortFood(in: .raizesETuberculos, foods: raizesETuberculos)
+            foods.append(raizETuberculo!)
         case .legumesEVerduras:
             optionHasLegumesEVerduras = true
             categoriesIncluded.append(.legumesEVerduras)
-            foods.append(sortFood(in: .legumesEVerduras, foods: legumesEVerduras))
-            foods.append(sortFood(in: .legumesEVerduras, foods: legumesEVerduras))
+            legumeEVerdura1 = sortFood(in: .legumesEVerduras, foods: legumesEVerduras)
+            legumeEVerdura2 = sortFood(in: .legumesEVerduras, foods: legumesEVerduras)
+            foods.append(legumeEVerdura1!)
+            foods.append(legumeEVerdura2!)
         case .frutas:
             optionHasFrutas = true
             categoriesIncluded.append(.frutas)
-            foods.append(sortFood(in: .frutas, foods: frutas))
+            fruta = sortFood(in: .frutas, foods: frutas)
+            foods.append(fruta!)
         case .castanhasENozes:
             optionHasCastanhasENozes = true
             categoriesIncluded.append(.castanhasENozes)
-            foods.append(sortFood(in: .castanhasENozes, foods: castanhasENozes))
+            castanhaENozes = sortFood(in: .castanhasENozes, foods: castanhasENozes)
+            foods.append(castanhaENozes!)
         case .leiteEQueijos:
             optionHasLeitesEQueijos = true
             categoriesIncluded.append(.leiteEQueijos)
-            foods.append(sortFood(in: .leiteEQueijos, foods: leitesEQueijos))
+            leiteEQueijo = sortFood(in: .leiteEQueijos, foods: leitesEQueijos)
+            foods.append(leiteEQueijo!)
         case .carnesEOvos:
             optionHasCarnesEOvos = true
             categoriesIncluded.append(.carnesEOvos)
-            foods.append(sortFood(in: .carnesEOvos, foods: carnesEOvos))
+            carneEOvos = sortFood(in: .carnesEOvos, foods: carnesEOvos)
+            foods.append(carneEOvos!)
+        case .bebidas:
+            optionHasBebidas = true
+            categoriesIncluded.append(.bebidas)
+            bebida = sortFood(in: .bebidas, foods: bebidas)
+            foods.append(bebida!)
         default:
             print("Não existe nenhuma categoria com esse nome")
         }
@@ -72,7 +105,7 @@ func generateMeal(type: MealType, mealOption: MealOption, diet: Diet, feijoes: [
         }
     }
     
-    let meal = Meal(name: name, imageName: mealOption.imageName, type: type, diet: diet, isPlanned: true, foods: foods)
+    let meal = Meal(name: name, imageName: mealOption.imageName, type: type, option: mealOption, diet: diet, isPlanned: true, foods: foods)
     
     print("________________________________________")
     print("Refeição: \(meal.type)")
