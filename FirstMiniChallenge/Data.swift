@@ -10,8 +10,12 @@ import Foundation
 var data = Data()
 
 struct Data {
+    // Nome do usuário
     var username: String = "André"
+    
+    // Dieta -> .regular ou .veggie
     var diet: Diet = .regular
+    
     var today = Date()
     
     var allFeijoes: [Food] = [
@@ -160,25 +164,30 @@ struct Data {
         Food(name: "Leite batido com frutas", category: .bebidas, diet: .veggie),
     ]
     
+    // Opções de feijão que o usuário escolheu
     var selectedFeijoes: [Food] = [
         Food(name: "Feijão carioca", category: .feijoes, diet: .veggie),
         Food(name: "Lentilha", category: .feijoes, diet: .veggie),
     ]
     
+    // Opções de cereais do café da manhã e lanche que o usuário escolheu
     var selectedCereaisCafeELanche: [Food] = [
         Food(name: "Aveia", category: .cereaisCafeELanche, diet: .veggie),
     ]
     
+    // Opções de cereais do almoço e janta que o usuário escolheu
     var selectedCereaisAlmocoEJanta: [Food] = [
         Food(name: "Arroz integral", category: .cereaisAlmocoEJanta, diet: .veggie),
         Food(name: "Macarrão", category: .cereaisAlmocoEJanta, diet: .veggie),
     ]
     
+    // Opções de raízes e tuberculos que o usuário escolheu
     var selectedRaizesETuberculos: [Food] = [
         Food(name: "Batata", category: .raizesETuberculos, diet: .veggie),
         Food(name: "Farinha de mandioca", category: .raizesETuberculos, diet: .veggie),
     ]
     
+    // Opções de legumes e verduras que o usuário escolheu
     var selectedLegumesEVerduras: [Food] = [
         Food(name: "Abobrinha", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Alface", category: .legumesEVerduras, diet: .veggie),
@@ -190,6 +199,7 @@ struct Data {
         Food(name: "Tomate", category: .legumesEVerduras, diet: .veggie)
     ]
     
+    // Opções de frutas que o usuário escolheu
     var selectedFrutas: [Food] = [
         Food(name: "Abacate", category: .frutas, diet: .veggie),
         Food(name: "Abacaxi", category: .frutas, diet: .veggie),
@@ -199,16 +209,19 @@ struct Data {
         Food(name: "Uva", category: .frutas, diet: .veggie)
     ]
     
+    // Opções de castanhas e nozes que o usuário escolheu
     var selectedCastanhasENozes: [Food] = [
         Food(name: "Castanha de caju", category: .castanhasENozes, diet: .veggie),
         Food(name: "Amendoas defumadas", category: .castanhasENozes, diet: .veggie),
     ]
     
+    // Opções de leites e queijos que o usuário escolheu
     var selectedLeitesEQueijos: [Food] = [
         Food(name: "Queijo", category: .leiteEQueijos, diet: .veggie),
         Food(name: "Iogurte", category: .leiteEQueijos, diet: .veggie)
     ]
     
+    // Opções de carnes e ovos que o usuário escolheu
     var selectedCarnesEOvos: [Food] = [
         Food(name: "Omelete", category: .carnesEOvos, diet: .veggie),
         Food(name: "Ovos", category: .carnesEOvos, diet: .veggie),
@@ -220,6 +233,7 @@ struct Data {
         Food(name: "Peixe", category: .carnesEOvos, diet: .regular),
     ]
     
+    // Opções de bebidas que o usuário escolheu
     var selectedBebidas: [Food] = [
         Food(name: "Café", category: .bebidas, diet: .veggie),
         Food(name: "Suco natural", category: .bebidas, diet: .veggie),
