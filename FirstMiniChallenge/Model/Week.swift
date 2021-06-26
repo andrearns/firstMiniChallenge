@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct Week {
+struct Week: Identifiable {
     var id = UUID()
     var startDate: Date
+    var name: String {
+        let dateComponents = Calendar.current.dateComponents([.day, .month, .weekOfMonth], from: startDate)
+        return String(dateComponents.day!) + "/" + String(dateComponents.month!)
+    }
     var month: Int {
         let dateComponents = Calendar.current.dateComponents([.month], from: startDate)
         return dateComponents.month!

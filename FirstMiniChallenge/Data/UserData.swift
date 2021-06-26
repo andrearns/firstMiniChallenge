@@ -95,15 +95,25 @@ struct UserData { // Dados do usuário
         Food(name: "Chá", category: .bebidas, diet: .veggie),
     ]
     
-    var weeks: [Week] = []
+    var weeks: [Week] = [
+        Week(startDate: NSDate(timeIntervalSinceReferenceDate: 1624161190) as Date, isPlanned: false, days: [
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624161190) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624247590) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624333990) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624420390) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624506790) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624593190) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624679590) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+        ]),
+        Week(startDate: NSDate(timeIntervalSinceReferenceDate: 1624765990) as Date, isPlanned: true, days: [
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624765990) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624852390) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624938790) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625025190) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625111590) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625111590) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625197990) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
+        ])
+    ]
     
-//    var week = Week(startDate: NSDate(timeIntervalSinceReferenceDate: 1624406400000) as Date, isPlanned: false, days: [
-//        Day(name: "23/junho", date: NSDate(timeIntervalSinceReferenceDate: 1624406400000) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-//        Day(name: "24/junho", date: NSDate(timeIntervalSinceReferenceDate: 1624492800000) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-//        Day(name: "25/junho", date: NSDate(timeIntervalSinceReferenceDate: 1624579200000) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-//        Day(name: "26/junho", date: NSDate(timeIntervalSinceReferenceDate: 1624665600000) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-//        Day(name: "27/junho", date: NSDate(timeIntervalSinceReferenceDate: 1624752000000) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-//        Day(name: "28/junho", date: NSDate(timeIntervalSinceReferenceDate: 1624838400000) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-//        Day(name: "29/junho", date: NSDate(timeIntervalSinceReferenceDate: 1624924800000) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-//    ])
 }

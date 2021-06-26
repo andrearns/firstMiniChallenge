@@ -171,10 +171,10 @@ class WeekManager {
         }
         
         isPlanned = true
-        let plannedDay = Day(name: day.name, date: day.date, plannedMeals: plannedMeals, meals: meals, isPlanned: isPlanned)
+        let plannedDay = Day(date: day.date, plannedMeals: plannedMeals, meals: meals, isPlanned: isPlanned)
         print("Dia da semana: \(plannedDay.weekday)")
         print("Abreviação: \(plannedDay.abbreviation)")
-        print("Dia do mês: \(plannedDay.day)")
+        print("Dia do mês: \(plannedDay.dayOfMonth)")
         print("Mês: \(plannedDay.month)")
         print("Semana do mês: \(plannedDay.weekOfMonth)")
         print("Semana do ano: \(plannedDay.weekOfYear)")
@@ -228,9 +228,7 @@ class WeekManager {
         formatter.locale = Locale(identifier: "pt_BR")
         formatter.setLocalizedDateFormatFromTemplate("EEEE/dd/MMMM/YYYY")
         
-        let dayName = formatter.string(from: date)
-        
-        let day = Day(name: dayName, date: date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true)
+        let day = Day(date: date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true)
         return day
     }
     

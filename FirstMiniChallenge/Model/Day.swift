@@ -7,11 +7,14 @@
 
 import Foundation
 
-struct Day {
+struct Day: Identifiable {
     var id = UUID()
-    var name: String
+    var name: String {
+        let dateComponents = Calendar.current.dateComponents([.day, .month], from: date)
+        return String(dateComponents.day!) + "/" + String(dateComponents.month!)
+    }
     var date: Date
-    var day: Int {
+    var dayOfMonth: Int {
         let dateComponents = Calendar.current.dateComponents([.day], from: date)
         return dateComponents.day! + 1
     }
