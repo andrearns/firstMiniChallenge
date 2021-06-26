@@ -10,6 +10,14 @@
 		414ED59B2685726A0029B919 /* MealPlanMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414ED59A2685726A0029B919 /* MealPlanMainView.swift */; };
 		414ED59F268669560029B919 /* OnboardingStartingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414ED59E268669560029B919 /* OnboardingStartingView.swift */; };
 		414ED5A1268669D20029B919 /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414ED5A0268669D20029B919 /* OnboardingNameView.swift */; };
+		414ED5A32686AA790029B919 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414ED5A22686AA790029B919 /* MealCardView.swift */; };
+		4166D9742687BAFC008490C4 /* WithoutMealPlanningCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4166D9732687BAFC008490C4 /* WithoutMealPlanningCardView.swift */; };
+		41AA3C6F26877BC700A1D616 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA3C6E26877BC700A1D616 /* TabBarView.swift */; };
+		41AA3C712687870700A1D616 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA3C702687870700A1D616 /* PreferencesView.swift */; };
+		41AA3C732687876A00A1D616 /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA3C722687876A00A1D616 /* TipsView.swift */; };
+		41F10A652687D1AD0097C21F /* WeekSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A642687D1AD0097C21F /* WeekSelectorView.swift */; };
+		41F10A672687D20E0097C21F /* DaySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A662687D20E0097C21F /* DaySelectorView.swift */; };
+		41F10A692687DCAF0097C21F /* TipsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A682687DCAF0097C21F /* TipsCardView.swift */; };
 		5BE68FFF26826351000DC284 /* FirstMiniChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE68FFE26826351000DC284 /* FirstMiniChallengeApp.swift */; };
 		5BE6900126826351000DC284 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6900026826351000DC284 /* ContentView.swift */; };
 		5BE6900326826354000DC284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE6900226826354000DC284 /* Assets.xcassets */; };
@@ -28,6 +36,14 @@
 		414ED59A2685726A0029B919 /* MealPlanMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanMainView.swift; sourceTree = "<group>"; };
 		414ED59E268669560029B919 /* OnboardingStartingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartingView.swift; sourceTree = "<group>"; };
 		414ED5A0268669D20029B919 /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
+		414ED5A22686AA790029B919 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
+		4166D9732687BAFC008490C4 /* WithoutMealPlanningCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutMealPlanningCardView.swift; sourceTree = "<group>"; };
+		41AA3C6E26877BC700A1D616 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		41AA3C702687870700A1D616 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		41AA3C722687876A00A1D616 /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		41F10A642687D1AD0097C21F /* WeekSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSelectorView.swift; sourceTree = "<group>"; };
+		41F10A662687D20E0097C21F /* DaySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorView.swift; sourceTree = "<group>"; };
+		41F10A682687DCAF0097C21F /* TipsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCardView.swift; sourceTree = "<group>"; };
 		5BE68FFB26826351000DC284 /* FirstMiniChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstMiniChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE68FFE26826351000DC284 /* FirstMiniChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstMiniChallengeApp.swift; sourceTree = "<group>"; };
 		5BE6900026826351000DC284 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +128,14 @@
 				414ED59E268669560029B919 /* OnboardingStartingView.swift */,
 				414ED5A0268669D20029B919 /* OnboardingNameView.swift */,
 				414ED59A2685726A0029B919 /* MealPlanMainView.swift */,
+				41F10A662687D20E0097C21F /* DaySelectorView.swift */,
+				41F10A642687D1AD0097C21F /* WeekSelectorView.swift */,
+				414ED5A22686AA790029B919 /* MealCardView.swift */,
+				4166D9732687BAFC008490C4 /* WithoutMealPlanningCardView.swift */,
+				41AA3C6E26877BC700A1D616 /* TabBarView.swift */,
+				41AA3C702687870700A1D616 /* PreferencesView.swift */,
+				41F10A682687DCAF0097C21F /* TipsCardView.swift */,
+				41AA3C722687876A00A1D616 /* TipsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BE6901F2682FAEA000DC284 /* planDay.swift in Sources */,
+				41F10A652687D1AD0097C21F /* WeekSelectorView.swift in Sources */,
 				414ED59F268669560029B919 /* OnboardingStartingView.swift in Sources */,
 				5BE69013268263A1000DC284 /* Meal.swift in Sources */,
 				5BE6900126826351000DC284 /* ContentView.swift in Sources */,
@@ -204,9 +229,16 @@
 				5BE69015268263AC000DC284 /* Week.swift in Sources */,
 				5BE68FFF26826351000DC284 /* FirstMiniChallengeApp.swift in Sources */,
 				5BE6901126826394000DC284 /* Food.swift in Sources */,
+				41F10A672687D20E0097C21F /* DaySelectorView.swift in Sources */,
 				5BE6901B2682CAA0000DC284 /* generateMeal.swift in Sources */,
 				414ED59B2685726A0029B919 /* MealPlanMainView.swift in Sources */,
+				414ED5A32686AA790029B919 /* MealCardView.swift in Sources */,
 				5BE690212683B003000DC284 /* planWeek.swift in Sources */,
+				41AA3C712687870700A1D616 /* PreferencesView.swift in Sources */,
+				41F10A692687DCAF0097C21F /* TipsCardView.swift in Sources */,
+				41AA3C6F26877BC700A1D616 /* TabBarView.swift in Sources */,
+				4166D9742687BAFC008490C4 /* WithoutMealPlanningCardView.swift in Sources */,
+				41AA3C732687876A00A1D616 /* TipsView.swift in Sources */,
 				5BE6901D2682F63C000DC284 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
