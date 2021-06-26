@@ -62,5 +62,7 @@ struct MealCardView_Previews: PreviewProvider {
                 Food(name: "Arroz integral", category: .cereais, diet: .veggie)
             
             ]))
+            
+            
     }
 }
