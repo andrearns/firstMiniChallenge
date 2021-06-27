@@ -18,6 +18,7 @@
 		41F10A652687D1AD0097C21F /* WeekSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A642687D1AD0097C21F /* WeekSelectorView.swift */; };
 		41F10A672687D20E0097C21F /* DaySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A662687D20E0097C21F /* DaySelectorView.swift */; };
 		41F10A692687DCAF0097C21F /* TipsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A682687DCAF0097C21F /* TipsCardView.swift */; };
+		41F10A6F2687F5F10097C21F /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A6E2687F5F10097C21F /* Tips.swift */; };
 		5BE68FFF26826351000DC284 /* FirstMiniChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE68FFE26826351000DC284 /* FirstMiniChallengeApp.swift */; };
 		5BE6900126826351000DC284 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6900026826351000DC284 /* ContentView.swift */; };
 		5BE6900326826354000DC284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE6900226826354000DC284 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		41F10A642687D1AD0097C21F /* WeekSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSelectorView.swift; sourceTree = "<group>"; };
 		41F10A662687D20E0097C21F /* DaySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySelectorView.swift; sourceTree = "<group>"; };
 		41F10A682687DCAF0097C21F /* TipsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCardView.swift; sourceTree = "<group>"; };
+		41F10A6E2687F5F10097C21F /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		5BE68FFB26826351000DC284 /* FirstMiniChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstMiniChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE68FFE26826351000DC284 /* FirstMiniChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstMiniChallengeApp.swift; sourceTree = "<group>"; };
 		5BE6900026826351000DC284 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				5BE69012268263A1000DC284 /* Meal.swift */,
 				5BE69016268263B6000DC284 /* Day.swift */,
 				5BE69014268263AC000DC284 /* Week.swift */,
+				41F10A6E2687F5F10097C21F /* Tips.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BE6901F2682FAEA000DC284 /* planDay.swift in Sources */,
+				41F10A6F2687F5F10097C21F /* Tips.swift in Sources */,
 				41F10A652687D1AD0097C21F /* WeekSelectorView.swift in Sources */,
 				414ED59F268669560029B919 /* OnboardingStartingView.swift in Sources */,
 				5BE69013268263A1000DC284 /* Meal.swift in Sources */,
