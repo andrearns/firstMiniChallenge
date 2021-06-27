@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-let weeks = userData.weeks
-
 struct WeekView: View {
-    @State var chosenDay = Date()
-    @State var selectedWeek = weeks[0]
+    @State var today = Date()
+    @State var selectedWeek = userData.weeks[0]
     @State var selectedDay: Day?
     @State var selectedWeekIndex = 0
     
@@ -20,44 +18,62 @@ struct WeekView: View {
             Section {
                 HStack {
                     Button(action: {
-                        if selectedWeekIndex > 0 {
+                        if selectedWeekIndex > 1 {
                             selectedWeekIndex -= 1
-                            selectedWeek = weeks[selectedWeekIndex]
                         }
+                        
+                        selectedWeek = userData.weeks[selectedWeekIndex]
+                        selectedDay = userData.weeks[selectedWeekIndex].days[0]
                     }) {
                         Image(systemName: "chevron.left")
                     }
-                   
+                    Spacer()
                     Text(String(selectedWeek.name))
                         .padding(.horizontal, 40)
+                    Spacer()
                     Button(action: {
-                        if selectedWeekIndex < weeks.count - 1 {
+                        if selectedWeekIndex < userData.weeks.count - 1 {
                             selectedWeekIndex += 1
-                            selectedWeek = weeks[selectedWeekIndex]
                         }
+                        
+                        selectedWeek = userData.weeks[selectedWeekIndex]
+                        selectedDay = userData.weeks[selectedWeekIndex].days[0]
                     }) {
                         Image(systemName: "chevron.right")
+                            .foregroundColor(selectedWeekIndex == (userData.weeks.count - 1) ? .gray : .blue)
                     }
                 }.padding(.bottom, 20)
+                .padding(.horizontal, 40)
             }
-            if selectedWeek.isPlanned {
-                HStack {
-                    ForEach(selectedWeek.days) { day in
-                        VStack {
-                            Text(String(day.dayOfMonth))
-                            Text(day.abbreviation)
-                                .padding(5)
+            HStack {
+                ForEach(selectedWeek.days) { day in
+                    VStack {
+                        Button(action: {
+                            selectedDay = day
+                            print("Dia selecionado:")
+                            print(selectedDay)
+                        }) {
+                            VStack {
+                                Text(String(day.dayOfMonth))
+                                Text(day.abbreviation)
+                                    .padding(5)
+                            }
                         }
                     }
                 }
-            } else {
+            }
+            if !selectedWeek.isPlanned {
                 VStack {
                     Text("Parece que você não planejou nenhuma refeição para essa semana :(").multilineTextAlignment(.center)
-                }.padding(20)
-                .cornerRadius(20.0)
+                }
+                .padding(20)
                 .border(Color.black, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                .padding(.top, 40)
                 Button(action:{
-                    let plannedWeek = WeekManager.shared.planWeek(week: selectedWeek, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
+                    let plannedWeek = MealManager.shared.planWeek(week: selectedWeek, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
+                    selectedWeek = plannedWeek
+                    selectedDay = selectedWeek.days[0]
+                    userData.weeks[selectedWeekIndex] = selectedWeek
                     print("________________________________________")
                     print("Refeições da semana:")
                     print("Semana do mês: \(plannedWeek.weekOfMonth)")
@@ -72,7 +88,32 @@ struct WeekView: View {
                 .foregroundColor(.white)
                 .cornerRadius(30.0)
                 .padding(.top, 20)
+                Spacer()
             }
+            else {
+                if selectedDay!.meals.count > 0 {
+                    ScrollView {
+                        ForEach(selectedDay!.meals) { meal in
+                            HStack {
+                                VStack {
+                                    Text(meal.name)
+                                        .padding(.leading, 20)
+                                }
+                                Spacer()
+                            }
+                            .frame(height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Color(.orange))
+                            .cornerRadius(5)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 5)
+                            
+                        }
+                    }
+                }
+            }
+        }.onAppear {
+            selectedWeek = CalendarManager.shared.searchWeek(date: today, weeks: userData.weeks)
+            CalendarManager.shared.createWeeksAfterWeek(date: today, weeks: userData.weeks, number: 4)
         }
     }
 }

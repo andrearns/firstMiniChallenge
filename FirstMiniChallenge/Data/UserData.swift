@@ -105,15 +105,6 @@ struct UserData { // Dados do usuário
             Day(date: NSDate(timeIntervalSinceReferenceDate: 1624593190) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
             Day(date: NSDate(timeIntervalSinceReferenceDate: 1624679590) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
         ]),
-        Week(startDate: NSDate(timeIntervalSinceReferenceDate: 1624765990) as Date, isPlanned: true, days: [
-            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624765990) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624852390) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-            Day(date: NSDate(timeIntervalSinceReferenceDate: 1624938790) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625025190) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625111590) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625111590) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-            Day(date: NSDate(timeIntervalSinceReferenceDate: 1625197990) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),
-        ])
     ]
     
 }

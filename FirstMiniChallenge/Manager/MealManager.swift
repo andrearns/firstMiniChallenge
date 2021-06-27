@@ -7,9 +7,9 @@
 
 import Foundation
 
-class WeekManager {
+class MealManager {
     
-    static var shared = WeekManager()
+    static var shared = MealManager()
     
     func generateMeal(type: MealType, mealOption: MealOption, diet: Diet, feijoes: [Food], cereaisCafeELanche: [Food], cereaisAlmocoEJanta: [Food] , raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food], bebidas: [Food]) -> Meal {
         
@@ -98,18 +98,7 @@ class WeekManager {
             }
         }
 
-        // Gera o nome somando o nome de todos os componentes do prato
-        var name: String = ""
-        
-        for i in 0..<foods.count {
-            if i != foods.count - 1 {
-                name += "\(foods[i].name), "
-            } else {
-                name += "\(foods[i].name)"
-            }
-        }
-        
-        let meal = Meal(name: name, imageName: mealOption.imageName, type: type, option: mealOption, diet: diet, isPlanned: true, foods: foods)
+        let meal = Meal(imageName: mealOption.imageName, type: type, option: mealOption, diet: diet, isPlanned: true, foods: foods)
     
         return meal
     }
@@ -146,9 +135,8 @@ class WeekManager {
         if day.isDinnerEnabled {
             // Repeat lunch on dinner
             if day.isLunchEnabled {
-                var repeatedLunch = lunch
-                repeatedLunch?.type = .janta
-                meals.append(repeatedLunch!)
+                dinner = Meal(imageName: lunch!.imageName, type: .janta, option: lunch!.option, diet: lunch!.diet, isPlanned: true, foods: lunch!.foods)
+                meals.append(dinner!)
             } else {
                 dinner = generateMeal(type: .janta, mealOption: sortMealOption(mealOptions: appData.dinnerOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
                 meals.append(dinner!)
@@ -191,7 +179,7 @@ class WeekManager {
     
     func planWeek(week: Week, diet: Diet, feijoes: [Food], cereaisCafeELanche: [Food], cereaisAlmocoEJanta: [Food], raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food], bebidas: [Food]) -> Week{
         
-        let firstDay: Date = week.days[0].date
+        let firstDay: Date = week.days[1].date
         var isPlanned = false
         
         var days: [Day] = []
@@ -205,33 +193,6 @@ class WeekManager {
         let plannedWeek = Week(startDate: firstDay, isPlanned: isPlanned, days: days)
         return plannedWeek
     }
-    
-    func createEmptyWeek(date: Date) -> Week {
-        let startOfWeek = date.startOfWeek
-        
-        var days: [Day] = []
-        
-        for i in 0..<7 {
-            var dayComponents = DateComponents()
-            dayComponents.day = i
-            let newDate = Calendar.current.date(byAdding: dayComponents, to: startOfWeek)
-            let day = createEmptyDay(date: newDate!)
-            days.append(day)
-        }
-        
-        let week = Week(startDate: date, isPlanned: false, days: days)
-        return week
-    }
-    
-    func createEmptyDay(date: Date) -> Day {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pt_BR")
-        formatter.setLocalizedDateFormatFromTemplate("EEEE/dd/MMMM/YYYY")
-        
-        let day = Day(date: date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true)
-        return day
-    }
-    
 }
 
 extension Date {

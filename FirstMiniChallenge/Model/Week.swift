@@ -10,10 +10,18 @@ import Foundation
 struct Week: Identifiable {
     var id = UUID()
     var startDate: Date
-    var name: String {
-        let dateComponents = Calendar.current.dateComponents([.day, .month, .weekOfMonth], from: startDate)
-        return String(dateComponents.day!) + "/" + String(dateComponents.month!)
+    var endDate: Date {
+        var dayComponents = DateComponents()
+        dayComponents.day = 6
+        let date = Calendar.current.date(byAdding: dayComponents, to: startDate)
+        return date!
     }
+    var name: String {
+        let startDateComponents = Calendar.current.dateComponents([.day, .month], from: startDate)
+        let endDateComponents = Calendar.current.dateComponents([.day, .month], from: endDate)
+        return String(startDateComponents.day!) + "/" + String(startDateComponents.month!) + " até " + String(endDateComponents.day!) + "/" + String(endDateComponents.month!)
+    }
+    
     var month: Int {
         let dateComponents = Calendar.current.dateComponents([.month], from: startDate)
         return dateComponents.month!
