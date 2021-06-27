@@ -37,7 +37,7 @@ struct Day: Identifiable {
         case 6:
             return "Sex"
         case 7:
-            return "Sab"
+            return "Sáb"
         default:
             return "X"
         }
@@ -65,4 +65,13 @@ struct Day: Identifiable {
     var isSnackEnabled: Bool = false
     var isDinnerEnabled: Bool = false
     var isPlanned: Bool = false
+}
+
+extension Day: Equatable {
+    static func == (lhs: Day, rhs: Day) -> Bool {
+        return
+            lhs.id == rhs.id &&
+            lhs.id == rhs.id &&
+            lhs.id == rhs.id
+    }
 }

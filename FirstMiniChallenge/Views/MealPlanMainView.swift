@@ -14,14 +14,8 @@ struct MealPlanMainView: View {
     @State var pressedDay: String?
     
     var body: some View {
-        
-        
-        
         ScrollView(.vertical, showsIndicators: false) {
-            
             VStack() {
-                
-                
                 ZStack(alignment: .topLeading) {
                     
                     Image("Top_Lunch")
@@ -40,7 +34,7 @@ struct MealPlanMainView: View {
                         
                         
                         
-                        Text("Mario, acompanhe seus resultados\npara uma vida mais saudável")
+                        Text("\(userData.name), acompanhe seus resultados\npara uma vida mais saudável")
                             .padding(.top, 10)
                             .foregroundColor(.white)
                             .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -51,7 +45,7 @@ struct MealPlanMainView: View {
                 
                 
                 WeekSelectorView()
-                DaySelectorView()
+                DaySelectorView(days: userData.weeks[0].days)
                 
                 VStack {
                     
