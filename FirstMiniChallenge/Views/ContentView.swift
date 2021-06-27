@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var meal = Meal(name: "", imageName: "", type: .none, diet: .none, isPlanned: false, foods: [])
-    @State var day = Day(name: "Hoje", date: Date(), plannedMeals: [], meals: [], isFullyPlanned: false)
-    @State var week = Week(startDate: Date(), endDate: Date(), isFullyPlanned: false, days: [])
+    @State var chosenDay = Date()
+    @State var chosenWeek: Week?
     @State var selectedMeal = "Café da Manhã"
     
     let mealTypes = ["Café da Manhã", "Almoço", "Lanche", "Janta"]
@@ -18,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Form {
-                Text("Qual refeição você quer planejar?")
+                Text("\(userData.name), qual refeição você quer planejar?")
                 Section {
                     Picker("Tipo da refeição", selection: $selectedMeal) {
                         ForEach(mealTypes, id: \.self) {
@@ -27,29 +26,29 @@ struct ContentView: View {
                     }.pickerStyle(WheelPickerStyle())
                 }
                 Button(action:{
-                    var mealType: MealType = .cafeDaManha
-                    var mealOption: MealOption = data.mealOptions[0]
+                    var mealType: MealType!
+                    var mealOption: MealOption!
                     
                     switch selectedMeal {
                     case "Café da Manhã":
-                        mealType = .cafeDaManha
-                        mealOption = data.mealOptions[0]
+                        mealType = .breakfast
+                        mealOption = MealManager.shared.sortMealOption(mealOptions: appData.breakfastOptions)
                     case "Almoço":
-                        mealType = .almoco
-                        mealOption = data.mealOptions[1]
+                        mealType = .lunch
+                        mealOption = MealManager.shared.sortMealOption(mealOptions: appData.lunchOptions)
                     case "Lanche":
-                        mealType = .lanche
-                        mealOption = data.mealOptions[0]
+                        mealType = .snack
+                        mealOption = MealManager.shared.sortMealOption(mealOptions: appData.snackOptions)
                     case "Janta":
-                        mealType = .janta
-                        mealOption = data.mealOptions[1]
+                        mealType = .dinner
+                        mealOption = MealManager.shared.sortMealOption(mealOptions: appData.dinnerOptions)
                     default:
                         print("Não existe nenhuma categoria com esse nome")
                     }
-                    
-                    
-                    let plannedMeal = generateMeal(type: mealType, mealOption: mealOption, diet: data.diet, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
-                    meal = plannedMeal
+                    let plannedMeal = MealManager.shared.generateMeal(type: mealType, mealOption: mealOption, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
+                    print("________________________________________")
+                    print("Refeição: \(plannedMeal.type)")
+                    print(plannedMeal)
                 }) {
                     Text("Planejar refeição")
                         .bold()
@@ -60,8 +59,12 @@ struct ContentView: View {
             }
             
             Button(action:{
-                let plannedDay = planDay(day: data.week.days[0], diet: .regular, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
-                day = plannedDay
+                let todayDate = CalendarManager.shared.createEmptyDay(date: chosenDay, isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true)
+                let plannedDay = MealManager.shared.planDay(day: todayDate, diet: .regular, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
+                print("________________________________________")
+                print("Refeições do dia: \(plannedDay.name)")
+
+                print(plannedDay)
             }) {
                 Text("Planejar dia")
                     .bold()
@@ -72,8 +75,14 @@ struct ContentView: View {
             .padding(.bottom, 10)
             
             Button(action:{
-                let plannedWeek = planWeek(week: data.week, diet: data.diet, feijoes: data.selectedFeijoes, cereais: data.selectedCereais, raizesETuberculos: data.selectedRaizesETuberculos, legumesEVerduras: data.selectedLegumesEVerduras, frutas: data.selectedFrutas, castanhasENozes: data.selectedCastanhasENozes, leitesEQueijos: data.selectedLeitesEQueijos, carnesEOvos: data.selectedCarnesEOvos)
-                week = plannedWeek
+                let thisWeek = CalendarManager.shared.createEmptyWeek(date: chosenDay, mealsEnabledPreferences: userData.mealsEnabledInWeek)
+                let plannedWeek = MealManager.shared.planWeek(week: thisWeek, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
+                print("________________________________________")
+                print("Refeições da semana:")
+                print("Semana do mês: \(thisWeek.weekOfMonth)")
+                print("Semana do ano: \(thisWeek.weekOfYear)")
+                print("Ano: \(thisWeek.year)")
+                print(plannedWeek)
             }) {
                 Text("Planejar semana")
                     .bold()

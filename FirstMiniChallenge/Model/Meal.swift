@@ -7,11 +7,23 @@
 
 import Foundation
 
-struct Meal {
+struct Meal: Identifiable {
     var id = UUID()
-    var name: String
+    var name: String {
+        var n: String = ""
+        
+        for i in 0..<foods.count {
+            if i != foods.count - 1 {
+                n += "\(foods[i].name), "
+            } else {
+                n += "\(foods[i].name)"
+            }
+        }
+        return n
+    }
     var imageName: String
     var type: MealType
+    var option: MealOption
     var diet: Diet
     var isPlanned: Bool
     var foods: [Food]
@@ -20,6 +32,7 @@ struct Meal {
 struct MealOption {
     var id = UUID()
     var name: String
+    var type: MealType
     var imageName: String
     var categoriesIncluded: [Category]
 }
@@ -31,22 +44,22 @@ enum Diet {
 }
 
 enum MealType {
-    case cafeDaManha
-    case almoco
-    case lanche
-    case janta
+    case breakfast
+    case lunch
+    case snack
+    case dinner
     case none
     
     
 var name: String {
     switch self {
-    case .cafeDaManha:
+    case .breakfast:
         return "Café da Manhã"
-    case .almoco:
+    case .lunch:
         return "Almoço"
-    case .lanche:
+    case .snack:
         return "Lanche"
-    case .janta:
+    case .dinner:
         return "Janta"
     default:
         return "Refeição"
@@ -56,13 +69,13 @@ var name: String {
 
 var colorName: String {
     switch self {
-    case .cafeDaManha:
+    case .breakfast:
         return "CafeDaManhaTagColor"
-    case .almoco:
+    case .lunch:
         return "AlmocoTagColor"
-    case .lanche:
+    case .snack:
         return "LancheTagColor"
-    case .janta:
+    case .dinner:
         return "JantaTagColor"
     default:
         return "RefeicaoTagColor"
@@ -71,13 +84,13 @@ var colorName: String {
 
 var imageName: String {
     switch self {
-    case .cafeDaManha:
+    case .breakfast:
         return "iconCofee"
-    case .almoco:
+    case .lunch:
         return "iconLunch"
-    case .lanche:
+    case .snack:
         return "iconSnack"
-    case .janta:
+    case .dinner:
         return "iconDinner"
     default:
         return "RefeicaoTagColor"

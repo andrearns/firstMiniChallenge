@@ -18,12 +18,14 @@ struct Food {
 
 enum Category {
     case feijoes
-    case cereais
+    case cereaisCafeELanche
+    case cereaisAlmocoEJanta
     case raizesETuberculos
     case legumesEVerduras
     case frutas
     case castanhasENozes
     case leiteEQueijos
     case carnesEOvos
+    case bebidas
     case none
 }
