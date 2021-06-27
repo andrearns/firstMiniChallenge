@@ -121,38 +121,38 @@ class MealManager {
         var dinner: Meal?
         
         if day.isBreakfastEnabled {
-            breakfast = generateMeal(type: .cafeDaManha, mealOption: sortMealOption(mealOptions: appData.breakfastOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+            breakfast = generateMeal(type: .breakfast, mealOption: sortMealOption(mealOptions: appData.breakfastOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
             meals.append(breakfast!)
         }
         if day.isLunchEnabled {
-            lunch = generateMeal(type: .almoco, mealOption: sortMealOption(mealOptions: appData.lunchOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+            lunch = generateMeal(type: .lunch, mealOption: sortMealOption(mealOptions: appData.lunchOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
             meals.append(lunch!)
         }
         if day.isSnackEnabled {
-            snack = generateMeal(type: .lanche, mealOption: sortMealOption(mealOptions: appData.snackOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+            snack = generateMeal(type: .snack, mealOption: sortMealOption(mealOptions: appData.snackOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
             meals.append(snack!)
         }
         if day.isDinnerEnabled {
             // Repeat lunch on dinner
             if day.isLunchEnabled {
-                dinner = Meal(imageName: lunch!.imageName, type: .janta, option: lunch!.option, diet: lunch!.diet, isPlanned: true, foods: lunch!.foods)
+                dinner = Meal(imageName: lunch!.imageName, type: .dinner, option: lunch!.option, diet: lunch!.diet, isPlanned: true, foods: lunch!.foods)
                 meals.append(dinner!)
             } else {
-                dinner = generateMeal(type: .janta, mealOption: sortMealOption(mealOptions: appData.dinnerOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+                dinner = generateMeal(type: .dinner, mealOption: sortMealOption(mealOptions: appData.dinnerOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
                 meals.append(dinner!)
             }
         }
         
         for i in 0..<meals.count {
             switch meals[i].type {
-            case .cafeDaManha:
-                plannedMeals.append(.cafeDaManha)
-            case .almoco:
-                plannedMeals.append(.almoco)
-            case .lanche:
-                plannedMeals.append(.lanche)
-            case .janta:
-                plannedMeals.append(.janta)
+            case .breakfast:
+                plannedMeals.append(.breakfast)
+            case .lunch:
+                plannedMeals.append(.lunch)
+            case .snack:
+                plannedMeals.append(.snack)
+            case .dinner:
+                plannedMeals.append(.dinner)
             default:
                 print("Não existe nenhum tipo de refeição com esse nome")
             }

@@ -16,7 +16,7 @@ struct Day: Identifiable {
     var date: Date
     var dayOfMonth: Int {
         let dateComponents = Calendar.current.dateComponents([.day], from: date)
-        return dateComponents.day! + 1
+        return dateComponents.day! 
     }
     var weekday: Int {
         let dateComponents = Calendar.current.dateComponents([.weekday], from: date)

@@ -12,6 +12,7 @@ struct WeekView: View {
     @State var selectedWeek = userData.weeks[0]
     @State var selectedDay: Day?
     @State var selectedWeekIndex = 0
+    @State var weeks: [Week]?
     
     var body: some View {
         VStack {
@@ -112,8 +113,9 @@ struct WeekView: View {
                 }
             }
         }.onAppear {
-            selectedWeek = CalendarManager.shared.searchWeek(date: today, weeks: userData.weeks)
-            CalendarManager.shared.createWeeksAfterWeek(date: today, weeks: userData.weeks, number: 4)
+            weeks = CalendarManager.shared.loadWeeks(date: today, weeks: userData.weeks, number: 4)
+            selectedWeek = CalendarManager.shared.searchWeek(date: today, weeks: weeks!)
+            selectedWeekIndex = CalendarManager.shared.indexOf(chosenWeek: selectedWeek, weeks: weeks!)
         }
     }
 }

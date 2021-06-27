@@ -31,16 +31,16 @@ struct ContentView: View {
                     
                     switch selectedMeal {
                     case "Café da Manhã":
-                        mealType = .cafeDaManha
+                        mealType = .breakfast
                         mealOption = MealManager.shared.sortMealOption(mealOptions: appData.breakfastOptions)
                     case "Almoço":
-                        mealType = .almoco
+                        mealType = .lunch
                         mealOption = MealManager.shared.sortMealOption(mealOptions: appData.lunchOptions)
                     case "Lanche":
-                        mealType = .lanche
+                        mealType = .snack
                         mealOption = MealManager.shared.sortMealOption(mealOptions: appData.snackOptions)
                     case "Janta":
-                        mealType = .janta
+                        mealType = .dinner
                         mealOption = MealManager.shared.sortMealOption(mealOptions: appData.dinnerOptions)
                     default:
                         print("Não existe nenhuma categoria com esse nome")
@@ -59,7 +59,7 @@ struct ContentView: View {
             }
             
             Button(action:{
-                let todayDate = CalendarManager.shared.createEmptyDay(date: chosenDay)
+                let todayDate = CalendarManager.shared.createEmptyDay(date: chosenDay, isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true)
                 let plannedDay = MealManager.shared.planDay(day: todayDate, diet: .regular, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
                 print("________________________________________")
                 print("Refeições do dia: \(plannedDay.name)")
@@ -75,7 +75,7 @@ struct ContentView: View {
             .padding(.bottom, 10)
             
             Button(action:{
-                let thisWeek = CalendarManager.shared.createEmptyWeek(date: chosenDay)
+                let thisWeek = CalendarManager.shared.createEmptyWeek(date: chosenDay, mealsEnabledPreferences: userData.mealsEnabledInWeek)
                 let plannedWeek = MealManager.shared.planWeek(week: thisWeek, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
                 print("________________________________________")
                 print("Refeições da semana:")

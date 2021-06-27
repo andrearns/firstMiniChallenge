@@ -44,9 +44,9 @@ enum Diet {
 }
 
 enum MealType {
-    case cafeDaManha
-    case almoco
-    case lanche
-    case janta
+    case breakfast
+    case lunch
+    case snack
+    case dinner
     case none
 }

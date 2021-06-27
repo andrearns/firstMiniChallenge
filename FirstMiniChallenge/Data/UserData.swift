@@ -95,6 +95,16 @@ struct UserData { // Dados do usuário
         Food(name: "Chá", category: .bebidas, diet: .veggie),
     ]
     
+    var mealsEnabledInWeek = MealsEnabledInWeek(
+        sunday: [true, true, false, true],
+        monday: [true, true, false, true],
+        tuesday: [true, true, false, true],
+        wednesday: [true, true, false, true],
+        thursday: [true, true, false, true],
+        friday: [true, true, false, true],
+        saturday: [true, true, false, true]
+    )
+    
     var weeks: [Week] = [
         Week(startDate: NSDate(timeIntervalSinceReferenceDate: 1624161190) as Date, isPlanned: false, days: [
             Day(date: NSDate(timeIntervalSinceReferenceDate: 1624161190) as Date, plannedMeals: [], meals: [], isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true),

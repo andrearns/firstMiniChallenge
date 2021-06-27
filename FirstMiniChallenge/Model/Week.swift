@@ -19,7 +19,7 @@ struct Week: Identifiable {
     var name: String {
         let startDateComponents = Calendar.current.dateComponents([.day, .month], from: startDate)
         let endDateComponents = Calendar.current.dateComponents([.day, .month], from: endDate)
-        return String(startDateComponents.day!) + "/" + String(startDateComponents.month!) + " até " + String(endDateComponents.day!) + "/" + String(endDateComponents.month!)
+        return String(startDateComponents.day! - 1) + "/" + String(startDateComponents.month!) + " até " + String(endDateComponents.day! - 1) + "/" + String(endDateComponents.month!)
     }
     
     var month: Int {

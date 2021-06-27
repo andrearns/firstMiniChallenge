@@ -160,29 +160,29 @@ struct AppData { // Dados que o app carrega consigo
     
     // Presets de refeições
     var breakfastOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Café da Manhã", type: .cafeDaManha, imageName: "opcaoCafe1", categoriesIncluded: [.bebidas, .frutas, .cereaisCafeELanche]),
-        MealOption(name: "Opção 3 - Café da Manhã", type: .cafeDaManha, imageName: "opcaoCafe3", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos, .cereaisCafeELanche]),
-        MealOption(name: "Opção 5 - Café da Manhã", type: .cafeDaManha, imageName: "opcaoCafe5", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos]),
+        MealOption(name: "Opção 1 - Café da Manhã", type: .breakfast, imageName: "opcaoCafe1", categoriesIncluded: [.bebidas, .frutas, .cereaisCafeELanche]),
+        MealOption(name: "Opção 3 - Café da Manhã", type: .breakfast, imageName: "opcaoCafe3", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos, .cereaisCafeELanche]),
+        MealOption(name: "Opção 5 - Café da Manhã", type: .breakfast, imageName: "opcaoCafe5", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos]),
     ]
     
     var lunchOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Almoço", type: .almoco, imageName: "opcaoAlmoco1", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .frutas]),
-        MealOption(name: "Opção 2 - Almoço", type: .almoco, imageName: "opcaoAlmoco2", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .carnesEOvos, .frutas]),
-        MealOption(name: "Opção 3 - Almoço", type: .almoco, imageName: "opcaoAlmoco3", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .carnesEOvos, .legumesEVerduras]),
-        MealOption(name: "Opção 4 - Almoço", type: .almoco, imageName: "opcaoAlmoco4", categoriesIncluded: [.raizesETuberculos, .feijoes, .legumesEVerduras, .carnesEOvos, .frutas]),
-        MealOption(name: "Opção 5 - Almoço", type: .almoco, imageName: "opcaoAlmoco5", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .raizesETuberculos, .legumesEVerduras, .frutas]),
+        MealOption(name: "Opção 1 - Almoço", type: .lunch, imageName: "opcaoAlmoco1", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .frutas]),
+        MealOption(name: "Opção 2 - Almoço", type: .lunch, imageName: "opcaoAlmoco2", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .carnesEOvos, .frutas]),
+        MealOption(name: "Opção 3 - Almoço", type: .lunch, imageName: "opcaoAlmoco3", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .carnesEOvos, .legumesEVerduras]),
+        MealOption(name: "Opção 4 - Almoço", type: .lunch, imageName: "opcaoAlmoco4", categoriesIncluded: [.raizesETuberculos, .feijoes, .legumesEVerduras, .carnesEOvos, .frutas]),
+        MealOption(name: "Opção 5 - Almoço", type: .lunch, imageName: "opcaoAlmoco5", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .raizesETuberculos, .legumesEVerduras, .frutas]),
     ]
     
     var dinnerOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Janta", type: .janta, imageName: "opcaoJanta1", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos, .frutas]),
-        MealOption(name: "Opção 3 - Janta", type: .janta, imageName: "opcaoJanta3", categoriesIncluded: [.legumesEVerduras, .carnesEOvos, .raizesETuberculos]),
-        MealOption(name: "Opção 4 - Janta", type: .janta, imageName: "opcaoJanta4", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos]),
+        MealOption(name: "Opção 1 - Janta", type: .dinner, imageName: "opcaoJanta1", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos, .frutas]),
+        MealOption(name: "Opção 3 - Janta", type: .dinner, imageName: "opcaoJanta3", categoriesIncluded: [.legumesEVerduras, .carnesEOvos, .raizesETuberculos]),
+        MealOption(name: "Opção 4 - Janta", type: .dinner, imageName: "opcaoJanta4", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos]),
     ]
     
     var snackOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Lanche", type: .lanche, imageName: "opcaoLanche1", categoriesIncluded: [.cereaisCafeELanche, .frutas]),
-        MealOption(name: "Opção 2 - Lanche", type: .lanche, imageName: "opcaoLanche2", categoriesIncluded: [.castanhasENozes]),
-        MealOption(name: "Opção 3 - Lanche", type: .lanche, imageName: "opcaoLanche3", categoriesIncluded: [.frutas]),
+        MealOption(name: "Opção 1 - Lanche", type: .snack, imageName: "opcaoLanche1", categoriesIncluded: [.cereaisCafeELanche, .frutas]),
+        MealOption(name: "Opção 2 - Lanche", type: .snack, imageName: "opcaoLanche2", categoriesIncluded: [.castanhasENozes]),
+        MealOption(name: "Opção 3 - Lanche", type: .snack, imageName: "opcaoLanche3", categoriesIncluded: [.frutas]),
     ]
 }
 
