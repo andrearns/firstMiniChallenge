@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct MealPlanMainView: View {
     var dayOfWeek = ["dom","seg", "ter", "qua", "qui", "sex","sáb"]
     
@@ -54,8 +56,7 @@ struct MealPlanMainView: View {
                         .frame(width: UIScreen.main.bounds.width ,height: UIScreen.main.bounds.height / 2.5)
                         .shadow(color: Color("Shadow"), radius: 30, x: 0.0, y: 40.0)
                         .edgesIgnoringSafeArea(.top)
-                    
-                    
+                       
                     VStack(alignment: .leading) {
                         
                         Text("Planejamento \nAlimentar")
@@ -73,8 +74,7 @@ struct MealPlanMainView: View {
                     }.padding(50)
                 }.padding(.bottom, 30)
                 
-                
-                
+
                 WeekSelectorView()
                 DaySelectorView()
                 
@@ -94,6 +94,7 @@ struct MealPlanMainView: View {
             }
         }.navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.all)
+        
     }
 }
 

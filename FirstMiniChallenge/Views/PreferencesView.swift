@@ -10,15 +10,15 @@ import SwiftUI
 struct PreferencesView: View {
     
     @State var preferencesConstruct = [
-        Preferences(iconImage: "edit_circle", editText: "Editar Todos"),
-        Preferences(iconImage: "leguminous_preferences", editText: "Editar Leguminosas"),
-        Preferences(iconImage: "cereals_preferences", editText: "Editar Cereais"),
-        Preferences(iconImage: "tubercles_preferences", editText: "Editar Tuberculos"),
-        Preferences(iconImage: "vegetables_and_legumes__preferences", editText: "Editar Legumes e Verduras"),
-        Preferences(iconImage: "fruits_meal_plan", editText: "Editar Frutas"),
-        Preferences(iconImage: "nuts_preferences", editText: "Editar Oleaginosas"),
-        Preferences(iconImage: "dairy__preferences", editText: "Editar Laticínios"),
-        Preferences(iconImage: "meat_and_eggs__preferences", editText: "Editar Proteínas"),
+        Preferences(iconImage: "Edit_Square", editText: "Todos"),
+        Preferences(iconImage: "leguminous_preferences", editText: "Leguminosas"),
+        Preferences(iconImage: "cereals_preferences", editText: "Cereais"),
+        Preferences(iconImage: "tubercles_preferences", editText: "Tuberculos"),
+        Preferences(iconImage: "vegetables_and_legumes__preferences", editText: "Legumes e Verduras"),
+        Preferences(iconImage: "fruits_meal_plan", editText: "Frutas"),
+        Preferences(iconImage: "nuts_preferences", editText: "Oleaginosas"),
+        Preferences(iconImage: "dairy__preferences", editText: "Laticínios"),
+        Preferences(iconImage: "meat_and_eggs__preferences", editText: "Proteínas"),
         
     ]
     
@@ -30,7 +30,7 @@ struct PreferencesView: View {
                         .resizable()
                         .frame(width: 78, height: 78, alignment: .leading)
                         .padding()
-                        .shadow(color: Color("Shadow"), radius: 30, x: 0.0, y: 30.0)
+                        .shadow(color: Color("Shadow_Strong"), radius: 30, x: 0.0, y: 30.0)
                     
                     VStack(alignment: .leading){
                         Text("Sua conta")
@@ -41,23 +41,18 @@ struct PreferencesView: View {
                             .font(.system(size: 16, weight: .regular, design: .rounded))
                             .foregroundColor(Color("TextColor"))
                     }
-                    
-                    
-                }
+                   
+                }.padding(.bottom, 40)
                 
                 VStack(alignment: .leading){
                     
                     ForEach(preferencesConstruct, id: \.id) { construct in
                         PreferencesCardView(preferencesEdit:construct)
                         
-                        
                     }.frame(width: 340, height: 90, alignment: .leading)
-                    
-                    
                 }
-            }
+            }.padding(.top, 60)
         }
-        
     }
 }
 

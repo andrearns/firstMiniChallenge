@@ -13,23 +13,23 @@ struct PreferencesCardView: View {
     
     var body: some View {
         HStack {
-
+            
             Image(preferencesEdit.iconImage)
                 .resizable()
-                .frame(width: 58, height: 58, alignment: .leading)
-                
+                .frame(width: 52, height: 52, alignment: .leading)
+                .shadow(color: Color("Shadow_Strong"), radius: 16, x: 0.0, y: 15.0)
             
             Text(preferencesEdit.editText)
-                .font(.system(size: 14, weight: .semibold, design: .rounded))
+                .font(.system(size: 16, weight: .semibold, design: .rounded))
                 .foregroundColor(Color("TextColor"))
-                .padding(60)
+                .padding(.leading, 15)
             
-            Image("chevron_right_retangle")
+            Spacer()
+            
+            Image("Chevron_Square")
                 .resizable()
-                .frame(width: 56, height: 56, alignment: .trailing)
+                .frame(width: 48, height: 48, alignment: .trailing)
             
-            
-                
         }.background(Color(.white))
         .padding(3)
     }
