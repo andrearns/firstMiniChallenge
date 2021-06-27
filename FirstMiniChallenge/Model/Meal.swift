@@ -49,4 +49,52 @@ enum MealType {
     case snack
     case dinner
     case none
+    
+    
+var name: String {
+    switch self {
+    case .breakfast:
+        return "Café da Manhã"
+    case .lunch:
+        return "Almoço"
+    case .snack:
+        return "Lanche"
+    case .dinner:
+        return "Janta"
+    default:
+        return "Refeição"
+    }
+}
+
+
+var colorName: String {
+    switch self {
+    case .breakfast:
+        return "CafeDaManhaTagColor"
+    case .lunch:
+        return "AlmocoTagColor"
+    case .snack:
+        return "LancheTagColor"
+    case .dinner:
+        return "JantaTagColor"
+    default:
+        return "RefeicaoTagColor"
+    }
+}
+
+var imageName: String {
+    switch self {
+    case .breakfast:
+        return "iconCofee"
+    case .lunch:
+        return "iconLunch"
+    case .snack:
+        return "iconSnack"
+    case .dinner:
+        return "iconDinner"
+    default:
+        return "RefeicaoTagColor"
+    }
+}
+    
 }
