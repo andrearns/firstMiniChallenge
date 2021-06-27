@@ -14,10 +14,12 @@ struct TipsCardView: View {
     var body: some View {
        
         VStack(alignment: .leading) {
+
             HStack {
                 Rectangle()
                     .frame(width: 5)
                     .foregroundColor(Color(tip.color))
+                    .cornerRadius(100)
            
                 DisclosureGroup(tip.title, isExpanded: $isCardExpanded) {
                     VStack(alignment: .leading) {
@@ -42,6 +44,6 @@ struct TipsCardView: View {
 
 struct TipsCardView_Previews: PreviewProvider {
     static var previews: some View {
-        TipsCardView(tip: Tips(title: "", bodyText: "", color: ""))
+        TipsCardView(tip: Tips(title: "", bodyText: "", color: "Shadow"))
     }
 }
