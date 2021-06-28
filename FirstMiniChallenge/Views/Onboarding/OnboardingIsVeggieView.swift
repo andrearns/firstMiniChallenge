@@ -10,10 +10,6 @@ import SwiftUI
 
 struct OnboardingIsVeggieView: View {
     var body: some View {
-        NavigationView{
-           
-           
-            
             VStack {
               Spacer()
                 ZStack(alignment: .bottom){
@@ -78,9 +74,6 @@ struct OnboardingIsVeggieView: View {
                 
             }// fim da stack principl
             .ignoresSafeArea()
-                
-            
-       }
     }
 
 

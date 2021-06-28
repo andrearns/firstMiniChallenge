@@ -1,59 +1,43 @@
 //
-//  Data.swift
+//  AppData.swift
 //  FirstMiniChallenge
 //
-//  Created by André Arns on 23/06/21.
+//  Created by André Arns on 28/06/21.
 //
 
 import Foundation
 
 var appData = AppData()
 
-struct AppData { // Dados que o app carrega consigo
+struct AppData {
     
-    // Lista de todos as Foods de cada categoria de alimento
     var allFeijoes: [Food] = [
         Food(name: "Feijão preto", category: .feijoes, diet: .veggie),
-        Food(name: "Feijão carioca", category: .feijoes, diet: .veggie),
-        Food(name: "Feijão mulatinho", category: .feijoes, diet: .veggie),
-        Food(name: "Ervilha", category: .feijoes, diet: .veggie),
-        Food(name: "Lentilha", category: .feijoes, diet: .veggie),
-        Food(name: "Grão-de-bico", category: .feijoes, diet: .veggie),
-        Food(name: "Feijoada", category: .feijoes, diet: .regular),
+        Food(name: "Feijão carioca", category: .feijoes, diet: .veggie)
     ]
     
-    var allCereaisCafeELanche: [Food] = [
+    var allCereaisCafeDaManha: [Food] = [
+        Food(name: "Arroz integral", category: .cereaisCafeELanche, diet: .veggie),
+        Food(name: "Arroz branco", category: .cereaisCafeELanche, diet: .veggie),
         Food(name: "Milho", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Bolo de milho", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Bolo de laranja", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Bolo de fubá", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Bolo salgado", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Bolo de mandioca", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Pão integral com queijo", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Pão com ricota", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Pão de queijo", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Pão com manteiga", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Aveia", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Cuscuz", category: .cereaisCafeELanche, diet: .veggie),
+        Food(name: "Pão", category: .cereaisCafeELanche, diet: .veggie),
+        Food(name: "Aveia", category: .cereaisCafeELanche, diet: .veggie)
     ]
     
     var allCereaisAlmocoEJanta: [Food] = [
         Food(name: "Arroz integral", category: .cereaisAlmocoEJanta, diet: .veggie),
         Food(name: "Arroz branco", category: .cereaisAlmocoEJanta, diet: .veggie),
-        Food(name: "Macarrão", category: .cereaisAlmocoEJanta, diet: .veggie),
-        Food(name: "Lasanha", category: .cereaisAlmocoEJanta, diet: .veggie),
-        Food(name: "Empadão", category: .cereaisAlmocoEJanta, diet: .veggie),
-        Food(name: "Farinha de milho", category: .cereaisAlmocoEJanta, diet: .veggie),
+        Food(name: "Milho", category: .cereaisAlmocoEJanta, diet: .veggie),
+        Food(name: "Pão", category: .cereaisAlmocoEJanta, diet: .veggie),
+        Food(name: "Aveia", category: .cereaisAlmocoEJanta, diet: .veggie)
     ]
+    
     
     var allRaizesETuberculos: [Food] = [
         Food(name: "Batata", category: .raizesETuberculos, diet: .veggie),
-        Food(name: "Batata-doce", category: .raizesETuberculos, diet: .veggie),
         Food(name: "Mandioca", category: .raizesETuberculos, diet: .veggie),
-        Food(name: "Inhame", category: .raizesETuberculos, diet: .veggie),
-        Food(name: "Farinha de mandioca", category: .raizesETuberculos, diet: .veggie),
-        Food(name: "Polenta", category: .raizesETuberculos, diet: .veggie),
-        Food(name: "Angu", category: .raizesETuberculos, diet: .veggie),
+        Food(name: "Batata doce", category: .raizesETuberculos, diet: .veggie),
+        Food(name: "Inhame", category: .raizesETuberculos, diet: .veggie)
     ]
     
     var allLegumesEVerduras: [Food] = [
@@ -72,13 +56,13 @@ struct AppData { // Dados que o app carrega consigo
         Food(name: "Couve", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Espinafre", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Jiló", category: .legumesEVerduras, diet: .veggie),
+        Food(name: "Folhas de Mostarda", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Ora-pro-nóbis", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Pepino", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Pimentão", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Quiabo", category: .legumesEVerduras, diet: .veggie),
         Food(name: "Repolho", category: .legumesEVerduras, diet: .veggie),
-        Food(name: "Tomate", category: .legumesEVerduras, diet: .veggie)
-    ]
+        Food(name: "Tomate", category: .legumesEVerduras, diet: .veggie)]
     
     var allFrutas: [Food] = [
         Food(name: "Abacate", category: .frutas, diet: .veggie),
@@ -109,56 +93,27 @@ struct AppData { // Dados que o app carrega consigo
     
     var allCastanhasENozes: [Food] = [
         Food(name: "Castanha de caju", category: .castanhasENozes, diet: .veggie),
-        Food(name: "Mix de castabhas", category: .castanhasENozes, diet: .veggie),
         Food(name: "Amendoas defumadas", category: .castanhasENozes, diet: .veggie),
         Food(name: "Nozes", category: .castanhasENozes, diet: .veggie),
-        Food(name: "Amendoim", category: .castanhasENozes, diet: .veggie),
-        Food(name: "Avelã", category: .castanhasENozes, diet: .veggie),
-        Food(name: "Pistache", category: .castanhasENozes, diet: .veggie),
+        Food(name: "Amendoim", category: .castanhasENozes, diet: .veggie)
     ]
     
     var allLeitesEQueijos: [Food] = [
-        Food(name: "Coalhada", category: .leiteEQueijos, diet: .veggie),
-        Food(name: "Leite", category: .leiteEQueijos, diet: .veggie),
+        Food(name: "Leite de vaca", category: .leiteEQueijos, diet: .veggie),
         Food(name: "Queijo", category: .leiteEQueijos, diet: .veggie),
-        Food(name: "Iogurte", category: .leiteEQueijos, diet: .veggie),
-        Food(name: "Queijo branco", category: .leiteEQueijos, diet: .veggie),
-        Food(name: "Ricota", category: .leiteEQueijos, diet: .veggie),
+        Food(name: "Iogurte", category: .leiteEQueijos, diet: .veggie)
     ]
     
     var allCarnesEOvos: [Food] = [
-        Food(name: "Omelete", category: .carnesEOvos, diet: .veggie),
-        Food(name: "Ovos", category: .carnesEOvos, diet: .veggie),
+        Food(name: "ovos", category: .carnesEOvos, diet: .veggie),
         Food(name: "PTS", category: .carnesEOvos, diet: .veggie),
-        Food(name: "Falafel", category: .carnesEOvos, diet: .veggie),
-        Food(name: "Homus", category: .carnesEOvos, diet: .veggie),
-        Food(name: "Cogumo", category: .carnesEOvos, diet: .veggie),
-        Food(name: "Grão de bico", category: .carnesEOvos, diet: .veggie),
-        Food(name: "Ervilha", category: .carnesEOvos, diet: .veggie),
         Food(name: "Seitan", category: .carnesEOvos, diet: .veggie),
-        Food(name: "Carne de cabrito", category: .carnesEOvos, diet: .regular),
-        Food(name: "Carne de cordeiro", category: .carnesEOvos, diet: .regular),
-        Food(name: "Galeto", category: .carnesEOvos, diet: .regular),
-        Food(name: "Pernil", category: .carnesEOvos, diet: .regular),
+        Food(name: "Frango", category: .carnesEOvos, diet: .regular),
         Food(name: "Carne bovina", category: .carnesEOvos, diet: .regular),
         Food(name: "Carne de porco", category: .carnesEOvos, diet: .regular),
-        Food(name: "Peixe", category: .carnesEOvos, diet: .regular),
-        Food(name: "Ovos de codorna", category: .carnesEOvos, diet: .regular),
-        Food(name: "Bife", category: .carnesEOvos, diet: .regular),
-        Food(name: "Carne moída", category: .carnesEOvos, diet: .regular),
+        Food(name: "Peixe", category: .carnesEOvos, diet: .regular)
     ]
     
-    var allBebidas: [Food] = [
-        Food(name: "Café", category: .bebidas, diet: .veggie),
-        Food(name: "Café com leite", category: .bebidas, diet: .veggie),
-        Food(name: "Chá", category: .bebidas, diet: .veggie),
-        Food(name: "Leite", category: .bebidas, diet: .veggie),
-        Food(name: "Iogurte", category: .bebidas, diet: .veggie),
-        Food(name: "Suco natural", category: .bebidas, diet: .veggie),
-        Food(name: "Leite batido com frutas", category: .bebidas, diet: .veggie),
-    ]
-    
-    // Presets de refeições
     var breakfastOptions: [MealOption] = [
         MealOption(name: "Opção 1 - Café da Manhã", type: .breakfast, imageName: "opcaoCafe1", categoriesIncluded: [.bebidas, .frutas, .cereaisCafeELanche]),
         MealOption(name: "Opção 3 - Café da Manhã", type: .breakfast, imageName: "opcaoCafe3", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos, .cereaisCafeELanche]),
@@ -173,16 +128,15 @@ struct AppData { // Dados que o app carrega consigo
         MealOption(name: "Opção 5 - Almoço", type: .lunch, imageName: "opcaoAlmoco5", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .raizesETuberculos, .legumesEVerduras, .frutas]),
     ]
     
-    var dinnerOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Janta", type: .dinner, imageName: "opcaoJanta1", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos, .frutas]),
-        MealOption(name: "Opção 3 - Janta", type: .dinner, imageName: "opcaoJanta3", categoriesIncluded: [.legumesEVerduras, .carnesEOvos, .raizesETuberculos]),
-        MealOption(name: "Opção 4 - Janta", type: .dinner, imageName: "opcaoJanta4", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos]),
-    ]
-    
     var snackOptions: [MealOption] = [
         MealOption(name: "Opção 1 - Lanche", type: .snack, imageName: "opcaoLanche1", categoriesIncluded: [.cereaisCafeELanche, .frutas]),
         MealOption(name: "Opção 2 - Lanche", type: .snack, imageName: "opcaoLanche2", categoriesIncluded: [.castanhasENozes]),
         MealOption(name: "Opção 3 - Lanche", type: .snack, imageName: "opcaoLanche3", categoriesIncluded: [.frutas]),
     ]
+    
+    var dinnerOptions: [MealOption] = [
+        MealOption(name: "Opção 1 - Janta", type: .dinner, imageName: "opcaoJanta1", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos, .frutas]),
+        MealOption(name: "Opção 3 - Janta", type: .dinner, imageName: "opcaoJanta3", categoriesIncluded: [.legumesEVerduras, .carnesEOvos, .raizesETuberculos]),
+        MealOption(name: "Opção 4 - Janta", type: .dinner, imageName: "opcaoJanta4", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos]),
+    ]
 }
-

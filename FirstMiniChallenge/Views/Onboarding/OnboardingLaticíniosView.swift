@@ -1,5 +1,5 @@
 //
-//  OnboardingOleaginosasView.swift
+//  OnboardingLaticíniosView.swift
 //  FirstMiniChallenge
 //
 //  Created by alis frentzel on 27/06/21.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-
-
-struct OnboardingOleaginosasView: View {
+struct OnboardingLaticiniosView: View {
     var body: some View {
+           
+                
         VStack{
             VStack{
-                OnboardingFoodTypeSelectionView(typeOfFood: "oleaginosas", image: "Nuts_Wave_BG")
+                OnboardingFoodTypeSelectionView(typeOfFood: "proteínas", image: "Dairy_Wave_BG")
             }
             .ignoresSafeArea()
             .padding(.top, -119)
@@ -24,7 +24,7 @@ struct OnboardingOleaginosasView: View {
                 
             VStack{
                 Spacer()
-                ForEach(data.allLegumesEVerduras, id: \.id) { food in
+                ForEach(appData.allLeitesEQueijos, id: \.id) { food in
                     OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
                 }
             }
@@ -44,13 +44,14 @@ struct OnboardingOleaginosasView: View {
             }
             .padding(.bottom, 30)
         
-       
+        //Spacer()
     }
+//}
+}
+}
 
-}
-}
-struct OnboardingOleaginosasView_Previews: PreviewProvider {
+struct OnboardingLaticiniosView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingOleaginosasView()
+        OnboardingLaticiniosView()
     }
 }

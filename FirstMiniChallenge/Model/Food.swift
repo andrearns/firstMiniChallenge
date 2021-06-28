@@ -33,7 +33,7 @@ enum Category {
         switch self {
         case .feijoes:
             return "leguminous_meal_plan"
-        case .cereais:
+        case .cereaisCafeELanche, .cereaisAlmocoEJanta:
             return "cereals_meal_plan"
         case .raizesETuberculos:
             return "tubercles_meal_plan"
@@ -56,7 +56,7 @@ enum Category {
         switch self {
         case .feijoes:
             return "Grupo das leguminosas: fontes de proteína, fibras, vitaminas do complexo B e minerais, como ferro, zinco e cálcio. "
-        case .cereais:
+        case .cereaisCafeELanche, .cereaisAlmocoEJanta:
             return "Grupo dos cereais: são fontes importantes de carboidratos, fibras, vitaminas (principalmente do complexo B) e minerais."
         case .raizesETuberculos:
             return "Raízes e tubérculos: são fontes de carboidratos e fibras e algumas variedades também de minerais e vitaminas, como o potássio e as vitaminas A e C."

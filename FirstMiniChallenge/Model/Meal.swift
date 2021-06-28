@@ -50,64 +50,63 @@ enum MealType {
     case dinner
     case none
     
-    
-var name: String {
-    switch self {
-    case .breakfast:
-        return "Café da Manhã"
-    case .lunch:
-        return "Almoço"
-    case .snack:
-        return "Lanche"
-    case .dinner:
-        return "Janta"
-    default:
-        return "Refeição"
-    }
-}
-
-
-var colorName: String {
-    switch self {
-    case .breakfast:
-        return "CafeDaManhaTagColor"
-    case .lunch:
-        return "AlmocoTagColor"
-    case .snack:
-        return "LancheTagColor"
-    case .dinner:
-        return "JantaTagColor"
-    default:
-        return "RefeicaoTagColor"
-    }
-}
-
-var imageName: String {
-    switch self {
-    case .breakfast:
-        return "iconCofee"
-    case .lunch:
-        return "iconLunch"
-    case .snack:
-        return "iconSnack"
-    case .dinner:
-        return "iconDinner"
-    default:
-        return "RefeicaoTagColor"
-    }
-}
-var topBackName: String {
-    switch self {
-    case .cafeDaManha:
-        return "Top_Breakfast"
-    case .almoco:
-        return "Top_Lunch"
-    case .lanche:
-        return "Top_Snack"
-    case .janta:
-        return "Top_Dinner"
-    default:
-        return "RefeicaoFundo"
+    var name: String {
+        switch self {
+        case .breakfast:
+            return "Café da Manhã"
+        case .lunch:
+            return "Almoço"
+        case .snack:
+            return "Lanche"
+        case .dinner:
+            return "Janta"
+        default:
+            return "Refeição"
         }
     }
+
+    var colorName: String {
+        switch self {
+        case .breakfast:
+            return "CafeDaManhaTagColor"
+        case .lunch:
+            return "AlmocoTagColor"
+        case .snack:
+            return "LancheTagColor"
+        case .dinner:
+            return "JantaTagColor"
+        default:
+            return "RefeicaoTagColor"
+        }
+    }
+
+    var imageName: String {
+        switch self {
+        case .breakfast:
+            return "iconCofee"
+        case .lunch:
+            return "iconLunch"
+        case .snack:
+            return "iconSnack"
+        case .dinner:
+            return "iconDinner"
+        default:
+            return "RefeicaoTagColor"
+        }
+    }
+    
+    var topBackName: String {
+        switch self {
+        case .breakfast:
+            return "Top_Breakfast"
+        case .lunch:
+            return "Top_Lunch"
+        case .snack:
+            return "Top_Snack"
+        case .dinner:
+            return "Top_Dinner"
+        default:
+            return "RefeicaoFundo"
+            }
+        }
 }

@@ -44,8 +44,8 @@ struct TopMealView: View {
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width ,height: UIScreen.main.bounds.height / 2.5)
                 .shadow(color: Color(#colorLiteral(red: 0.8588235294, green: 0.8745098039, blue: 0.9450980392, alpha: 0.6)), radius: 30, x: 0.0, y: 40.0)
-                .overlay(ImageOverlay(), alignment: .top)
-                .overlay(ImageOverlay2(), alignment: .topLeading)
+                .overlay(ImageOverlayDish(), alignment: .top)
+                .overlay(ImageOverlayType(), alignment: .topLeading)
                 .ignoresSafeArea()
             
             
