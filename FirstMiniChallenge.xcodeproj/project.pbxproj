@@ -32,6 +32,24 @@
 		5BE69015268263AC000DC284 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE69014268263AC000DC284 /* Week.swift */; };
 		5BE69017268263B6000DC284 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE69016268263B6000DC284 /* Day.swift */; };
 		5BE6901D2682F63C000DC284 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6901C2682F63C000DC284 /* AppData.swift */; };
+		5BE6901B2682CAA0000DC284 /* generateMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6901A2682CAA0000DC284 /* generateMeal.swift */; };
+		5BE6901D2682F63C000DC284 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6901C2682F63C000DC284 /* Data.swift */; };
+		5BE6901F2682FAEA000DC284 /* planDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE6901E2682FAEA000DC284 /* planDay.swift */; };
+		5BE690212683B003000DC284 /* planWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE690202683B003000DC284 /* planWeek.swift */; };
+		F604996F26885B47004728C5 /* OnboardingIsVeggieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604996E26885B47004728C5 /* OnboardingIsVeggieView.swift */; };
+		F604998C26887181004728C5 /* OnboardingMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604998B26887181004728C5 /* OnboardingMealView.swift */; };
+		F604998E26887BA7004728C5 /* OnboardingLeguminosasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604998D26887BA7004728C5 /* OnboardingLeguminosasView.swift */; };
+		F604999026888372004728C5 /* OnboardingisVeggieButtomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604998F26888372004728C5 /* OnboardingisVeggieButtomView.swift */; };
+		F6049992268887FF004728C5 /* OnboardingFoodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6049991268887FF004728C5 /* OnboardingFoodSelectionView.swift */; };
+		F604999426889F3A004728C5 /* OnboardingFoodTypeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604999326889F3A004728C5 /* OnboardingFoodTypeSelectionView.swift */; };
+		F66E79F62688B58200AD8B60 /* OnboardingVegetaisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E79F52688B58200AD8B60 /* OnboardingVegetaisView.swift */; };
+		F66E79F82688B6F600AD8B60 /* OnboardingCereaisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E79F72688B6F600AD8B60 /* OnboardingCereaisView.swift */; };
+		F66E79FA2688B71200AD8B60 /* OnboardingOleaginosasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E79F92688B71200AD8B60 /* OnboardingOleaginosasView.swift */; };
+		F66E79FE2688B75B00AD8B60 /* OnboardingLaticíniosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E79FD2688B75B00AD8B60 /* OnboardingLaticíniosView.swift */; };
+		F66E7A002688B78700AD8B60 /* OnboardingCarnesOvosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E79FF2688B78700AD8B60 /* OnboardingCarnesOvosView.swift */; };
+		F66E7A022688B7A300AD8B60 /* OnboardingFrutasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E7A012688B7A300AD8B60 /* OnboardingFrutasView.swift */; };
+		F66E7A042688B7B600AD8B60 /* OnboardingTuberculosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E7A032688B7B600AD8B60 /* OnboardingTuberculosView.swift */; };
+		F66E7A062688F81E00AD8B60 /* OboardingDaysPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E7A052688F81E00AD8B60 /* OboardingDaysPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +80,24 @@
 		5BE69014268263AC000DC284 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		5BE69016268263B6000DC284 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		5BE6901C2682F63C000DC284 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		5BE6901A2682CAA0000DC284 /* generateMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateMeal.swift; sourceTree = "<group>"; };
+		5BE6901C2682F63C000DC284 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5BE6901E2682FAEA000DC284 /* planDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = planDay.swift; sourceTree = "<group>"; };
+		5BE690202683B003000DC284 /* planWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = planWeek.swift; sourceTree = "<group>"; };
+		F604996E26885B47004728C5 /* OnboardingIsVeggieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIsVeggieView.swift; sourceTree = "<group>"; };
+		F604998B26887181004728C5 /* OnboardingMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMealView.swift; sourceTree = "<group>"; };
+		F604998D26887BA7004728C5 /* OnboardingLeguminosasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLeguminosasView.swift; sourceTree = "<group>"; };
+		F604998F26888372004728C5 /* OnboardingisVeggieButtomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingisVeggieButtomView.swift; sourceTree = "<group>"; };
+		F6049991268887FF004728C5 /* OnboardingFoodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFoodSelectionView.swift; sourceTree = "<group>"; };
+		F604999326889F3A004728C5 /* OnboardingFoodTypeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFoodTypeSelectionView.swift; sourceTree = "<group>"; };
+		F66E79F52688B58200AD8B60 /* OnboardingVegetaisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVegetaisView.swift; sourceTree = "<group>"; };
+		F66E79F72688B6F600AD8B60 /* OnboardingCereaisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCereaisView.swift; sourceTree = "<group>"; };
+		F66E79F92688B71200AD8B60 /* OnboardingOleaginosasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOleaginosasView.swift; sourceTree = "<group>"; };
+		F66E79FD2688B75B00AD8B60 /* OnboardingLaticíniosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingLaticíniosView.swift"; sourceTree = "<group>"; };
+		F66E79FF2688B78700AD8B60 /* OnboardingCarnesOvosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCarnesOvosView.swift; sourceTree = "<group>"; };
+		F66E7A012688B7A300AD8B60 /* OnboardingFrutasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFrutasView.swift; sourceTree = "<group>"; };
+		F66E7A032688B7B600AD8B60 /* OnboardingTuberculosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTuberculosView.swift; sourceTree = "<group>"; };
+		F66E7A052688F81E00AD8B60 /* OboardingDaysPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OboardingDaysPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +178,24 @@
 				5B23C7702686CFC80067A827 /* WeekView.swift */,
 				414ED59E268669560029B919 /* OnboardingStartingView.swift */,
 				414ED5A0268669D20029B919 /* OnboardingNameView.swift */,
+				F604996E26885B47004728C5 /* OnboardingIsVeggieView.swift */,
+				F604998F26888372004728C5 /* OnboardingisVeggieButtomView.swift */,
+				F604998B26887181004728C5 /* OnboardingMealView.swift */,
+				F604999326889F3A004728C5 /* OnboardingFoodTypeSelectionView.swift */,
+				F6049991268887FF004728C5 /* OnboardingFoodSelectionView.swift */,
+				F604998D26887BA7004728C5 /* OnboardingLeguminosasView.swift */,
+				F66E79F52688B58200AD8B60 /* OnboardingVegetaisView.swift */,
+				F66E79F72688B6F600AD8B60 /* OnboardingCereaisView.swift */,
+				F66E79F92688B71200AD8B60 /* OnboardingOleaginosasView.swift */,
+				F66E79FD2688B75B00AD8B60 /* OnboardingLaticíniosView.swift */,
+				F66E79FF2688B78700AD8B60 /* OnboardingCarnesOvosView.swift */,
+				F66E7A012688B7A300AD8B60 /* OnboardingFrutasView.swift */,
+				F66E7A032688B7B600AD8B60 /* OnboardingTuberculosView.swift */,
+				F66E7A052688F81E00AD8B60 /* OboardingDaysPickerView.swift */,
 				414ED59A2685726A0029B919 /* MealPlanMainView.swift */,
 				41F10A662687D20E0097C21F /* DaySelectorView.swift */,
-				41F10A642687D1AD0097C21F /* WeekSelectorView.swift */,
 				414ED5A22686AA790029B919 /* MealCardView.swift */,
+				41F10A642687D1AD0097C21F /* WeekSelectorView.swift */,
 				4166D9732687BAFC008490C4 /* WithoutMealPlanningCardView.swift */,
 				41AA3C6E26877BC700A1D616 /* TabBarView.swift */,
 				41AA3C702687870700A1D616 /* PreferencesView.swift */,
@@ -237,29 +287,43 @@
 				5BE6901F2682FAEA000DC284 /* planDay.swift in Sources */,
 				41F10A652687D1AD0097C21F /* WeekSelectorView.swift in Sources */,
 				414ED59F268669560029B919 /* OnboardingStartingView.swift in Sources */,
+				F604998C26887181004728C5 /* OnboardingMealView.swift in Sources */,
 				5BE69013268263A1000DC284 /* Meal.swift in Sources */,
 				5B23C7792688FA4A0067A827 /* MealsEnabledPreferences.swift in Sources */,
 				5BE6900126826351000DC284 /* ContentView.swift in Sources */,
 				5B23C76D2686ADAF0067A827 /* UserData.swift in Sources */,
+				F66E7A022688B7A300AD8B60 /* OnboardingFrutasView.swift in Sources */,
+				F6049992268887FF004728C5 /* OnboardingFoodSelectionView.swift in Sources */,
 				5BE69017268263B6000DC284 /* Day.swift in Sources */,
 				414ED5A1268669D20029B919 /* OnboardingNameView.swift in Sources */,
+				F66E79FA2688B71200AD8B60 /* OnboardingOleaginosasView.swift in Sources */,
+				F66E7A062688F81E00AD8B60 /* OboardingDaysPickerView.swift in Sources */,
 				5BE69015268263AC000DC284 /* Week.swift in Sources */,
 				5B23C7772687CD4C0067A827 /* CalendarManager.swift in Sources */,
 				5B23C7712686CFC80067A827 /* WeekView.swift in Sources */,
 				5BE68FFF26826351000DC284 /* FirstMiniChallengeApp.swift in Sources */,
 				5BE6901126826394000DC284 /* Food.swift in Sources */,
 				5BE6901D2682F63C000DC284 /* AppData.swift in Sources */,
+				F604996F26885B47004728C5 /* OnboardingIsVeggieView.swift in Sources */,
+				F604999426889F3A004728C5 /* OnboardingFoodTypeSelectionView.swift in Sources */,
 				41F10A672687D20E0097C21F /* DaySelectorView.swift in Sources */,
+				F66E79F82688B6F600AD8B60 /* OnboardingCereaisView.swift in Sources */,
+				F604999026888372004728C5 /* OnboardingisVeggieButtomView.swift in Sources */,
 				5BE6901B2682CAA0000DC284 /* generateMeal.swift in Sources */,
+				F66E79F62688B58200AD8B60 /* OnboardingVegetaisView.swift in Sources */,
 				414ED59B2685726A0029B919 /* MealPlanMainView.swift in Sources */,
+				F604998E26887BA7004728C5 /* OnboardingLeguminosasView.swift in Sources */,
 				414ED5A32686AA790029B919 /* MealCardView.swift in Sources */,
 				5BE690212683B003000DC284 /* planWeek.swift in Sources */,
+				F66E7A042688B7B600AD8B60 /* OnboardingTuberculosView.swift in Sources */,
 				41AA3C712687870700A1D616 /* PreferencesView.swift in Sources */,
 				41F10A692687DCAF0097C21F /* TipsCardView.swift in Sources */,
+				F66E7A002688B78700AD8B60 /* OnboardingCarnesOvosView.swift in Sources */,
 				41AA3C6F26877BC700A1D616 /* TabBarView.swift in Sources */,
 				4166D9742687BAFC008490C4 /* WithoutMealPlanningCardView.swift in Sources */,
 				41AA3C732687876A00A1D616 /* TipsView.swift in Sources */,
 				5BE6901D2682F63C000DC284 /* Data.swift in Sources */,
+				F66E79FE2688B75B00AD8B60 /* OnboardingLaticíniosView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
