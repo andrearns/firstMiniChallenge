@@ -25,7 +25,7 @@ struct OnboardingCereaisView: View {
                 
             VStack{
                 Spacer()
-                ForEach(data.allCereais, id: \.id) { food in
+                ForEach(appData.allCereaisCafeDaManha, id: \.id) { food in
                     OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
                 }
             }
