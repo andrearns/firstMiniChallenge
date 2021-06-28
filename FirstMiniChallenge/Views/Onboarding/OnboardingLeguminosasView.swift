@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-var allFeijoes = data.allFrutas
-
-
-
 struct OnboardingLeguminosasView: View {
     
    
@@ -31,7 +27,7 @@ struct OnboardingLeguminosasView: View {
                         
                     VStack{
                         Spacer()
-                        ForEach(data.allFeijoes, id: \.id) { food in
+                        ForEach(appData.allFeijoes, id: \.id) { food in
                             OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
                         }
                     }
