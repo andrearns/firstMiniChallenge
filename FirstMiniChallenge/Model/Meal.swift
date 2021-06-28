@@ -96,5 +96,18 @@ var imageName: String {
         return "RefeicaoTagColor"
     }
 }
-    
+var topBackName: String {
+    switch self {
+    case .cafeDaManha:
+        return "Top_Breakfast"
+    case .almoco:
+        return "Top_Lunch"
+    case .lanche:
+        return "Top_Snack"
+    case .janta:
+        return "Top_Dinner"
+    default:
+        return "RefeicaoFundo"
+        }
+    }
 }
