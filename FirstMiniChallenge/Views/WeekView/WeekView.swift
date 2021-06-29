@@ -163,6 +163,7 @@ struct WeekView: View {
                 }
             }.navigationBarTitleDisplayMode(.inline)
             .edgesIgnoringSafeArea(.top)
+            .navigationBarHidden(true)
         }.navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.all)
         .onAppear {
