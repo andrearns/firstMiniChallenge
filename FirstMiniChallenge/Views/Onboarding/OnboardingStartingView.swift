@@ -9,10 +9,11 @@ import SwiftUI
 
 struct OnboardingStartingView: View {
     var body: some View {
+        
         NavigationView{
             VStack{
                 
-              
+                Spacer()
                 ZStack{
                     VStack(alignment: .leading) {
                         
@@ -26,7 +27,7 @@ struct OnboardingStartingView: View {
                             .frame(width: 330, height: 70, alignment: .leading)
                     }
                 }
-          
+                
                 
                 VStack{
                     Image("cookingillustration")
@@ -42,17 +43,14 @@ struct OnboardingStartingView: View {
                             Text("Criar um planejamento personalizado")
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundColor(.white)
-                                .frame(width: 280, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .frame(width: 280, height: 60, alignment: .center)
                                 .background(Color(#colorLiteral(red: 0.9244319797, green: 0.5056712031, blue: 0.4165437818, alpha: 1)))
                                 .cornerRadius(10)
                         })
                         .navigationBarBackButtonHidden(true)
-                       // .padding(.top, 18)
-                        
-                }
-               
-                Spacer()
-            }
+                    
+                }.padding(.bottom, 50)
+            }.edgesIgnoringSafeArea(.all)
         }
     }
 }
@@ -62,7 +60,7 @@ struct OnboardingStartingView: View {
 struct OnboardingStartingView_Previews: PreviewProvider {
     static var previews: some View {
         
-            OnboardingStartingView()
+        OnboardingStartingView()
         
     }
 }
