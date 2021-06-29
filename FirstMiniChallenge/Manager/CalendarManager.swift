@@ -13,17 +13,19 @@ struct CalendarManager {
     func createEmptyWeek(date: Date) -> Week {
         var days: [Day] = []
         
+        let startOfWeek = date.startOfWeek
+        
         for i in 0..<7 {
             var dayComponents = DateComponents()
             dayComponents.day = i
             
-            let newDate = Calendar.current.date(byAdding: dayComponents, to: date)
+            let newDate = Calendar.current.date(byAdding: dayComponents, to: startOfWeek)
             
             let day = createEmptyDay(date: newDate!)
             days.append(day)
         }
         
-        let week = Week(startDate: date, isPlanned: false, days: days)
+        let week = Week(startDate: startOfWeek, isPlanned: false, days: days)
         return week
     }
     
@@ -92,14 +94,16 @@ struct CalendarManager {
 extension Date {
     var startOfWeek: Date {
         let calendar = Calendar.current
-        var components = calendar.dateComponents([.weekOfYear, .weekday, .day], from: self)
+        let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
+        let date = calendar.date(from: components)
         
-        if components.weekday! > 0 {
-            components.day = components.day! - components.weekday! - 1
-            return calendar.date(from: components)!
-        } else {
-            return calendar.date(from: components)!
-        }
+        
+//        if components.weekday! > 0 {
+//            components.day = components.day! - components.weekday! - 1
+//            return calendar.date(from: components)!
+//        } else {
+            return date!
+//        }
     }
     
     func dayRangeOf(weekOfYear: Int, for date: Date) -> Range<Date> {

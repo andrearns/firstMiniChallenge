@@ -9,10 +9,23 @@ import SwiftUI
 
 struct WeekView: View {
     @State var today = Date()
-    @State var selectedWeek = userData.weeks[0]
-    @State var selectedDay: Day?
-    @State var selectedWeekIndex = 0
-    @State var weeks: [Week]?
+    @State var weeks: [Week] = []
+    @State var selectedWeekIndex: Int = 0
+    @State var selectedDayIndex: Int = 0
+    
+    var selectedWeek: Week? {
+        guard selectedWeekIndex >= 0 && selectedWeekIndex < weeks.count else {
+            return nil
+        }
+        return weeks[selectedWeekIndex]
+    }
+    var selectedDay: Day? {
+        guard let selectedWeek = selectedWeek,
+              selectedDayIndex >= 0 && selectedDayIndex < selectedWeek.days.count else {
+            return nil
+        }
+        return selectedWeek.days[selectedDayIndex]
+    }
     
     var body: some View {
         NavigationView {
@@ -50,26 +63,20 @@ struct WeekView: View {
                                 if selectedWeekIndex > 1 {
                                     selectedWeekIndex -= 1
                                 }
-                                
-                                selectedWeek = userData.weeks[selectedWeekIndex]
-                                selectedDay = userData.weeks[selectedWeekIndex].days[0]
                             }) {
                                 Image(systemName: "chevron.left")
                                     .foregroundColor(Color(#colorLiteral(red: 0.9079635143, green: 0.5370315909, blue: 0.4001197517, alpha: 1)))
                             }
                             Spacer()
-                            Text(String(selectedWeek.name))
+                            Text(String(selectedWeek?.name ?? "Semana"))
                                 .padding(.horizontal, 40)
                                 .font(.system(size: 20, weight: .bold, design: .rounded))
                                 .foregroundColor(Color("TextColor"))
                             Spacer()
                             Button(action: {
-                                if selectedWeekIndex < userData.weeks.count - 1 {
+                                if selectedWeekIndex < userData.weeks.count {
                                     selectedWeekIndex += 1
                                 }
-                                
-                                selectedWeek = userData.weeks[selectedWeekIndex]
-                                selectedDay = userData.weeks[selectedWeekIndex].days[0]
                             }) {
                                 Image(systemName: "chevron.right")
                                     .foregroundColor(Color(#colorLiteral(red: 0.9079635143, green: 0.5370315909, blue: 0.4001197517, alpha: 1)))
@@ -85,34 +92,34 @@ struct WeekView: View {
                             .shadow(color: Color(#colorLiteral(red: 0.8588235294, green: 0.8745098039, blue: 0.9450980392, alpha: 0.6)), radius: 30, x: 0.0, y: 40.0)
                             .padding(10)
                         HStack {
-                            ForEach(selectedWeek.days) { day in
-                                Button(action: {
-                                    selectedDay = day
-                                    print("Dia selecionado:")
-                                    print(selectedDay)
-                                }) {
-                                    VStack {
-                                        Spacer()
-                                        Text(String(day.dayOfMonth))
-                                            .font(.system(size: 15, weight: .bold, design: .rounded))
-                                        Spacer()
-                                        Text(day.abbreviation)
-                                            .font(.system(size: 13, weight: .bold, design: .rounded))
-                                        Spacer()
+                            if let selectedWeek = selectedWeek {
+                                ForEach(Array(selectedWeek.days.enumerated()), id: \.offset) { index, day in
+                                    Button(action: {
+                                        selectedDayIndex = index
+                                    }) {
+                                        VStack {
+                                            Spacer()
+                                            Text(String(day.dayOfMonth))
+                                                .font(.system(size: 15, weight: .bold, design: .rounded))
+                                            Spacer()
+                                            Text(day.abbreviation)
+                                                .font(.system(size: 13, weight: .bold, design: .rounded))
+                                            Spacer()
+                                        }
+                                        .padding(2)
+                                        .frame(width: 34, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .offset()
+                                        .foregroundColor( Color(.white))
+                                        .padding(4)
+                                        .background( Color("DefaultBlue"))
+                                        .cornerRadius(10000)
                                     }
-                                    .padding(2)
-                                    .frame(width: 34, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .offset()
-                                    .foregroundColor( Color(.white))
-                                    .padding(4)
-                                    .background( Color("DefaultBlue"))
-                                    .cornerRadius(10000)
                                 }
                             }
                         }.padding(.horizontal, 10)
                     }.padding(.bottom,15)
                     
-                    if !selectedWeek.isPlanned {
+                    if !(selectedWeek?.isPlanned ?? true) {
                         ZStack {
                             Rectangle()
                                 .foregroundColor(.white)
@@ -128,10 +135,13 @@ struct WeekView: View {
                         }
                         .padding(20)
                         Button(action:{
+                            guard let selectedWeek = selectedWeek else { return }
                             let plannedWeek = MealManager.shared.planWeek(week: selectedWeek, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
-                            selectedWeek = plannedWeek
-                            selectedDay = selectedWeek.days[0]
-                            userData.weeks[selectedWeekIndex] = selectedWeek
+                            userData.weeks[selectedWeekIndex] = plannedWeek
+//                            weeks = CalendarManager.shared.loadWeeks(date: today, weeks: userData.weeks, number: 4)
+                            var weeks = weeks
+                            weeks[selectedWeekIndex] = plannedWeek
+                            self.weeks = weeks
                             print("________________________________________")
                             print("Refeições da semana:")
                             print("Semana do mês: \(plannedWeek.weekOfMonth)")
@@ -150,7 +160,7 @@ struct WeekView: View {
                         Spacer()
                     }
                     else {
-                        if selectedDay!.meals.count > 0 {
+                        if (selectedDay?.meals.count ?? 0) > 0 {
                             VStack {
                                 ForEach(selectedDay!.meals) { meal in
                                     NavigationLink(destination: MealView(meal: meal)) {
@@ -168,8 +178,8 @@ struct WeekView: View {
         .edgesIgnoringSafeArea(.all)
         .onAppear {
             weeks = CalendarManager.shared.loadWeeks(date: today, weeks: userData.weeks, number: 4)
-            selectedWeek = CalendarManager.shared.searchWeek(date: today, weeks: weeks!)
-            selectedWeekIndex = CalendarManager.shared.indexOf(chosenWeek: selectedWeek, weeks: weeks!)
+            let selectedWeek = CalendarManager.shared.searchWeek(date: today, weeks: weeks)
+            selectedWeekIndex = CalendarManager.shared.indexOf(chosenWeek: selectedWeek, weeks: weeks)
         }
     }
 }
