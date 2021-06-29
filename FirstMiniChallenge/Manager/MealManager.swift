@@ -157,7 +157,7 @@ class MealManager {
     
     func planWeek(week: Week, diet: Diet, feijoes: [Food], cereaisCafeELanche: [Food], cereaisAlmocoEJanta: [Food], raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food], bebidas: [Food]) -> Week{
         
-        let firstDay: Date = week.days[1].date
+        let firstDay: Date = week.days[0].date
         var isPlanned = false
         
         var days: [Day] = []
