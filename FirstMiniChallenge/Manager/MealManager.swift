@@ -55,6 +55,13 @@ class MealManager {
                 optionHasCereaisAlmocoEJanta = true
                 categoriesIncluded.append(.cereaisAlmocoEJanta)
                 cerealAlmocoEJanta = sortFood(in: .cereaisAlmocoEJanta, foods: cereaisAlmocoEJanta)
+                
+                // Elimina a opção Macarrão se tem algum feijão no prato
+                if optionHasFeijao {
+                    while cerealAlmocoEJanta == Food(name: "Macarrão", category: .cereaisAlmocoEJanta, diet: .veggie) {
+                        cerealAlmocoEJanta = sortFood(in: .cereaisAlmocoEJanta, foods: cereaisAlmocoEJanta)
+                    }
+                }
                 foods.append(cerealAlmocoEJanta!)
             case .raizesETuberculos:
                 optionHasRaizesETuberculos = true
@@ -66,6 +73,11 @@ class MealManager {
                 categoriesIncluded.append(.legumesEVerduras)
                 legumeEVerdura1 = sortFood(in: .legumesEVerduras, foods: legumesEVerduras)
                 legumeEVerdura2 = sortFood(in: .legumesEVerduras, foods: legumesEVerduras)
+                
+                // Impede que os legumes e verduras se repitam na mesma refeição
+                while legumeEVerdura1 == legumeEVerdura2 {
+                    legumeEVerdura2 = sortFood(in: .legumesEVerduras, foods: legumesEVerduras)
+                }
                 foods.append(legumeEVerdura1!)
                 foods.append(legumeEVerdura2!)
             case .frutas:
@@ -113,61 +125,27 @@ class MealManager {
     func planDay(day: Day, diet: Diet, feijoes: [Food], cereaisCafeELanche: [Food], cereaisAlmocoEJanta: [Food], raizesETuberculos: [Food], legumesEVerduras: [Food], frutas: [Food], castanhasENozes: [Food], leitesEQueijos: [Food], carnesEOvos: [Food], bebidas: [Food]) -> Day {
         
         var meals: [Meal] = []
-        var plannedMeals: [MealType] = []
         var isPlanned = false
-        var breakfast: Meal?
-        var lunch: Meal?
-        var snack: Meal?
-        var dinner: Meal?
         
-        if day.isBreakfastEnabled {
-            breakfast = generateMeal(type: .breakfast, mealOption: sortMealOption(mealOptions: appData.breakfastOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
-            meals.append(breakfast!)
-        }
-        if day.isLunchEnabled {
-            lunch = generateMeal(type: .lunch, mealOption: sortMealOption(mealOptions: appData.lunchOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
-            meals.append(lunch!)
-        }
-        if day.isSnackEnabled {
-            snack = generateMeal(type: .snack, mealOption: sortMealOption(mealOptions: appData.snackOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
-            meals.append(snack!)
-        }
-        if day.isDinnerEnabled {
-            // Repeat lunch on dinner
-            if day.isLunchEnabled {
-                dinner = Meal(imageName: lunch!.imageName, type: .dinner, option: lunch!.option, diet: lunch!.diet, isPlanned: true, foods: lunch!.foods)
-                meals.append(dinner!)
-            } else {
-                dinner = generateMeal(type: .dinner, mealOption: sortMealOption(mealOptions: appData.dinnerOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
-                meals.append(dinner!)
-            }
-        }
+        // Cria o café da manhã
+        let breakfast = generateMeal(type: .breakfast, mealOption: sortMealOption(mealOptions: appData.breakfastOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+        meals.append(breakfast)
         
-        for i in 0..<meals.count {
-            switch meals[i].type {
-            case .breakfast:
-                plannedMeals.append(.breakfast)
-            case .lunch:
-                plannedMeals.append(.lunch)
-            case .snack:
-                plannedMeals.append(.snack)
-            case .dinner:
-                plannedMeals.append(.dinner)
-            default:
-                print("Não existe nenhum tipo de refeição com esse nome")
-            }
-        }
+        // Cria o almoço
+        let lunch = generateMeal(type: .lunch, mealOption: sortMealOption(mealOptions: appData.lunchOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+        meals.append(lunch)
+        
+        // Cria o lanche
+        let snack = generateMeal(type: .snack, mealOption: sortMealOption(mealOptions: appData.snackOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+        meals.append(snack)
+        
+        // Cria a janta baseado no almoço
+        let dinner = Meal(imageName: lunch.imageName, type: .dinner, option: lunch.option, diet: lunch.diet, isPlanned: true, foods: lunch.foods)
+        meals.append(dinner)
         
         isPlanned = true
-        let plannedDay = Day(date: day.date, plannedMeals: plannedMeals, meals: meals, isPlanned: isPlanned)
-        print("Dia da semana: \(plannedDay.weekday)")
-        print("Abreviação: \(plannedDay.abbreviation)")
-        print("Dia do mês: \(plannedDay.dayOfMonth)")
-        print("Mês: \(plannedDay.month)")
-        print("Semana do mês: \(plannedDay.weekOfMonth)")
-        print("Semana do ano: \(plannedDay.weekOfYear)")
-        print("Ano: \(plannedDay.year)")
-        print("_______________________________________________")
+        
+        let plannedDay = Day(date: day.date, meals: meals, isPlanned: isPlanned)
         return plannedDay
     }
 
@@ -192,23 +170,5 @@ class MealManager {
         
         let plannedWeek = Week(startDate: firstDay, isPlanned: isPlanned, days: days)
         return plannedWeek
-    }
-}
-
-extension Date {
-    var startOfWeek: Date {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekOfYear, .weekday], from: self)
-        return calendar.date(from: components)!
-    }
-    
-    func dayRangeOf(weekOfYear: Int, for date: Date) -> Range<Date> {
-        let calendar = Calendar.current
-        let year = calendar.component(.yearForWeekOfYear, from: date)
-        let startComponents = DateComponents(weekOfYear: weekOfYear, yearForWeekOfYear: year)
-        let startDate = calendar.date(from: startComponents)!
-        let endComponents = DateComponents(day:7, second: -1)
-        let endDate = calendar.date(byAdding: endComponents, to: startDate)!
-        return startDate..<endDate
     }
 }

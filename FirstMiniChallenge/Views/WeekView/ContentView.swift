@@ -59,7 +59,7 @@ struct ContentView: View {
             }
             
             Button(action:{
-                let todayDate = CalendarManager.shared.createEmptyDay(date: chosenDay, isBreakfastEnabled: true, isLunchEnabled: true, isSnackEnabled: true, isDinnerEnabled: true)
+                let todayDate = CalendarManager.shared.createEmptyDay(date: chosenDay)
                 let plannedDay = MealManager.shared.planDay(day: todayDate, diet: .regular, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
                 print("________________________________________")
                 print("Refeições do dia: \(plannedDay.name)")
@@ -75,7 +75,7 @@ struct ContentView: View {
             .padding(.bottom, 10)
             
             Button(action:{
-                let thisWeek = CalendarManager.shared.createEmptyWeek(date: chosenDay, mealsEnabledPreferences: userData.mealsEnabledInWeek)
+                let thisWeek = CalendarManager.shared.createEmptyWeek(date: chosenDay)
                 let plannedWeek = MealManager.shared.planWeek(week: thisWeek, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
                 print("________________________________________")
                 print("Refeições da semana:")
