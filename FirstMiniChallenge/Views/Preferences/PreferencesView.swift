@@ -42,8 +42,7 @@ struct PreferencesView: View {
                     }.padding(50)
                 }.padding(.bottom, 30)
                 
-                WeekSelectorView()
-                DaySelectorView(days: userData.weeks[0].days)
+                
             }
         }.navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.all)

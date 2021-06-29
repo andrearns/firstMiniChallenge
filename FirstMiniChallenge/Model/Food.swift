@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Food {
+struct Food: Hashable {
     var id: String {
         return name
     }
@@ -71,7 +71,7 @@ enum Category {
         case .carnesEOvos:
             return "Grupo das carnes e ovos: excelentes fontes de proteína de alta qualidade e teor elevado de muitos micronutrientes, como ferro, zinco e vitamina B12."
         default:
-            return "Icone dos Tipos"
+            return "Descrição não encontrada"
         }
     }
 }
