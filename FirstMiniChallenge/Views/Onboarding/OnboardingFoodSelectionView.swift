@@ -9,25 +9,21 @@ import SwiftUI
 
 struct OnboardingFoodSelectionView: View {
     
-   
+    
     var foodType: Food
     
     @State private var didSelected: Bool = false
-    
-    
-  
-    
     var body: some View {
         
         VStack{
             Button(action: {
-             self.didSelected.toggle()
+                self.didSelected.toggle()
             })
             {
                 HStack{
                     Text(foodType.name)
-                     .foregroundColor(Color("TextColor"))
-                     .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(didSelected ? Color(.white): Color("TextColor"))
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
                     Spacer()
                 }
             }
