@@ -33,9 +33,14 @@ struct OnboardingFoodSelectionView: View {
             }
             .frame(width: 300, height: 50, alignment: .center)
             .padding()
-            .background(didSelected ? Color(#colorLiteral(red: 0.6932435632, green: 1, blue: 0.6333246231, alpha: 1)): Color.white)
+            .background(Color.white)
             .cornerRadius(20)
             .shadow(color: Color("Shadow"), radius: 50, x: 0.0, y: 40.0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                .strokeBorder(didSelected ? Color(#colorLiteral(red: 0.7419840097, green: 0.7937906384, blue: 0.4423563182, alpha: 1)) : Color.white, lineWidth: 3)
+                .shadow(color: Color("Shadow"), radius: 50, x: 0.0, y: 40.0)
+            )
         }
     }
 }
