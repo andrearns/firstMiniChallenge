@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct FoodView: View {
+    var food: Food
 
-    let  foodName: String
-
-    
     var body: some View {
         HStack {
-            Image("dairy__meal_plan")
+            Image(food.category.iconTypeFood)
                 .frame(width: 76, height: 76)
                 .padding(.leading, 15)
                 .shadow(color: Color(#colorLiteral(red: 0.8588235294, green: 0.8745098039, blue: 0.9450980392, alpha: 0.6)), radius: 30, x: 0.0, y: 40.0)
                 .scaleEffect(CGSize(width: 0.5, height: 0.5))
 
             VStack (alignment: .leading) {
-            Text(foodName)
+                Text(food.name)
                 .foregroundColor(.primary)
                 .bold()
                 .font(.headline)
-                Text("Grupo dos Laticínios: são ricos em algumas vitaminas, principalmente a vitamina A e em cálcio. Podem ser ricos em gorduras saturadas, escolha opções com menos gordura.")
+                    .padding(.bottom, 5)
+                Text(food.category.textTypeFood)
                     .foregroundColor(.secondary)
                     .font(.caption)
             }
-            
+            Spacer()
             Button(action: {
-                print("button pressed")
+                print(food)
             }) {
                 Image(systemName: "arrow.clockwise")
                     .foregroundColor(Color(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)))
@@ -49,6 +48,6 @@ struct FoodView: View {
 
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodView(foodName: "Leite")
+        FoodView(food: appData.allCarnesEOvos[0])
     }
 }

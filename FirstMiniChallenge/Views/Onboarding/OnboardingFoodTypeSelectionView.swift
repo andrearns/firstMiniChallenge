@@ -19,7 +19,7 @@ struct OnboardingFoodTypeSelectionView: View {
             ZStack{
                 VStack{
                     Image(image)
-                    .frame(width: UIScreen.main.bounds.width, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: UIScreen.main.bounds.width, height: 100, alignment: .center)
                      .scaleEffect(CGSize(width: 0.5, height: 0.5))
                     }
                 
@@ -27,15 +27,17 @@ struct OnboardingFoodTypeSelectionView: View {
                     Text("Que \(typeOfFood) \nvocê consome?")
                         .font(.system(size: 26, weight: .semibold, design: .rounded))
                         .foregroundColor(Color("TextColor"))
-                        //.padding(.bottom, 5)
+                        .padding(.leading)
+    
                         
                     Text("Selecione uma ou mais opções")
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundColor(Color("TextColor"))
+                        .padding(.leading)
                    }
-                .padding(.top, 300)
+               .padding(.top, 150)
                 .padding(.leading)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width, alignment: .leading)
                    
                    
             }

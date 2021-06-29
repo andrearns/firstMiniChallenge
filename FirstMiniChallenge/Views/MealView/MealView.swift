@@ -7,38 +7,25 @@
 
 import SwiftUI
 
-
-
-
 struct MealView: View {
-
+    let meal: Meal
 
     var body: some View {
-
-        VStack (alignment: .leading) {
-            
-            ScrollView {
-            TopMealView()
-
-                VStack {
-                    FoodView(foodName: "Leite")
-                    FoodView(foodName: "Leite")
-                    FoodView(foodName: "Leite")
-                    FoodView(foodName: "Leite")
-                    FoodView(foodName: "Leite")
+        NavigationView {
+            ZStack {
+                VStack (alignment: .leading) {
+                    ScrollView {
+                        VStack {
+                            TopMealView(meal: meal)
+                                .padding(.bottom, 40)
+                            ForEach(meal.foods, id: \.self) { food in
+                                FoodView(food: food)
+                            }
+                        }
+                        .padding(.bottom, 40)
+                    }
                 }
-                .padding(.top, 40)
-                
-            }.navigationBarTitleDisplayMode(.inline)
-            .edgesIgnoringSafeArea(.all)
             }
-        }
-    }
-
-
-struct MealView_Previews: PreviewProvider {
-    static var previews: some View {
-        MealView()
-    
+        }.edgesIgnoringSafeArea(.top)
     }
 }
