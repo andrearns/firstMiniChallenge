@@ -58,13 +58,12 @@ struct Day: Identifiable {
         let dateComponents = Calendar.current.dateComponents([.year], from: date)
         return dateComponents.year!
     }
-    var plannedMeals: [MealType]
     var meals: [Meal]
-    var isBreakfastEnabled: Bool = false
-    var isLunchEnabled: Bool = false
-    var isSnackEnabled: Bool = false
-    var isDinnerEnabled: Bool = false
-    var isPlanned: Bool = false
+    var isBreakfastEnabled = true
+    var isLunchEnabled = true
+    var isSnackEnabled = true
+    var isDinnerEnabled = true
+    var isPlanned = false
 }
 
 extension Day: Equatable {
@@ -75,3 +74,4 @@ extension Day: Equatable {
             lhs.id == rhs.id
     }
 }
+

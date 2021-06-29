@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Food: Hashable {
+struct Food: Hashable, Equatable {
     var id: String {
         return name
     }
