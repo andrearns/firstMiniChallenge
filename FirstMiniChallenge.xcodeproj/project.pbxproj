@@ -47,6 +47,7 @@
 		F66E7A002688B78700AD8B60 /* OnboardingCarnesOvosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E79FF2688B78700AD8B60 /* OnboardingCarnesOvosView.swift */; };
 		F66E7A022688B7A300AD8B60 /* OnboardingFrutasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E7A012688B7A300AD8B60 /* OnboardingFrutasView.swift */; };
 		F66E7A042688B7B600AD8B60 /* OnboardingTuberculosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E7A032688B7B600AD8B60 /* OnboardingTuberculosView.swift */; };
+		F6E58680268B7C450054C7A4 /* OnboardingPreparing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E5867F268B7C440054C7A4 /* OnboardingPreparing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		F66E79FF2688B78700AD8B60 /* OnboardingCarnesOvosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCarnesOvosView.swift; sourceTree = "<group>"; };
 		F66E7A012688B7A300AD8B60 /* OnboardingFrutasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFrutasView.swift; sourceTree = "<group>"; };
 		F66E7A032688B7B600AD8B60 /* OnboardingTuberculosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTuberculosView.swift; sourceTree = "<group>"; };
+		F6E5867F268B7C440054C7A4 /* OnboardingPreparing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPreparing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				F66E79FF2688B78700AD8B60 /* OnboardingCarnesOvosView.swift */,
 				F66E7A012688B7A300AD8B60 /* OnboardingFrutasView.swift */,
 				F66E7A032688B7B600AD8B60 /* OnboardingTuberculosView.swift */,
+				F6E5867F268B7C440054C7A4 /* OnboardingPreparing.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				4166D9742687BAFC008490C4 /* WithoutMealPlanningCardView.swift in Sources */,
 				41AA3C732687876A00A1D616 /* TipsView.swift in Sources */,
 				F66E79FE2688B75B00AD8B60 /* OnboardingLaticíniosView.swift in Sources */,
+				F6E58680268B7C450054C7A4 /* OnboardingPreparing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
