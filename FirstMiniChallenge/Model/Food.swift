@@ -47,6 +47,8 @@ enum Category {
             return "dairy__meal_plan"
         case .carnesEOvos:
             return "meat_and_eggs__meal_plan"
+        case .bebidas:
+            return "IconDrink"
         default:
             return "Icone dos Tipos"
         }
@@ -70,6 +72,8 @@ enum Category {
             return "Grupo dos Laticínios: são ricos em algumas vitaminas, principalmente a vitamina A e em cálcio. "
         case .carnesEOvos:
             return "Grupo das carnes e ovos: excelentes fontes de proteína de alta qualidade e teor elevado de muitos micronutrientes, como ferro, zinco e vitamina B12."
+        case .bebidas:
+            return "Bebidas matutinas podem ser de diversos grupos, como dos latícineos e frutas, ou ainda o café e chás. Tente variar as bebidas nas suas manhãs."
         default:
             return "Descrição não encontrada"
         }
