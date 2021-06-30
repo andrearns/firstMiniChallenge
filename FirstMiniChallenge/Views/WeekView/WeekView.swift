@@ -97,22 +97,24 @@ struct WeekView: View {
                                     Button(action: {
                                         selectedDayIndex = index
                                     }) {
-                                        VStack {
-                                            Spacer()
-                                            Text(String(day.dayOfMonth))
-                                                .font(.system(size: 15, weight: .bold, design: .rounded))
-                                            Spacer()
-                                            Text(day.abbreviation)
-                                                .font(.system(size: 13, weight: .bold, design: .rounded))
-                                            Spacer()
-                                        }
-                                        .padding(2)
-                                        .frame(width: 34, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .offset()
-                                        .foregroundColor( Color(.white))
-                                        .padding(4)
-                                        .background( Color("DefaultBlue"))
-                                        .cornerRadius(10000)
+                                        
+                                            VStack {
+                                                Spacer()
+                                                Text(String(day.dayOfMonth))
+                                                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                                                Spacer()
+                                                Text(day.abbreviation)
+                                                    .font(.system(size: 13, weight: .bold, design: .rounded))
+                                                Spacer()
+                                            }
+                                            .padding(2)
+                                            .frame(width: 34, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            .offset()
+                                            .foregroundColor(selectedDayIndex == index ? .white : Color("TextColor"))
+                                            .padding(4)
+                                            .background(selectedDayIndex == index ? Color("DefaultBlue") : .white)
+                                            .cornerRadius(10000)
+                                       
                                     }
                                 }
                             }
@@ -180,6 +182,7 @@ struct WeekView: View {
             weeks = CalendarManager.shared.loadWeeks(date: today, weeks: userData.weeks, number: 4)
             let selectedWeek = CalendarManager.shared.searchWeek(date: today, weeks: weeks)
             selectedWeekIndex = CalendarManager.shared.indexOf(chosenWeek: selectedWeek, weeks: weeks)
+            selectedDayIndex = CalendarManager.shared.indexOf(date: today, days: selectedWeek.days)
         }
     }
 }
