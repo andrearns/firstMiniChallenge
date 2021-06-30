@@ -176,7 +176,8 @@ struct WeekView: View {
             }.navigationBarTitleDisplayMode(.inline)
             .edgesIgnoringSafeArea(.top)
             .navigationBarHidden(true)
-        }.navigationBarTitleDisplayMode(.inline)
+        }.navigationBarHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.all)
         .onAppear {
             weeks = CalendarManager.shared.loadWeeks(date: today, weeks: userData.weeks, number: 4)
