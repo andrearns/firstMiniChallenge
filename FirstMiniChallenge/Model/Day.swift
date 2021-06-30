@@ -9,6 +9,7 @@ import Foundation
 
 struct Day: Identifiable {
     var id = UUID()
+    var isSelected: Bool = false
     var name: String {
         let dateComponents = Calendar.current.dateComponents([.day, .month], from: date)
         return String(dateComponents.day!) + "/" + String(dateComponents.month!)
@@ -58,6 +59,7 @@ struct Day: Identifiable {
         let dateComponents = Calendar.current.dateComponents([.year], from: date)
         return dateComponents.year!
     }
+
     var meals: [Meal]
     var isBreakfastEnabled = true
     var isLunchEnabled = true

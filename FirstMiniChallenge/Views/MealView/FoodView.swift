@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FoodView: View {
-    var food: Food
+    @State var food: Food
 
     var body: some View {
         HStack {
@@ -30,6 +30,55 @@ struct FoodView: View {
             }
             Spacer()
             Button(action: {
+                let oldFood = food
+                
+                while oldFood == food {
+                    switch (food.category) {
+                    case .bebidas:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedBebidas)
+                        }
+                    case .carnesEOvos:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCarnesEOvos)
+                        }
+                    case .castanhasENozes:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCastanhasENozes)
+                        }
+                    case .cereaisAlmocoEJanta:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCereaisAlmocoEJanta)
+                        }
+                    case .cereaisCafeELanche:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCereaisCafeELanche)
+                        }
+                    case .feijoes:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedFeijoes)
+                        }
+                    case .frutas:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedFrutas)
+                        }
+                    case .legumesEVerduras:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedLegumesEVerduras)
+                        }
+                    case .leiteEQueijos:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedLeitesEQueijos)
+                        }
+                    case .raizesETuberculos:
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedRaizesETuberculos)
+                        }
+                    default:
+                        print("Erro")
+                    }
+                }
+               
                 print(food)
             }) {
                 Image(systemName: "arrow.clockwise")
@@ -48,6 +97,6 @@ struct FoodView: View {
 
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodView(food: appData.allCarnesEOvos[0])
+        FoodView(food: userData.selectedCarnesEOvos[0])
     }
 }

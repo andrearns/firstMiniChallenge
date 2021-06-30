@@ -13,8 +13,6 @@ struct UserData { // Dados do usuário
     // Nome do usuário
     public var name: String = "André"
     
-    public var today = Date()
-    
     // Dieta -> .regular ou .veggie
     var diet: Diet = .regular
     
