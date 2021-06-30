@@ -27,6 +27,8 @@ struct Meal: Identifiable {
     var diet: Diet
     var isPlanned: Bool
     var foods: [Food]
+    var hasDrink: Bool
+    var hasFruitOutsidePlate: Bool
 }
 
 struct MealOption {
@@ -35,6 +37,9 @@ struct MealOption {
     var type: MealType
     var imageName: String
     var categoriesIncluded: [Category]
+    var hasDrink: Bool
+    var hasFruitOutsidePlate: Bool
+    
 }
 
 enum Diet {

@@ -29,3 +29,14 @@ struct MealView: View {
         }.edgesIgnoringSafeArea(.top)
     }
 }
+
+struct MealView_Previews: PreviewProvider {
+    static var previews: some View {
+        MealView(meal: Meal(imageName: "Meal_Breakfast_1_8", type: .breakfast, option: appData.breakfastOptions[0], diet: .regular, isPlanned: true, foods: [
+                Food(name: "ovos", category: .carnesEOvos, diet: .veggie),
+                Food(name: "PTS", category: .carnesEOvos, diet: .veggie),
+                Food(name: "Seitan", category: .carnesEOvos, diet: .veggie),
+                Food(name: "Frango", category: .carnesEOvos, diet: .regular),
+        ], hasDrink: true, hasFruitOutsidePlate: false))
+    }
+}
