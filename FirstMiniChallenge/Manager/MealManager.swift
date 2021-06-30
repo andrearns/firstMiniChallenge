@@ -110,7 +110,7 @@ class MealManager {
             }
         }
 
-        let meal = Meal(imageName: mealOption.imageName, type: type, option: mealOption, diet: diet, isPlanned: true, foods: foods)
+        let meal = Meal(imageName: mealOption.imageName, type: type, option: mealOption, diet: diet, isPlanned: true, foods: foods, hasDrink: mealOption.hasDrink, hasFruitOutsidePlate: mealOption.hasFruitOutsidePlate)
     
         return meal
     }
@@ -140,7 +140,7 @@ class MealManager {
         meals.append(snack)
         
         // Cria a janta baseado no almoço
-        let dinner = Meal(imageName: lunch.imageName, type: .dinner, option: lunch.option, diet: lunch.diet, isPlanned: true, foods: lunch.foods)
+        let dinner = Meal(imageName: lunch.imageName, type: .dinner, option: lunch.option, diet: lunch.diet, isPlanned: true, foods: lunch.foods, hasDrink: lunch.hasDrink, hasFruitOutsidePlate: lunch.hasFruitOutsidePlate)
         meals.append(dinner)
         
         isPlanned = true

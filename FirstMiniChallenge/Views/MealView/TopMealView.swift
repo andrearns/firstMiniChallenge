@@ -47,6 +47,27 @@ struct TopMealView: View {
                 .overlay(ImageOverlayType(meal: meal), alignment: .topLeading)
                 .ignoresSafeArea()
                 .edgesIgnoringSafeArea(.all)
+           
+            if meal.hasDrink {
+                HStack {
+                    Spacer()
+                    Image("Teste_Drink")
+                        .scaleEffect(x: 1, y: 1, anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .padding(.trailing, 60)
+                }
+                .frame(height: 50, alignment: .trailing)
+            } else if meal.hasFruitOutsidePlate {
+                HStack {
+                    Spacer()
+                    Image("Teste_Frutas")
+                        .scaleEffect(x: 1.5, y: 1.5, anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .padding(.trailing, 50)
+                        .padding(.top, 20)
+                }
+                .frame(height: 50, alignment: .trailing)
+            }
         }.ignoresSafeArea()
         .edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)
