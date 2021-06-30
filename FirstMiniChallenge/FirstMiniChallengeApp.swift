@@ -11,7 +11,8 @@ import SwiftUI
 struct FirstMiniChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WeekView()
+            // OnboardingStartingView()
         }
     }
 }
