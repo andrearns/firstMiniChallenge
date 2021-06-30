@@ -56,10 +56,10 @@ struct MealCardView: View {
 struct MealCardView_Previews: PreviewProvider {
     static var previews: some View {
         MealCardView(meal:
-            Meal(name: "Almoço", imageName: "cereals_meal_plan", type: .almoco, diet: .regular, isPlanned: true, foods: [
+                        Meal(imageName: "cereals_meal_plan", type: .lunch, option: appData.breakfastOptions[0], diet: .regular, isPlanned: true, foods: [
                 Food(name: "Abóbora", category: .legumesEVerduras, diet: .veggie),
                 Food(name: "Peixe", category: .carnesEOvos, diet: .regular),
-                Food(name: "Arroz integral", category: .cereais, diet: .veggie)
+                Food(name: "Arroz integral", category: .cereaisAlmocoEJanta, diet: .veggie)
             
             ]))
             

@@ -44,6 +44,7 @@ struct PreferencesView: View {
                    
                 }.padding(.bottom, 40)
                 
+<<<<<<< HEAD:FirstMiniChallenge/Views/PreferencesView.swift
                 VStack(alignment: .leading){
                     
                     ForEach(preferencesConstruct, id: \.id) { construct in
@@ -53,6 +54,12 @@ struct PreferencesView: View {
                 }
             }.padding(.top, 60)
         }
+=======
+                
+            }
+        }.navigationBarTitleDisplayMode(.inline)
+        .edgesIgnoringSafeArea(.all)
+>>>>>>> main:FirstMiniChallenge/Views/Preferences/PreferencesView.swift
     }
 }
 

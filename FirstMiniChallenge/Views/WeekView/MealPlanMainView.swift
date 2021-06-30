@@ -15,40 +15,9 @@ struct MealPlanMainView: View {
     @State var isButtonPressed = false
     @State var pressedDay: String?
     
-    
-    @State var meals = [
-        Meal(name: "CafédaManhã", imageName: "cereals_meal_plan", type: .cafeDaManha, diet: .regular, isPlanned: true, foods: [
-                Food(name: "Fruta", category: .frutas, diet: .veggie),
-                Food(name: "Suco", category: .frutas, diet: .regular),
-                Food(name: "Aveia", category: .cereais, diet: .veggie)]),
-        
-        Meal(name: "Almoço", imageName: "cereals_meal_plan", type: .almoco, diet: .regular, isPlanned: true, foods: [
-                Food(name: "Abóbora", category: .legumesEVerduras, diet: .veggie),
-                Food(name: "Peixe", category: .carnesEOvos, diet: .regular),
-                Food(name: "Arroz integral", category: .cereais, diet: .veggie)]),
-        
-        Meal(name: "Jantar", imageName: "cereals_meal_plan", type: .janta, diet: .regular, isPlanned: true, foods: [
-                Food(name: "Abóbora", category: .legumesEVerduras, diet: .veggie),
-                Food(name: "Peixe", category: .carnesEOvos, diet: .regular),
-                Food(name: "Arroz integral", category: .cereais, diet: .veggie)]),
-        
-        Meal(name: "Lanche", imageName: "cereals_meal_plan", type: .lanche, diet: .regular, isPlanned: true, foods: [
-                Food(name: "Abóbora", category: .legumesEVerduras, diet: .veggie),
-                Food(name: "Peixe", category: .carnesEOvos, diet: .regular),
-                Food(name: "Arroz integral", category: .cereais, diet: .veggie)])
-    ]
-    
-    
-    
     var body: some View {
-        
-        
-        
         ScrollView(.vertical, showsIndicators: false) {
-            
             VStack() {
-                
-                
                 ZStack(alignment: .topLeading) {
                     
                     Image("Top_Lunch")
@@ -66,7 +35,7 @@ struct MealPlanMainView: View {
                         
                         
                         
-                        Text("Mario, acompanhe seus resultados\npara uma vida mais saudável")
+                        Text("\(userData.name), acompanhe seus resultados\npara uma vida mais saudável")
                             .padding(.top, 10)
                             .foregroundColor(.white)
                             .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -76,17 +45,17 @@ struct MealPlanMainView: View {
                 
 
                 WeekSelectorView()
-                DaySelectorView()
+                DaySelectorView(days: userData.weeks[0].days)
                 
                 VStack {
                     
-                    ForEach(meals, id: \.id) { meal in
-                        Button(action: {
-                            print("button pressed")
-                        }) {
-                            MealCardView(meal: meal)
-                        }.padding(15)
-                    }
+//                    ForEach(meals, id: \.id) { meal in
+//                        Button(action: {
+//                            print("button pressed")
+//                        }) {
+//                            MealCardView(meal: meal)
+//                        }.padding(15)
+//                    }
                 }.padding(.horizontal, 20)
                 
                 Spacer()
