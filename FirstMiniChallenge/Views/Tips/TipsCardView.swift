@@ -9,22 +9,34 @@ import SwiftUI
 
 struct TipsCardView: View {
     @State private var isCardExpanded = false
+    @State var tip: Tips
     
     var body: some View {
-        VStack(alignment: .leading){
+       
+        VStack(alignment: .leading) {
+
+            HStack {
+                Rectangle()
+                    .frame(width: 5)
+                    .foregroundColor(Color(tip.color))
+                    .cornerRadius(100)
            
-            DisclosureGroup("dica n1", isExpanded: $isCardExpanded) {
-             Text("Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1Dica n 1")
-           
-                
-            }.background(Color(.white))
-            .frame(width: 360, height: 100, alignment: .center)
-            .padding(10)
-            .foregroundColor(Color("TextColor"))
-            .font(.system(size: 16, weight: .semibold, design: .rounded))
-            .cornerRadius(20)
-            .background(Color(.white))
-            .shadow(color: Color("Shadow"), radius: 50, x: 0.0, y: 40.0)
+                DisclosureGroup(tip.title, isExpanded: $isCardExpanded) {
+                    VStack(alignment: .leading) {
+                        Text(tip.bodyText)
+                            .foregroundColor(Color("TextColor"))
+        
+                            .font(.system(size: 14, weight: .regular, design: .rounded))
+                    }.frame(maxWidth: .infinity)
+                }
+                .frame(alignment: .leading)
+                .padding(40)
+                .foregroundColor(Color("TextColor"))
+                .font(.system(size: 16, weight: .semibold, design: .rounded))
+                .cornerRadius(30)
+                .background(Color(.white))
+                .shadow(color: Color("Shadow"), radius: 50, x: 0.0, y: 40.0)
+            }
         }.padding(.all)
     }
 }
@@ -32,6 +44,6 @@ struct TipsCardView: View {
 
 struct TipsCardView_Previews: PreviewProvider {
     static var previews: some View {
-        TipsCardView()
+        TipsCardView(tip: Tips(title: "", bodyText: "", color: "Shadow"))
     }
 }

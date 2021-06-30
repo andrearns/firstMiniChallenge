@@ -16,7 +16,6 @@ struct TabBarView: View {
                     Image(systemName: "sparkles.square.fill.on.square")
                         .foregroundColor(Color("TextColor"))
                     Text("Dicas")
-                    
                 }
             
             MealPlanMainView()
@@ -26,19 +25,13 @@ struct TabBarView: View {
                     Text("Planejamento")
                 }
             
-            
-           
-            
             PreferencesView()
                 .tabItem {
                     Image(systemName: "person.circle")
                         .foregroundColor(Color("TextColor"))
                     Text("Preferências")
-                    
                 }
         }
-        
-        
     }
 }
 
