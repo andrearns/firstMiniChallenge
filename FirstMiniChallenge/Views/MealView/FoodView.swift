@@ -35,25 +35,45 @@ struct FoodView: View {
                 while oldFood == food {
                     switch (food.category) {
                     case .bebidas:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedBebidas)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedBebidas)
+                        }
                     case .carnesEOvos:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCarnesEOvos)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCarnesEOvos)
+                        }
                     case .castanhasENozes:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCastanhasENozes)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCastanhasENozes)
+                        }
                     case .cereaisAlmocoEJanta:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCereaisAlmocoEJanta)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCereaisAlmocoEJanta)
+                        }
                     case .cereaisCafeELanche:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCereaisCafeELanche)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedCereaisCafeELanche)
+                        }
                     case .feijoes:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedFeijoes)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedFeijoes)
+                        }
                     case .frutas:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedFrutas)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedFrutas)
+                        }
                     case .legumesEVerduras:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedLegumesEVerduras)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedLegumesEVerduras)
+                        }
                     case .leiteEQueijos:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedLeitesEQueijos)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedLeitesEQueijos)
+                        }
                     case .raizesETuberculos:
-                        self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedRaizesETuberculos)
+                        if userData.selectedBebidas.count > 0 {
+                            self.food = MealManager.shared.sortFood(in: food.category, foods: userData.selectedRaizesETuberculos)
+                        }
                     default:
                         print("Erro")
                     }
