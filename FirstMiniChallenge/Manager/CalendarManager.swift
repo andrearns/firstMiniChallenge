@@ -38,7 +38,13 @@ struct CalendarManager {
         return day
     }
     
-    // Review
+    func indexOf(date: Date, days: [Day]) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: date)
+        let currentDayIndex = components.weekday! - 1
+        return currentDayIndex
+    }
+    
     func searchWeek(date: Date, weeks: [Week]) -> Week {
         let weeksArray = weeks
             
@@ -59,7 +65,6 @@ struct CalendarManager {
         }
     }
 
-    // Review
     func loadWeeks(date: Date, weeks: [Week], number: Int) -> [Week] {
         let currentDate = date
         
@@ -90,20 +95,12 @@ struct CalendarManager {
     }
 }
 
-// Review
 extension Date {
     var startOfWeek: Date {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
         let date = calendar.date(from: components)
-        
-        
-//        if components.weekday! > 0 {
-//            components.day = components.day! - components.weekday! - 1
-//            return calendar.date(from: components)!
-//        } else {
-            return date!
-//        }
+        return date!
     }
     
     func dayRangeOf(weekOfYear: Int, for date: Date) -> Range<Date> {
