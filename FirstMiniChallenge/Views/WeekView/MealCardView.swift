@@ -60,8 +60,8 @@ struct MealCardView_Previews: PreviewProvider {
                 Food(name: "Abóbora", category: .legumesEVerduras, diet: .veggie),
                 Food(name: "Peixe", category: .carnesEOvos, diet: .regular),
                 Food(name: "Arroz integral", category: .cereaisAlmocoEJanta, diet: .veggie)
-            
-            ]))
+                            
+            ], hasDrink: true, hasFruitOutsidePlate: false))
             
             
     }

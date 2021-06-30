@@ -115,28 +115,28 @@ struct AppData {
     ]
     
     var breakfastOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Café da Manhã", type: .breakfast, imageName: "Meal_Breakfast_1_8", categoriesIncluded: [.bebidas, .frutas, .cereaisCafeELanche]),
-        MealOption(name: "Opção 3 - Café da Manhã", type: .breakfast, imageName: "Meal_Breakfast_3", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos, .cereaisCafeELanche]),
-        MealOption(name: "Opção 5 - Café da Manhã", type: .breakfast, imageName: "Meal_Breakfast_5", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos]),
+        MealOption(name: "Opção 1 - Café da Manhã", type: .breakfast, imageName: "Meal_Breakfast_1_8", categoriesIncluded: [.bebidas, .frutas, .cereaisCafeELanche], hasDrink: true, hasFruitOutsidePlate: false),
+        MealOption(name: "Opção 3 - Café da Manhã", type: .breakfast, imageName: "Meal_Breakfast_3", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos, .cereaisCafeELanche], hasDrink: true, hasFruitOutsidePlate: false),
+        MealOption(name: "Opção 5 - Café da Manhã", type: .breakfast, imageName: "Meal_Breakfast_5", categoriesIncluded: [.bebidas, .frutas, .leiteEQueijos], hasDrink: true, hasFruitOutsidePlate: false),
     ]
     
     var lunchOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Almoço", type: .lunch, imageName: "Meal_Lunch_1", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .frutas]),
-        MealOption(name: "Opção 2 - Almoço", type: .lunch, imageName: "Meal_Lunch_2", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .carnesEOvos, .frutas]),
-        MealOption(name: "Opção 3 - Almoço", type: .lunch, imageName: "Meal_Lunch_3", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .carnesEOvos, .legumesEVerduras]),
-        MealOption(name: "Opção 4 - Almoço", type: .lunch, imageName: "Meal_Lunch_4", categoriesIncluded: [.raizesETuberculos, .feijoes, .legumesEVerduras, .carnesEOvos, .frutas]),
-        MealOption(name: "Opção 5 - Almoço", type: .lunch, imageName: "Meal_Lunch_5", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .raizesETuberculos, .legumesEVerduras, .frutas]),
+        MealOption(name: "Opção 1 - Almoço", type: .lunch, imageName: "Meal_Lunch_1", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .frutas], hasDrink: false, hasFruitOutsidePlate: true),
+        MealOption(name: "Opção 2 - Almoço", type: .lunch, imageName: "Meal_Lunch_2", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .legumesEVerduras, .carnesEOvos, .frutas], hasDrink: false, hasFruitOutsidePlate: true),
+        MealOption(name: "Opção 3 - Almoço", type: .lunch, imageName: "Meal_Lunch_3", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .carnesEOvos, .legumesEVerduras], hasDrink: false, hasFruitOutsidePlate: false),
+        MealOption(name: "Opção 4 - Almoço", type: .lunch, imageName: "Meal_Lunch_4", categoriesIncluded: [.raizesETuberculos, .feijoes, .legumesEVerduras, .carnesEOvos, .frutas], hasDrink: false, hasFruitOutsidePlate: true),
+        MealOption(name: "Opção 5 - Almoço", type: .lunch, imageName: "Meal_Lunch_5", categoriesIncluded: [.feijoes, .cereaisAlmocoEJanta, .raizesETuberculos, .legumesEVerduras, .frutas], hasDrink: false, hasFruitOutsidePlate: true),
     ]
     
     var snackOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Lanche", type: .snack, imageName: "Meal_Snack_1", categoriesIncluded: [.cereaisCafeELanche, .frutas]),
-        MealOption(name: "Opção 2 - Lanche", type: .snack, imageName: "Meal_Snack_2", categoriesIncluded: [.castanhasENozes]),
-        MealOption(name: "Opção 3 - Lanche", type: .snack, imageName: "Meal_Snack_3", categoriesIncluded: [.frutas]),
+        MealOption(name: "Opção 1 - Lanche", type: .snack, imageName: "Meal_Snack_1", categoriesIncluded: [.cereaisCafeELanche, .frutas], hasDrink: false, hasFruitOutsidePlate: false),
+        MealOption(name: "Opção 2 - Lanche", type: .snack, imageName: "Meal_Snack_2", categoriesIncluded: [.castanhasENozes], hasDrink: false, hasFruitOutsidePlate: false),
+        MealOption(name: "Opção 3 - Lanche", type: .snack, imageName: "Meal_Snack_3", categoriesIncluded: [.frutas], hasDrink: false, hasFruitOutsidePlate: false),
     ]
     
     var dinnerOptions: [MealOption] = [
-        MealOption(name: "Opção 1 - Janta", type: .dinner, imageName: "Meal_Lunch_2", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos, .frutas]),
-        MealOption(name: "Opção 3 - Janta", type: .dinner, imageName: "Meal_Dinner_3", categoriesIncluded: [.legumesEVerduras, .carnesEOvos, .raizesETuberculos]),
-        MealOption(name: "Opção 4 - Janta", type: .dinner, imageName: "Meal_Lunch_3", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos]),
+        MealOption(name: "Opção 1 - Janta", type: .dinner, imageName: "Meal_Lunch_2", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos, .frutas], hasDrink: false, hasFruitOutsidePlate: true),
+        MealOption(name: "Opção 3 - Janta", type: .dinner, imageName: "Meal_Dinner_3", categoriesIncluded: [.legumesEVerduras, .carnesEOvos, .raizesETuberculos], hasDrink: false, hasFruitOutsidePlate: false),
+        MealOption(name: "Opção 4 - Janta", type: .dinner, imageName: "Meal_Lunch_3", categoriesIncluded: [.cereaisAlmocoEJanta, .feijoes, .carnesEOvos], hasDrink: false, hasFruitOutsidePlate: false),
     ]
 }
