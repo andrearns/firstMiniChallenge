@@ -145,7 +145,7 @@ class MealManager {
         
         isPlanned = true
         
-        let plannedDay = Day(date: day.date, meals: meals, isPlanned: isPlanned)
+        let plannedDay = Day(isSelected: false, date: day.date, meals: meals, isPlanned: isPlanned)
         return plannedDay
     }
 
