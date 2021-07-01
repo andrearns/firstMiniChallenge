@@ -52,7 +52,7 @@ struct OnboardingIsVeggieView: View {
                         OnboardingisVeggieButtomView(name: "Sou \nVegetariano", diet: .regular, button: "button_SouVeg")
                             .onTapGesture {
                                 
-                                navigationActive = true
+                                veggieNavigationActive = true
                                 veggie = true
                                 UserDefaultsManager.setVeggie(model: veggie)
                                 self.fetchVeggie()
@@ -61,7 +61,7 @@ struct OnboardingIsVeggieView: View {
                     
                     NavigationLink(
                         destination: OnboardingMealView(),
-                        isActive: $veggieNavigationActive)
+                        isActive: $navigationActive)
                     {
                         
                         
