@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Week: Identifiable {
+struct Week: Identifiable, Codable{
     var id = UUID()
     var startDate: Date
     var endDate: Date {

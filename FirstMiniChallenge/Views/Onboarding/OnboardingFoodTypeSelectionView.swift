@@ -12,6 +12,7 @@ struct OnboardingFoodTypeSelectionView: View {
     
     var typeOfFood: String
     var image: String
+   
 
     var body: some View {
         

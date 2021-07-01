@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Meal: Identifiable {
+struct Meal: Identifiable, Codable {
     var id = UUID()
     var name: String {
         var n: String = ""
@@ -31,7 +31,7 @@ struct Meal: Identifiable {
     var hasFruitOutsidePlate: Bool
 }
 
-struct MealOption {
+struct MealOption: Codable {
     var id = UUID()
     var name: String
     var type: MealType
@@ -42,13 +42,13 @@ struct MealOption {
     
 }
 
-enum Diet {
+enum Diet: Int, Codable {
     case regular
     case veggie
     case none
 }
 
-enum MealType {
+enum MealType: Int, Codable {
     case breakfast
     case lunch
     case snack

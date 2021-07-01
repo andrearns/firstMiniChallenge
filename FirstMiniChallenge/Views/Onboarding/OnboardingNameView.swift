@@ -10,6 +10,14 @@ import SwiftUI
 struct OnboardingNameView: View {
     
     @State var username = ""
+    @State var name = ""
+    @State var navigationActive: Bool = false
+    
+    func fetchName(){
+        let name = UserDefaultsManager.fetchName() ?? ""
+        self.name = name
+        
+    }
     
     var body: some View {
         
@@ -44,16 +52,25 @@ struct OnboardingNameView: View {
             VStack(alignment: .center) {
                 NavigationLink(
                     destination: OnboardingIsVeggieView(),
+                    isActive: $navigationActive,
                     label: {
                         Text("Começar planejamento")
                             .foregroundColor(.white)
                             .frame(width: 280, height: 60, alignment: .center)
                             .background(Color(#colorLiteral(red: 0.5481224656, green: 0.7942695618, blue: 0.8297637105, alpha: 1)))
                             .cornerRadius(10)
+                            .onTapGesture {
+                                navigationActive = true
+                                UserDefaultsManager.setName(name: name)
+                                self.fetchName()
+                            }
                     })
             }.padding(.bottom,50)
             
         }.edgesIgnoringSafeArea(.all)
+        .onAppear{
+            self.fetchName()
+        }
         
     }
 }
@@ -62,7 +79,6 @@ struct OnboardingNameView_Previews: PreviewProvider {
     static var previews: some View {
         
         OnboardingNameView()
-        
         
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingLaticiniosView: View {
+    @State var laticinios = appData.allLeitesEQueijos
     var body: some View {
            
                 
@@ -24,8 +25,8 @@ struct OnboardingLaticiniosView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(appData.allLeitesEQueijos, id: \.id) { food in
-                        OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
+                    ForEach(laticinios.indices, id: \.self) { i in
+                                       OnboardingFoodSelectionView(food: self.$laticinios[i])
                     }
                 }
             }
