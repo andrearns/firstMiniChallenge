@@ -8,19 +8,19 @@
 import Foundation
 
 class UserDefaultsManager {
-//    static func setModel(model: Model) {
-//        let data = try? JSONEncoder().encode(model)
-//        UserDefaults.standard.set(data, forKey: "model")
-//    }
-//
-//    static func fetchModel() -> Model? {
-//        guard let data = UserDefaults.standard.data(forKey: "model") else {
-//            return nil
-//        }
-//
-//        let model = try? JSONDecoder().decode(Model.self, from: data)
-//        return model
-//    }
+    //    static func setModel(model: Model) {
+    //        let data = try? JSONEncoder().encode(model)
+    //        UserDefaults.standard.set(data, forKey: "model")
+    //    }
+    //
+    //    static func fetchModel() -> Model? {
+    //        guard let data = UserDefaults.standard.data(forKey: "model") else {
+    //            return nil
+    //        }
+    //
+    //        let model = try? JSONDecoder().decode(Model.self, from: data)
+    //        return model
+    //    }
     
     //Username
     static func setName(name: String) {
@@ -54,7 +54,7 @@ class UserDefaultsManager {
         guard let data = UserDefaults.standard.data(forKey: "Leguminosas") else {
             return nil
         }
-
+        
         let model = try? JSONDecoder().decode([Food].self, from: data)
         return model
     }
@@ -73,7 +73,7 @@ class UserDefaultsManager {
         guard let data = UserDefaults.standard.data(forKey: "Oleaginosas") else {
             return nil
         }
-
+        
         let model = try? JSONDecoder().decode([Food].self, from: data)
         return model
     }
@@ -92,7 +92,97 @@ class UserDefaultsManager {
         guard let data = UserDefaults.standard.data(forKey: "Cereais") else {
             return nil
         }
-
+        
+        let model = try? JSONDecoder().decode([Food].self, from: data)
+        return model
+    }
+    
+    //Laticinios
+    static func setLaticinios(model: [Food]) {
+        let laticinios: [Food] = model.filter {
+            $0.isSelected
+        }
+        let data = try? JSONEncoder().encode(laticinios)
+        UserDefaults.standard.set(data, forKey: "Laticinios")
+    }
+    
+    static func fetchLaticinios() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Laticinios") else {
+            return nil
+        }
+        
+        let model = try? JSONDecoder().decode([Food].self, from: data)
+        return model
+    }
+    
+    //Vegetais
+    static func setVegetais(model: [Food]) {
+        let vegetais: [Food] = model.filter {
+            $0.isSelected
+        }
+        let data = try? JSONEncoder().encode(vegetais)
+        UserDefaults.standard.set(data, forKey: "Vegetais")
+    }
+    
+    static func fetchVegetais() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Vegetais") else {
+            return nil
+        }
+        
+        let model = try? JSONDecoder().decode([Food].self, from: data)
+        return model
+    }
+    
+    //Carnes e Ovos
+    static func setCarnesEOvos(model: [Food]) {
+        let carnesEOvos: [Food] = model.filter {
+            $0.isSelected
+        }
+        let data = try? JSONEncoder().encode(carnesEOvos)
+        UserDefaults.standard.set(data, forKey: "CarnesEOvos")
+    }
+    
+    static func fetchCarnesEOvos() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "CarnesEOvos") else {
+            return nil
+        }
+        
+        let model = try? JSONDecoder().decode([Food].self, from: data)
+        return model
+    }
+    
+    //Cereais
+    static func setFrutas(model: [Food]) {
+        let frutas: [Food] = model.filter {
+            $0.isSelected
+        }
+        let data = try? JSONEncoder().encode(frutas)
+        UserDefaults.standard.set(data, forKey: "Frutas")
+    }
+    
+    static func fetchFrutas() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Frutas") else {
+            return nil
+        }
+        
+        let model = try? JSONDecoder().decode([Food].self, from: data)
+        return model
+    }
+    
+    //Tuberculos
+    static func setTuberculos(model: [Food]) {
+        let tuberculos: [Food] = model.filter {
+            $0.isSelected
+        }
+        let data = try? JSONEncoder().encode(tuberculos)
+        UserDefaults.standard.set(data, forKey: "Tuberculos")
+    }
+    
+    static func fetchTuberculos() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Tuberculos") else {
+            return nil
+        }
+        
         let model = try? JSONDecoder().decode([Food].self, from: data)
         return model
     }
