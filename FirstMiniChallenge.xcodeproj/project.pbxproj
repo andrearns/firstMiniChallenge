@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411B4F83268D3703009E1B0E /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B4F82268D3703009E1B0E /* UserDefaultsManager.swift */; };
 		41D7DD28268C33D200CA71BC /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D7DD26268C33D200CA71BC /* TipsView.swift */; };
 		41D7DD29268C33D200CA71BC /* TipsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D7DD27268C33D200CA71BC /* TipsCardView.swift */; };
 		41D7DD2B268C33E600CA71BC /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D7DD2A268C33E600CA71BC /* PreferencesView.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		411B4F82268D3703009E1B0E /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		41D7DD26268C33D200CA71BC /* TipsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
 		41D7DD27268C33D200CA71BC /* TipsCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsCardView.swift; sourceTree = "<group>"; };
 		41D7DD2A268C33E600CA71BC /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				5B23C76926866E420067A827 /* MealManager.swift */,
 				5B23C7762687CD4C0067A827 /* CalendarManager.swift */,
+				411B4F82268D3703009E1B0E /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				5BE68FFF26826351000DC284 /* FirstMiniChallengeApp.swift in Sources */,
 				5BE6901126826394000DC284 /* Food.swift in Sources */,
 				F604996F26885B47004728C5 /* OnboardingIsVeggieView.swift in Sources */,
+				411B4F83268D3703009E1B0E /* UserDefaultsManager.swift in Sources */,
 				F604999426889F3A004728C5 /* OnboardingFoodTypeSelectionView.swift in Sources */,
 				41F10A7326886DC20097C21F /* Preferences.swift in Sources */,
 				41D7DD39268C34DA00CA71BC /* MealCardView.swift in Sources */,

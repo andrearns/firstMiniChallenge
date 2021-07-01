@@ -9,8 +9,9 @@ import SwiftUI
 
 
 struct OnboardingFrutasView: View {
+    @State var  frutas = appData.allFrutas
     var body: some View {
-         
+        
         VStack{
             ZStack(alignment: .top){
                 OnboardingFoodTypeSelectionView(typeOfFood: "frutas", image: "Fruits_Wave_BG")
@@ -24,8 +25,8 @@ struct OnboardingFrutasView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(appData.allFrutas, id: \.id) { food in
-                        OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
+                    ForEach(frutas.indices, id: \.self) { i in
+                        OnboardingFoodSelectionView(food: self.$frutas[i])
                     }
                 }
             }
@@ -41,7 +42,7 @@ struct OnboardingFrutasView: View {
                     })
             }.padding(.bottom,50)
         }.edgesIgnoringSafeArea(.all)
-}
+    }
 }
 
 struct OnboardingFrutasView_Previews: PreviewProvider {

@@ -9,8 +9,25 @@ import SwiftUI
 
 struct OnboardingLeguminosasView: View {
     
+    @State var leguminosas = appData.allFeijoes
+    @State var navigationActive: Bool = false
+    
+    func fetchLeguminosas(){
+        let leguminosas = UserDefaultsManager.fetchLeguminosas() ?? []
+        self.leguminosas = appData.allFeijoes.map{ feijao -> Food in
+            var feijao = feijao
+            if !leguminosas.filter({ leguminosa in
+                feijao.id == leguminosa.id
+            }).isEmpty{
+                feijao.isSelected = true
+            }
+            return feijao
+        }
+        
+    }
     
     var body: some View {
+        
         VStack{
             ZStack(alignment: .top){
                 OnboardingFoodTypeSelectionView(typeOfFood: "leguminosa", image: "Leguminous_Wave_BG")
@@ -24,23 +41,36 @@ struct OnboardingLeguminosasView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(appData.allFeijoes, id: \.id) { food in
-                        OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
+                    ForEach(Array(zip(leguminosas, leguminosas.indices)), id: \.1) { leguminosa,i in
+                        OnboardingFoodSelectionView(food: self.$leguminosas[i], didSelected: leguminosa.isSelected)
                     }
                 }
             }
             VStack{
                 NavigationLink(
-                    destination: OnboardingVegetaisView(),
+                    destination: OnboardingOleaginosasView(),
+                    isActive: $navigationActive,
                     label: {
                         Text("Próximo")
                             .foregroundColor(.white)
                             .frame(width: 280, height: 60, alignment: .center)
                             .background(Color(#colorLiteral(red: 0.5481224656, green: 0.7942695618, blue: 0.8297637105, alpha: 1)))
                             .cornerRadius(10)
+                            .onTapGesture {
+                                navigationActive = true
+                                UserDefaultsManager.setLeguminosas(model: leguminosas)
+                                self.fetchLeguminosas()
+                            }
                     })
             }.padding(.bottom,50)
         }.edgesIgnoringSafeArea(.all)
+        .onAppear{
+            self.fetchLeguminosas()
+        }
+        .onChange(of: self.leguminosas, perform: { value in
+            print("Leguminosas alterou")
+            print(value)
+        })
     }
 }
 
