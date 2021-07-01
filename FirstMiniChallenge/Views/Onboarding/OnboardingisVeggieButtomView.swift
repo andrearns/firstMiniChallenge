@@ -14,25 +14,17 @@ struct OnboardingisVeggieButtomView: View {
     var button: String
     var body: some View {
         VStack{
-           
-                                            
-                Image(button)
-                    .resizable()
-                    .frame(width: 157, height: 130)
-                    .overlay(
-                        Text(name)
-                            .font(.system(size: 15, weight: .semibold, design: .rounded))
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                    )
-                    .padding()
-        
-            
-          
-                
-        
+            Image(button)
+                .resizable()
+                .frame(width: 157, height: 130)
+                .overlay(
+                    Text(name)
+                        .font(.system(size: 15, weight: .semibold, design: .rounded))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                )
+                .padding()
         }
-        
     }
 }
 

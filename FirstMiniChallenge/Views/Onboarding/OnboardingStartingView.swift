@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct OnboardingStartingView: View {
+    @State var isOnboardingCompleted: Bool = false
+    
+    func fetchOnboardingCompleted() {
+        let isOnboardingCompleted = UserDefaultsManager.fetchOnboardingCompleted() ?? false
+        self.isOnboardingCompleted = isOnboardingCompleted
+    }
+    
     var body: some View {
         
         NavigationView{
@@ -51,6 +58,8 @@ struct OnboardingStartingView: View {
                     
                 }.padding(.bottom, 50)
             }.edgesIgnoringSafeArea(.all)
+        }.onAppear {
+            self.fetchOnboardingCompleted()
         }
     }
 }
