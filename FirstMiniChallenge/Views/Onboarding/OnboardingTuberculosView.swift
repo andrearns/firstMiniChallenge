@@ -48,7 +48,7 @@ struct OnboardingTuberculosView: View {
                 }
                 VStack{
                     NavigationLink(
-                        destination: OnboardingPreparing(),
+                        destination: WeekView(),
                         isActive: $navigationActive,
                         label: {
                             Text("Próximo")
@@ -57,9 +57,12 @@ struct OnboardingTuberculosView: View {
                                 .background(Color(#colorLiteral(red: 0.5481224656, green: 0.7942695618, blue: 0.8297637105, alpha: 1)))
                                 .cornerRadius(10)
                                 .onTapGesture {
-                                    navigationActive = true
+                                    isLoading = true
                                     UserDefaultsManager.setTuberculos(model: tuberculos)
                                     self.fetchTuberculos()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                        navigationActive = true
+                                    }
                                 }
                         })
                 }.padding(.bottom,50)

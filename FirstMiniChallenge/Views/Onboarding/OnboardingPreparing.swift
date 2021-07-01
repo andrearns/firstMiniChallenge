@@ -19,8 +19,6 @@ struct OnboardingPreparing: View {
                 .multilineTextAlignment(.center)
             
             Image("Loading_Plate")
-                .resizable()
-                .frame(width: 139, height: 139)
                 .rotationEffect(.init(degrees: self.animate ? 360 : 0))
                 .animation(Animation.linear(duration: 2).repeatForever(autoreverses: false))
 
