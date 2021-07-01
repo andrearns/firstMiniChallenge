@@ -16,7 +16,6 @@ struct OnboardingIsVeggieView: View {
     func fetchVeggie(){
         let veggie = UserDefaultsManager.fetchVeggie() ?? false
         self.veggie = veggie
-        
     }
     
     var body: some View {

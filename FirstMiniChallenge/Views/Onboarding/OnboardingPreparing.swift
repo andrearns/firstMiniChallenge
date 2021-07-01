@@ -9,6 +9,12 @@ import SwiftUI
 
 struct OnboardingPreparing: View {
     @State var animate = false
+    @State var isOnboardingCompleted = false
+    
+    func fetchOnboardingCompleted(){
+        let isOnboardingCompleted = UserDefaultsManager.fetchOnboardingCompleted() ?? false
+        self.isOnboardingCompleted = isOnboardingCompleted
+    }
     
     var body: some View {
         VStack(alignment: .center){
@@ -25,6 +31,9 @@ struct OnboardingPreparing: View {
         }.navigationBarBackButtonHidden(true)
         .onAppear {
             self.animate.toggle()
+            isOnboardingCompleted = true
+            UserDefaultsManager.setOnboardingCompleted(model: isOnboardingCompleted)
+            self.fetchOnboardingCompleted()
         }
         
     }

@@ -9,10 +9,24 @@ import SwiftUI
 
 @main
 struct FirstMiniChallengeApp: App {
+    @State var isOnboardingCompleted: Bool = false
+    
+    func fetchOnboardingCompleted() {
+        let isOnboardingCompleted = UserDefaultsManager.fetchOnboardingCompleted() ?? false
+        self.isOnboardingCompleted = isOnboardingCompleted
+    }
+    
     var body: some Scene {
         WindowGroup {
-//            WeekView()
-             OnboardingStartingView()
+            VStack {
+                if isOnboardingCompleted {
+                    WeekView()
+                } else {
+                    OnboardingStartingView()
+                }
+            }.onAppear {
+                self.fetchOnboardingCompleted()
+            }
         }
     }
 }

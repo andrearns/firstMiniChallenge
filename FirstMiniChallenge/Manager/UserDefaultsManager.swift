@@ -187,6 +187,16 @@ class UserDefaultsManager {
         return model
     }
     
+    //Verifica se o onboarding já foi preenchido
+    static func setOnboardingCompleted(model: Bool) {
+        UserDefaults.standard.setValue(model, forKey: "isOnboardingCompleted")
+    }
+    
+    static func fetchOnboardingCompleted() -> Bool? {
+        UserDefaults.standard.bool(forKey: "isOnboardingCompleted")
+    }
+    
+    
 }
 
 
