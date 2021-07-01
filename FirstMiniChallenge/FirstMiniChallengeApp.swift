@@ -27,7 +27,7 @@ struct FirstMiniChallengeApp: App {
                         } else if selectedTab == .preferences {
                             PreferencesView()
                         } else {
-                            MealPlanMainView()
+                           WeekView()
                         }
                   
                         TabBarView(selectedTab: $selectedTab)

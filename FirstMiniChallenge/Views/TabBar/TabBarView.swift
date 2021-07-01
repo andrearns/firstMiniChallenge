@@ -28,7 +28,7 @@ struct TabBarView: View {
                     .shadow(color: Color("Shadow"), radius: 50, x: 0.0, y: 40.0)
                     .shadow(color: Color("Shadow"), radius: 50, x: 0.0, y: -40.0)
                     .shadow(color: Color("Shadow"), radius: 50, x: 0.0, y: 0.0)
-                    .shadow(color: Color("Shadow"), radius: 100, x: 0.0, y: 0.0)
+                    .shadow(color: Color("Shadow"), radius: 60, x: 0.0, y: 0.0)
     
             ).padding(.horizontal)
         }
