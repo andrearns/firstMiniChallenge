@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct FirstMiniChallengeApp: App {
     @State var isOnboardingCompleted: Bool = false
+    @State var selectedTab = Tab.mealPlan
     
     func fetchOnboardingCompleted() {
         let isOnboardingCompleted = UserDefaultsManager.fetchOnboardingCompleted() ?? false
@@ -20,9 +21,20 @@ struct FirstMiniChallengeApp: App {
         WindowGroup {
             VStack {
                 if isOnboardingCompleted {
-                    WeekView()
+                    ZStack(alignment: .bottom){
+                        if selectedTab == .tips {
+                            TipsView()
+                        } else if selectedTab == .preferences {
+                            PreferencesView()
+                        } else {
+                           WeekView()
+                        }
+                  
+                        TabBarView(selectedTab: $selectedTab)
+                    }
                 } else {
                     OnboardingStartingView()
+                    
                 }
             }.onAppear {
                 self.fetchOnboardingCompleted()
