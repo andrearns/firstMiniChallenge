@@ -23,7 +23,6 @@ struct OnboardingLeguminosasView: View {
             }
             return feijao
         }
-        
     }
     
     var body: some View {

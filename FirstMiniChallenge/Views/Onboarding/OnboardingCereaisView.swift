@@ -11,12 +11,21 @@ import SwiftUI
 
 struct OnboardingCereaisView: View {
     
-    @State var cereais = appData.allCereaisCafeDaManha + appData.allCereaisAlmocoEJanta
+    @State var cereais = appData.allCereais
     @State var navigationActive: Bool = false
     
     func fetchCereais(){
-        let cereais = UserDefaultsManager.fetchCereais()
-        self.cereais = cereais ?? []
+        let cereais = UserDefaultsManager.fetchCereais() ?? []
+        self.cereais = appData.allCereais.map{ item -> Food in
+            var item = item
+            if !cereais.filter({ cereal in
+                item.id == cereal.id
+            }).isEmpty{
+                item.isSelected = true
+            }
+            return item
+        }
+
     }
     
     var body: some View {
@@ -34,8 +43,8 @@ struct OnboardingCereaisView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(cereais.indices, id: \.self) { i in
-                        OnboardingFoodSelectionView(food: self.$cereais[i])
+                    ForEach(Array(zip(cereais, cereais.indices)), id: \.1) { cereal,i in
+                        OnboardingFoodSelectionView(food: self.$cereais[i], didSelected: cereal.isSelected)
                     }
                 }
             }

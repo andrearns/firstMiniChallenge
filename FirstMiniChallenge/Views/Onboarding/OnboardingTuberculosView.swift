@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct OnboardingTuberculosView: View {
+    
     @State var tuberculos = appData.allRaizesETuberculos
     @State var isLoading: Bool = false
     @State var navigationActive: Bool = false
+    
+    func fetchTuberculos(){
+        let tuberculos = UserDefaultsManager.fetchTuberculos() ?? []
+        self.tuberculos = appData.allFrutas.map{ raiz -> Food in
+            var raiz = raiz
+            if !tuberculos.filter({ tuberculo in
+                raiz.id == tuberculo.id
+            }).isEmpty{
+                raiz.isSelected = true
+            }
+            return raiz
+        }
+    }
     
     var body: some View {
         
@@ -27,26 +41,26 @@ struct OnboardingTuberculosView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     VStack{
-                        ForEach(tuberculos.indices, id: \.self) { i in
-                            OnboardingFoodSelectionView(food: self.$tuberculos[i])
+                        ForEach(Array(zip(tuberculos, tuberculos.indices)), id: \.1) { tuberculo,i in
+                            OnboardingFoodSelectionView(food: self.$tuberculos[i], didSelected: tuberculo.isSelected)
                         }
                     }
                 }
                 VStack{
                     NavigationLink(
-                        destination: WeekView(),
+                        destination: OnboardingPreparing(),
                         isActive: $navigationActive,
                         label: {
-                            Button(action: {
-                                isLoading = true
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: { navigationActive = true })
-                            }) {
-                                Text("Próximo")
-                                    .foregroundColor(.white)
-                                    .frame(width: 280, height: 60, alignment: .center)
-                                    .background(Color(#colorLiteral(red: 0.5481224656, green: 0.7942695618, blue: 0.8297637105, alpha: 1)))
-                                    .cornerRadius(10)
-                            }
+                            Text("Próximo")
+                                .foregroundColor(.white)
+                                .frame(width: 280, height: 60, alignment: .center)
+                                .background(Color(#colorLiteral(red: 0.5481224656, green: 0.7942695618, blue: 0.8297637105, alpha: 1)))
+                                .cornerRadius(10)
+                                .onTapGesture {
+                                    navigationActive = true
+                                    UserDefaultsManager.setTuberculos(model: tuberculos)
+                                    self.fetchTuberculos()
+                                }
                         })
                 }.padding(.bottom,50)
             }
@@ -65,6 +79,9 @@ struct OnboardingTuberculosView: View {
                 .background(Color(.white))
             }
         }.edgesIgnoringSafeArea(.all)
+        .onAppear{
+            self.fetchTuberculos()
+        }
     }
 }
 

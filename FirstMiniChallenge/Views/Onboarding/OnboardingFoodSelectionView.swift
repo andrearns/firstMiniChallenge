@@ -22,7 +22,7 @@ struct OnboardingFoodSelectionView: View {
             {
                 HStack{
                     Text(food.name)
-                        .foregroundColor(didSelected ? Color(.white): Color("TextColor"))
+                        .foregroundColor(Color("TextColor"))
                         .font(.system(size: 16, weight: .medium, design: .rounded))
                     Spacer()
                 }
