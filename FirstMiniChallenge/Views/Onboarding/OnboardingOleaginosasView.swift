@@ -13,8 +13,17 @@ struct OnboardingOleaginosasView: View {
     @State var navigationActive: Bool = false
     
     func fetchOleaginosas(){
-        let oleaginosas = UserDefaultsManager.fetchOleaginosas()
-        self.oleaginosas = oleaginosas ?? []
+        let oleaginosas = UserDefaultsManager.fetchOleaginosas() ?? []
+        self.oleaginosas = appData.allCastanhasENozes.map{ castanha -> Food in
+            var castanha = castanha
+            if !oleaginosas.filter({ oleaginosa in
+                castanha.id == oleaginosa.id
+            }).isEmpty{
+                castanha.isSelected = true
+            }
+            return castanha
+        }
+        
     }
     
     var body: some View {
@@ -27,15 +36,16 @@ struct OnboardingOleaginosasView: View {
             .ignoresSafeArea()
             .frame(height: 250)
             
-            
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(oleaginosas.indices, id: \.self) { i in
-                        OnboardingFoodSelectionView(food: self.$oleaginosas[i])
+                    ForEach(Array(zip(oleaginosas, oleaginosas.indices)), id: \.1) { oleaginosa,i in
+                        OnboardingFoodSelectionView(food: self.$oleaginosas[i], didSelected: oleaginosa.isSelected)
                     }
                 }
             }
+            
+            
             VStack{
                 NavigationLink(
                     destination: OnboardingCereaisView(),
@@ -57,6 +67,10 @@ struct OnboardingOleaginosasView: View {
         .onAppear{
             self.fetchOleaginosas()
         }
+        .onChange(of: self.oleaginosas, perform: { value in
+            print("Oleaginosas alterou")
+            print(value)
+        })
         
         
     }

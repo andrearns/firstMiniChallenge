@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Food: Hashable, Equatable, Codable {
+struct Food: Hashable, Equatable, Codable, Identifiable {
     var id: String {
         return name
     }

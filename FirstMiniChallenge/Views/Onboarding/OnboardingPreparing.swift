@@ -9,6 +9,12 @@ import SwiftUI
 
 struct OnboardingPreparing: View {
     @State var animate = false
+    @State var isOnboardingCompleted = false
+    
+    func fetchOnboardingCompleted(){
+        let isOnboardingCompleted = UserDefaultsManager.fetchOnboardingCompleted() ?? false
+        self.isOnboardingCompleted = isOnboardingCompleted
+    }
     
     var body: some View {
         VStack(alignment: .center){
@@ -19,14 +25,15 @@ struct OnboardingPreparing: View {
                 .multilineTextAlignment(.center)
             
             Image("Loading_Plate")
-                .resizable()
-                .frame(width: 139, height: 139)
                 .rotationEffect(.init(degrees: self.animate ? 360 : 0))
                 .animation(Animation.linear(duration: 2).repeatForever(autoreverses: false))
 
         }.navigationBarBackButtonHidden(true)
         .onAppear {
             self.animate.toggle()
+            isOnboardingCompleted = true
+            UserDefaultsManager.setOnboardingCompleted(model: isOnboardingCompleted)
+            self.fetchOnboardingCompleted()
         }
         
     }
