@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-
-
 struct OnboardingTuberculosView: View {
+    @State var tuberculos = appData.allRaizesETuberculos
     @State var isLoading: Bool = false
     @State var navigationActive: Bool = false
     
     var body: some View {
-    
+        
         ZStack {
             VStack{
                 ZStack(alignment: .top){
@@ -28,8 +27,8 @@ struct OnboardingTuberculosView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     VStack{
-                        ForEach(appData.allRaizesETuberculos, id: \.id) { food in
-                            OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
+                        ForEach(tuberculos.indices, id: \.self) { i in
+                            OnboardingFoodSelectionView(food: self.$tuberculos[i])
                         }
                     }
                 }
@@ -66,7 +65,7 @@ struct OnboardingTuberculosView: View {
                 .background(Color(.white))
             }
         }.edgesIgnoringSafeArea(.all)
-}
+    }
 }
 
 struct OnboardingTuberculosView_Previews: PreviewProvider {

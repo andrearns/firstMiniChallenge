@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingCarnesOvosView: View {
+    @State var carnesEOvos = appData.allCarnesEOvos
+    
     var body: some View {
               
         VStack{
@@ -23,8 +25,8 @@ struct OnboardingCarnesOvosView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(appData.allCarnesEOvos, id: \.id) { food in
-                        OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
+                    ForEach(carnesEOvos.indices, id: \.self) { i in
+                       OnboardingFoodSelectionView(food: self.$carnesEOvos[i])
                     }
                 }
             }
