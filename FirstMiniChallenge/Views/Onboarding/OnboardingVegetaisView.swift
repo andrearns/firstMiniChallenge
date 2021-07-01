@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-
-
 struct OnboardingVegetaisView: View {
+    @State var vegetais = appData.allLegumesEVerduras
     var body: some View {
         
         VStack{
@@ -25,8 +24,8 @@ struct OnboardingVegetaisView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(appData.allLegumesEVerduras, id: \.id) { food in
-                        OnboardingFoodSelectionView(foodType: Food(name: food.name, category: food.category, diet: food.diet))
+                    ForEach(vegetais.indices, id: \.self) { i in
+                        OnboardingFoodSelectionView(food: self.$vegetais[i])
                     }
                 }
             }
@@ -42,8 +41,8 @@ struct OnboardingVegetaisView: View {
                     })
             }.padding(.bottom,50)
         }.edgesIgnoringSafeArea(.all)
-//}
-}
+        //}
+    }
 }
 
 struct OnboardingVegetaisView_Previews: PreviewProvider {

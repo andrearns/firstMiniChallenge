@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Day: Identifiable {
+struct Day: Identifiable, Codable {
     var id = UUID()
     var isSelected: Bool = false
     var name: String {

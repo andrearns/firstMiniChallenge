@@ -7,16 +7,17 @@
 
 import Foundation
 
-struct Food: Hashable, Equatable {
+struct Food: Hashable, Equatable, Codable {
     var id: String {
         return name
     }
     var name: String
     var category: Category
     var diet: Diet
+    var isSelected: Bool = false
 }
 
-enum Category {
+enum Category: Int, Codable {
     case feijoes
     case cereaisCafeELanche
     case cereaisAlmocoEJanta
