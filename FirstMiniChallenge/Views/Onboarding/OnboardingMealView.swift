@@ -11,26 +11,29 @@ struct OnboardingMealView: View {
     var body: some View {
         VStack{
             Spacer()
-            VStack(alignment: .leading){
-                Text("Este é seu prato...")
-                    .font(.system(size: 36, weight: .semibold, design: .rounded))
-                    .foregroundColor(Color("TextColor"))
-                
-                Text("Seguindo o Guia Brasileiro da Alimentação Saudável, criaremos a partir das suas escolhas, refeições saudáveis e gostosas ")
-                    .font(.system(size: 14, weight: .regular, design: .rounded))
-                    .foregroundColor(Color("TextColor"))
-                    .frame(width: 330, height: 70, alignment: .leading)
+            ZStack(alignment:.top) {
+                VStack(alignment: .leading){
+                    Text("Este é seu prato...")
+                        .font(.system(size: 36, weight: .semibold, design: .rounded))
+                        .foregroundColor(Color("TextColor"))
+                    
+                    Text("Seguindo o Guia Brasileiro da Alimentação Saudável, criaremos a partir das suas escolhas, refeições saudáveis e gostosas ")
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .foregroundColor(Color("TextColor"))
+                        .frame(width: 330, height: 70, alignment: .leading)
+                    
+                }
             }
-            Spacer()
             
-            VStack{
-                Image("Prato_Com_Copo")
+            
+            ZStack(alignment: .bottom){
+                Image("Plate_Cup_Onboarding")
                     .resizable()
-                    .frame(width: 414, height: 303)
+                    .frame(width: 414, height: 480)
                 
                 
             }
-            Spacer()
+          
             VStack{
                 NavigationLink(
                     destination: OnboardingLeguminosasView(),
