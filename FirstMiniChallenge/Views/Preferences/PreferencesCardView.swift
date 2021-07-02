@@ -37,6 +37,6 @@ struct PreferencesCardView: View {
 
 struct PreferencesCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PreferencesCardView(preferencesEdit: Preferences(iconImage: "", editText: ""))
+        PreferencesCardView(preferencesEdit: Preferences(iconImage: "", editText: "", category: .bebidas))
     }
 }

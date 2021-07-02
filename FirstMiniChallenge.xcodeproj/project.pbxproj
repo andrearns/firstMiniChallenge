@@ -24,6 +24,7 @@
 		41F10A7126886B530097C21F /* PreferencesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A7026886B530097C21F /* PreferencesCardView.swift */; };
 		41F10A7326886DC20097C21F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F10A7226886DC10097C21F /* Preferences.swift */; };
 		5B0931E2268A78C8005EBB76 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0931E1268A78C8005EBB76 /* AppData.swift */; };
+		5B1E7DD1268EA9B50022AC95 /* PreferencesCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E7DD0268EA9B50022AC95 /* PreferencesCategoryView.swift */; };
 		5B23C76A26866E420067A827 /* MealManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23C76926866E420067A827 /* MealManager.swift */; };
 		5B23C76D2686ADAF0067A827 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23C76C2686ADAF0067A827 /* UserData.swift */; };
 		5B23C7712686CFC80067A827 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23C7702686CFC80067A827 /* WeekView.swift */; };
@@ -72,6 +73,7 @@
 		41F10A7026886B530097C21F /* PreferencesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCardView.swift; sourceTree = "<group>"; };
 		41F10A7226886DC10097C21F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		5B0931E1268A78C8005EBB76 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		5B1E7DD0268EA9B50022AC95 /* PreferencesCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesCategoryView.swift; sourceTree = "<group>"; };
 		5B23C76926866E420067A827 /* MealManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealManager.swift; sourceTree = "<group>"; };
 		5B23C76C2686ADAF0067A827 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		5B23C7702686CFC80067A827 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				41D7DD2A268C33E600CA71BC /* PreferencesView.swift */,
 				41F10A7026886B530097C21F /* PreferencesCardView.swift */,
+				5B1E7DD0268EA9B50022AC95 /* PreferencesCategoryView.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				41D7DD39268C34DA00CA71BC /* MealCardView.swift in Sources */,
 				F66E79F82688B6F600AD8B60 /* OnboardingCereaisView.swift in Sources */,
 				41D7DD3C268C34DA00CA71BC /* WithoutMealPlanningCardView.swift in Sources */,
+				5B1E7DD1268EA9B50022AC95 /* PreferencesCategoryView.swift in Sources */,
 				41D7DD3A268C34DA00CA71BC /* MealPlanMainView.swift in Sources */,
 				F604999026888372004728C5 /* OnboardingisVeggieButtomView.swift in Sources */,
 				41D7DD31268C34A100CA71BC /* OnboardingNameView.swift in Sources */,

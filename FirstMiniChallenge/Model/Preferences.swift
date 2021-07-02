@@ -11,4 +11,5 @@ struct Preferences {
     var id = UUID()
     var iconImage: String
     var editText: String
+    var category: Category
 }

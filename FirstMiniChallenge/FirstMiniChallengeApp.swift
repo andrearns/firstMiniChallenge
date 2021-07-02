@@ -27,14 +27,12 @@ struct FirstMiniChallengeApp: App {
                         } else if selectedTab == .preferences {
                             PreferencesView()
                         } else {
-                           WeekView()
-                        }
-                  
-                        TabBarView(selectedTab: $selectedTab)
+                            WeekView()
+                        }     
                     }
+                    TabBarView(selectedTab: $selectedTab)
                 } else {
                     OnboardingStartingView()
-                    
                 }
             }.onAppear {
                 self.fetchOnboardingCompleted()

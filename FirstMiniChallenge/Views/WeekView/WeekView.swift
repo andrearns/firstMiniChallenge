@@ -12,6 +12,8 @@ struct WeekView: View {
     @State var weeks: [Week] = []
     @State var selectedWeekIndex: Int = 0
     @State var selectedDayIndex: Int = 0
+    @State var isOnboardingCompleted: Bool = true
+    
     var selectedWeek: Week? {
         guard selectedWeekIndex >= 0 && selectedWeekIndex < weeks.count else {
             return nil
@@ -192,6 +194,7 @@ struct WeekView: View {
         .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.all)
         .onAppear {
+            UserDefaultsManager.setOnboardingCompleted(model: isOnboardingCompleted)
             self.fetchWeeks()
             
             feijoes = UserDefaultsManager.fetchFeijoes()!
