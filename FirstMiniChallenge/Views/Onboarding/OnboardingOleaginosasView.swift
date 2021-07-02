@@ -9,14 +9,14 @@ import SwiftUI
 
 struct OnboardingOleaginosasView: View {
     
-    @State var oleaginosas = appData.allCastanhasENozes
+    @State var castanhasENozes = appData.allCastanhasENozes
     @State var navigationActive: Bool = false
     
-    func fetchOleaginosas(){
-        let oleaginosas = UserDefaultsManager.fetchOleaginosas() ?? []
-        self.oleaginosas = appData.allCastanhasENozes.map{ castanha -> Food in
+    func fetchCastanhasENozes(){
+        let castanhasENozes = UserDefaultsManager.fetchCastanhasENozes() ?? []
+        self.castanhasENozes = appData.allCastanhasENozes.map{ castanha -> Food in
             var castanha = castanha
-            if !oleaginosas.filter({ oleaginosa in
+            if !castanhasENozes.filter({ oleaginosa in
                 castanha.id == oleaginosa.id
             }).isEmpty{
                 castanha.isSelected = true
@@ -39,8 +39,8 @@ struct OnboardingOleaginosasView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(Array(zip(oleaginosas, oleaginosas.indices)), id: \.1) { oleaginosa,i in
-                        OnboardingFoodSelectionView(food: self.$oleaginosas[i], didSelected: oleaginosa.isSelected)
+                    ForEach(Array(zip(castanhasENozes, castanhasENozes.indices)), id: \.1) { oleaginosa,i in
+                        OnboardingFoodSelectionView(food: self.$castanhasENozes[i], didSelected: oleaginosa.isSelected)
                     }
                 }
             }
@@ -48,7 +48,7 @@ struct OnboardingOleaginosasView: View {
             
             VStack{
                 NavigationLink(
-                    destination: OnboardingCereaisView(),
+                    destination: OnboardingLaticiniosView(),
                     isActive: $navigationActive,
                     label: {
                         Text("Próximo")
@@ -58,17 +58,17 @@ struct OnboardingOleaginosasView: View {
                             .cornerRadius(10)
                             .onTapGesture {
                                 navigationActive = true
-                                UserDefaultsManager.setOleaginosas(model: oleaginosas)
-                                self.fetchOleaginosas()
+                                UserDefaultsManager.setCastanhasENozes(model: castanhasENozes)
+                                self.fetchCastanhasENozes()
                             }
                     })
             }.padding(.bottom,50)
         }.edgesIgnoringSafeArea(.all)
         .onAppear{
-            self.fetchOleaginosas()
+            self.fetchCastanhasENozes()
         }
-        .onChange(of: self.oleaginosas, perform: { value in
-            print("Oleaginosas alterou")
+        .onChange(of: self.castanhasENozes, perform: { value in
+            print("Castanhas e nozes alterou")
             print(value)
         })
         

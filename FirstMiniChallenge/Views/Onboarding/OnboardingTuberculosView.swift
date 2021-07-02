@@ -9,16 +9,16 @@ import SwiftUI
 
 struct OnboardingTuberculosView: View {
     
-    @State var tuberculos = appData.allRaizesETuberculos
+    @State var raizesETuberculos = appData.allRaizesETuberculos
     @State var isLoading: Bool = false
     @State var navigationActive: Bool = false
     
-    func fetchTuberculos(){
-        let tuberculos = UserDefaultsManager.fetchTuberculos() ?? []
-        self.tuberculos = appData.allFrutas.map{ raiz -> Food in
-            var raiz = raiz
-            if !tuberculos.filter({ tuberculo in
-                raiz.id == tuberculo.id
+    func fetchRaizesETuberculos(){
+        let raizesETuberculos = UserDefaultsManager.fetchRaizesETuberculos() ?? []
+        self.raizesETuberculos = appData.allRaizesETuberculos.map{ item -> Food in
+            var raiz = item
+            if !raizesETuberculos.filter({ item in
+                raiz.id == item.id
             }).isEmpty{
                 raiz.isSelected = true
             }
@@ -41,8 +41,8 @@ struct OnboardingTuberculosView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     
                     VStack{
-                        ForEach(Array(zip(tuberculos, tuberculos.indices)), id: \.1) { tuberculo,i in
-                            OnboardingFoodSelectionView(food: self.$tuberculos[i], didSelected: tuberculo.isSelected)
+                        ForEach(Array(zip(raizesETuberculos, raizesETuberculos.indices)), id: \.1) { tuberculo,i in
+                            OnboardingFoodSelectionView(food: self.$raizesETuberculos[i], didSelected: tuberculo.isSelected)
                         }
                     }
                 }
@@ -58,9 +58,9 @@ struct OnboardingTuberculosView: View {
                                 .cornerRadius(10)
                                 .onTapGesture {
                                     isLoading = true
-                                    UserDefaultsManager.setTuberculos(model: tuberculos)
-                                    self.fetchTuberculos()
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                    UserDefaultsManager.setRaizesETuberculos(model: raizesETuberculos)
+                                    self.fetchRaizesETuberculos()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                                         navigationActive = true
                                     }
                                 }
@@ -83,7 +83,7 @@ struct OnboardingTuberculosView: View {
             }
         }.edgesIgnoringSafeArea(.all)
         .onAppear{
-            self.fetchTuberculos()
+            self.fetchRaizesETuberculos()
         }
     }
 }

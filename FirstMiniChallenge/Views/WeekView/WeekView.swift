@@ -12,7 +12,6 @@ struct WeekView: View {
     @State var weeks: [Week] = []
     @State var selectedWeekIndex: Int = 0
     @State var selectedDayIndex: Int = 0
-    
     var selectedWeek: Week? {
         guard selectedWeekIndex >= 0 && selectedWeekIndex < weeks.count else {
             return nil
@@ -25,6 +24,27 @@ struct WeekView: View {
             return nil
         }
         return selectedWeek.days[selectedDayIndex]
+    }
+    
+    @State var name: String = ""
+    @State var diet: Diet = .none
+    @State var feijoes: [Food] = []
+    @State var cereais: [Food] = []
+    @State var raizesETuberculos: [Food] = []
+    @State var legumesEVerduras: [Food] = []
+    @State var frutas: [Food] = []
+    @State var castanhasENozes: [Food] = []
+    @State var leitesEQueijos: [Food] = []
+    @State var carnesEOvos: [Food] = []
+    
+    func fetchDiet() {
+        let diet = UserDefaultsManager.fetchDiet() ?? .regular
+        self.diet = diet
+    }
+    
+    func fetchWeeks() {
+        let weeks = UserDefaultsManager.fetchWeeks() ?? []
+        self.weeks = weeks
     }
     
     var body: some View {
@@ -42,14 +62,14 @@ struct WeekView: View {
                         
                         VStack(alignment: .leading) {
                             
-                            Text("Planejamento \nAlimentar")
+                            Text("Cardápio \nda semana")
                                 .padding(.top, 100)
                                 .foregroundColor(.white)
                                 .font(.system(size: 36, weight: .semibold, design: .rounded))
                             
                             
                             
-                            Text("\(userData.name), acompanhe seus resultados\npara uma vida mais saudável")
+                            Text("\(name), veja o que você vai comer\nnos próximos dias!")
                                 .padding(.top, 10)
                                 .foregroundColor(.white)
                                 .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -74,7 +94,7 @@ struct WeekView: View {
                                 .foregroundColor(Color("TextColor"))
                             Spacer()
                             Button(action: {
-                                if selectedWeekIndex < userData.weeks.count {
+                                if selectedWeekIndex < weeks.count - 1 {
                                     selectedWeekIndex += 1
                                 }
                             }) {
@@ -114,7 +134,6 @@ struct WeekView: View {
                                             .padding(4)
                                             .background(selectedDayIndex == index ? Color("DefaultBlue") : .white)
                                             .cornerRadius(10000)
-                                       
                                     }
                                 }
                             }
@@ -138,18 +157,11 @@ struct WeekView: View {
                         .padding(20)
                         Button(action:{
                             guard let selectedWeek = selectedWeek else { return }
-                            let plannedWeek = MealManager.shared.planWeek(week: selectedWeek, diet: userData.diet, feijoes: userData.selectedFeijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: userData.selectedRaizesETuberculos, legumesEVerduras: userData.selectedLegumesEVerduras, frutas: userData.selectedFrutas, castanhasENozes: userData.selectedCastanhasENozes, leitesEQueijos: userData.selectedLeitesEQueijos, carnesEOvos: userData.selectedCarnesEOvos, bebidas: userData.selectedBebidas)
-                            userData.weeks[selectedWeekIndex] = plannedWeek
-//                            weeks = CalendarManager.shared.loadWeeks(date: today, weeks: userData.weeks, number: 4)
-                            var weeks = weeks
-                            weeks[selectedWeekIndex] = plannedWeek
-                            self.weeks = weeks
-                            print("________________________________________")
-                            print("Refeições da semana:")
-                            print("Semana do mês: \(plannedWeek.weekOfMonth)")
-                            print("Semana do ano: \(plannedWeek.weekOfYear)")
-                            print("Ano: \(plannedWeek.year)")
-                            print(plannedWeek)
+                            let plannedWeek = MealManager.shared.planWeek(week: selectedWeek, diet: diet, feijoes: self.feijoes, cereaisCafeELanche: userData.selectedCereaisCafeELanche, cereaisAlmocoEJanta: userData.selectedCereaisAlmocoEJanta, raizesETuberculos: self.raizesETuberculos, legumesEVerduras: self.legumesEVerduras, frutas: self.frutas, castanhasENozes: self.castanhasENozes, leitesEQueijos: self.leitesEQueijos, carnesEOvos: self.carnesEOvos, bebidas: userData.selectedBebidas)
+                            self.weeks[selectedWeekIndex] = plannedWeek
+                            print("WeekView: \(weeks)")
+                            UserDefaultsManager.setWeeks(model: self.weeks)
+                            self.fetchWeeks()
                         }) {
                             Text("Planejar agora")
                                 .font(.system(size: 18, weight: .medium, design: .rounded))
@@ -180,7 +192,22 @@ struct WeekView: View {
         .navigationBarTitleDisplayMode(.inline)
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            weeks = CalendarManager.shared.loadWeeks(date: today, weeks: userData.weeks, number: 4)
+            self.fetchWeeks()
+            
+            feijoes = UserDefaultsManager.fetchFeijoes()!
+            cereais = UserDefaultsManager.fetchCereais()!
+            raizesETuberculos = UserDefaultsManager.fetchRaizesETuberculos()!
+            legumesEVerduras = UserDefaultsManager.fetchLegumesEVerduras()!
+            frutas = UserDefaultsManager.fetchFrutas()!
+            castanhasENozes = UserDefaultsManager.fetchCastanhasENozes()!
+            leitesEQueijos = UserDefaultsManager.fetchLaticinios()!
+            carnesEOvos = UserDefaultsManager.fetchCarnesEOvos()!
+            name = UserDefaultsManager.fetchName()!
+            diet = UserDefaultsManager.fetchDiet()!
+
+            weeks = CalendarManager.shared.loadWeeks(date: today, weeks: weeks, number: 4)
+            UserDefaultsManager.setWeeks(model: weeks)
+            
             let selectedWeek = CalendarManager.shared.searchWeek(date: today, weeks: weeks)
             selectedWeekIndex = CalendarManager.shared.indexOf(chosenWeek: selectedWeek, weeks: weeks)
             selectedDayIndex = CalendarManager.shared.indexOf(date: today, days: selectedWeek.days)

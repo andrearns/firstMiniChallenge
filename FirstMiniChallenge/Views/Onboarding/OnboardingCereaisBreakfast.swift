@@ -1,35 +1,36 @@
 //
-//  OnboardingLeguminosasView.swift
+//  OnboardingCereaisBreakfast.swift
 //  FirstMiniChallenge
 //
-//  Created by alis frentzel on 27/06/21.
+//  Created by André Arns on 01/07/21.
 //
 
 import SwiftUI
 
-struct OnboardingLeguminosasView: View {
+struct OnboardingCereaisBreakfastView: View {
     
-    @State var feijoes = appData.allFeijoes
+    @State var cereaisBreakfast = appData.allCereaisCafeDaManha
     @State var navigationActive: Bool = false
     
-    func fetchFeijoes(){
-        let feijoes = UserDefaultsManager.fetchFeijoes() ?? []
-        self.feijoes = appData.allFeijoes.map{ feijao -> Food in
-            var feijao = feijao
-            if !feijoes.filter({ leguminosa in
-                feijao.id == leguminosa.id
+    func fetchCereais(){
+        let cereaisBreakfast = UserDefaultsManager.fetchCereais() ?? []
+        self.cereaisBreakfast = appData.allCereaisCafeDaManha.map{ item -> Food in
+            var item = item
+            if !cereaisBreakfast.filter({ cereal in
+                item.id == cereal.id
             }).isEmpty{
-                feijao.isSelected = true
+                item.isSelected = true
             }
-            return feijao
+            return item
         }
+
     }
     
     var body: some View {
         
         VStack{
             ZStack(alignment: .top){
-                OnboardingFoodTypeSelectionView(typeOfFood: "leguminosa", image: "Leguminous_Wave_BG")
+                OnboardingFoodTypeSelectionView(typeOfFood: "cereais", image: "Cereal_Wave_BG")
                     .ignoresSafeArea()
                 
             }
@@ -40,14 +41,15 @@ struct OnboardingLeguminosasView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(Array(zip(feijoes, feijoes.indices)), id: \.1) { leguminosa,i in
-                        OnboardingFoodSelectionView(food: self.$feijoes[i], didSelected: leguminosa.isSelected)
+                    ForEach(Array(zip(cereaisBreakfast, cereaisBreakfast.indices)), id: \.1) { cereal,i in
+                        OnboardingFoodSelectionView(food: self.$cereaisBreakfast[i], didSelected: cereal.isSelected)
                     }
                 }
             }
+            
             VStack{
                 NavigationLink(
-                    destination: OnboardingVegetaisView(),
+                    destination: OnboardingLaticiniosView(),
                     isActive: $navigationActive,
                     label: {
                         Text("Próximo")
@@ -57,24 +59,21 @@ struct OnboardingLeguminosasView: View {
                             .cornerRadius(10)
                             .onTapGesture {
                                 navigationActive = true
-                                UserDefaultsManager.setFeijoes(model: feijoes)
-                                self.fetchFeijoes()
+                                UserDefaultsManager.setCereais(model: cereaisBreakfast)
+                                self.fetchCereais()
                             }
                     })
             }.padding(.bottom,50)
         }.edgesIgnoringSafeArea(.all)
-        .onAppear{
-            self.fetchFeijoes()
+        .onAppear {
+            self.fetchCereais()
         }
-        .onChange(of: self.feijoes, perform: { value in
-            print("Leguminosas alterou")
-            print(value)
-        })
     }
 }
 
-struct OnboardingLeguminosasView_Previews: PreviewProvider {
+
+struct OnboardingCereaisBreakfastView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingLeguminosasView()
+        OnboardingCereaisView()
     }
 }

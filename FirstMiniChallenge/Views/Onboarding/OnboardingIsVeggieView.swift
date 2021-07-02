@@ -10,12 +10,12 @@ import SwiftUI
 
 struct OnboardingIsVeggieView: View {
     @State var veggieNavigationActive : Bool = false
-    @State var veggie: Bool = false
+    @State var diet: Diet = .none
     @State var navigationActive: Bool = false
     
-    func fetchVeggie(){
-        let veggie = UserDefaultsManager.fetchVeggie() ?? false
-        self.veggie = veggie
+    func fetchDiet(){
+        let diet = UserDefaultsManager.fetchDiet() ?? .none
+        self.diet = diet
     }
     
     var body: some View {
@@ -52,9 +52,9 @@ struct OnboardingIsVeggieView: View {
                             .onTapGesture {
                                 
                                 veggieNavigationActive = true
-                                veggie = true
-                                UserDefaultsManager.setVeggie(model: veggie)
-                                self.fetchVeggie()
+                                diet = .veggie
+                                UserDefaultsManager.setDiet(model: diet)
+                                self.fetchDiet()
                             }
                     }
                     
@@ -67,9 +67,9 @@ struct OnboardingIsVeggieView: View {
                         OnboardingisVeggieButtomView(name: "Não sou \nVegetariano", diet: .veggie, button: "button_NaoSouVeg")
                             .onTapGesture {
                                 navigationActive = true
-                                veggie = false
-                                UserDefaultsManager.setVeggie(model: veggie)
-                                self.fetchVeggie()
+                                diet = .regular
+                                UserDefaultsManager.setDiet(model: diet)
+                                self.fetchDiet()
                             }
                     }
                 }
@@ -87,7 +87,7 @@ struct OnboardingIsVeggieView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear{
-            self.fetchVeggie()
+            self.fetchDiet()
         }
         
     }

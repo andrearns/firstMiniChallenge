@@ -32,27 +32,32 @@ class UserDefaultsManager {
     }
     
     //Veggie
-    static func setVeggie(model: Bool) {
-        
-        UserDefaults.standard.set(model, forKey: "Veggie")
+    static func setDiet(model: Diet) {
+        let data = try? JSONEncoder().encode(model)
+        return UserDefaults.standard.set(data, forKey: "Diet")
     }
     
-    static func fetchVeggie() -> Bool? {
-        UserDefaults.standard.bool(forKey: "Veggie")
+    static func fetchDiet() -> Diet? {
+        guard let data = UserDefaults.standard.data(forKey: "Diet") else {
+            return .regular
+        }
+        
+        let model = try? JSONDecoder().decode(Diet.self, from: data)
+        return model
     }
     
     //Leguminosas
-    static func setLeguminosas(model: [Food]) {
-        let leguminosas: [Food] = model.filter {
+    static func setFeijoes(model: [Food]) {
+        let feijoes: [Food] = model.filter {
             $0.isSelected
         }
-        let data = try? JSONEncoder().encode(leguminosas)
-        UserDefaults.standard.set(data, forKey: "Leguminosas")
+        let data = try? JSONEncoder().encode(feijoes)
+        UserDefaults.standard.set(data, forKey: "Feijões")
     }
     
-    static func fetchLeguminosas() -> [Food]? {
-        guard let data = UserDefaults.standard.data(forKey: "Leguminosas") else {
-            return nil
+    static func fetchFeijoes() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Feijões") else {
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
@@ -61,17 +66,17 @@ class UserDefaultsManager {
     
     
     //Oleaginosas
-    static func setOleaginosas(model: [Food]) {
-        let oleaginosas: [Food] = model.filter {
+    static func setCastanhasENozes(model: [Food]) {
+        let castanhasENozes: [Food] = model.filter {
             $0.isSelected
         }
-        let data = try? JSONEncoder().encode(oleaginosas)
-        UserDefaults.standard.set(data, forKey: "Oleaginosas")
+        let data = try? JSONEncoder().encode(castanhasENozes)
+        UserDefaults.standard.set(data, forKey: "Castanhas e Nozes")
     }
     
-    static func fetchOleaginosas() -> [Food]? {
-        guard let data = UserDefaults.standard.data(forKey: "Oleaginosas") else {
-            return nil
+    static func fetchCastanhasENozes() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Castanhas e Nozes") else {
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
@@ -90,7 +95,7 @@ class UserDefaultsManager {
     
     static func fetchCereais() -> [Food]? {
         guard let data = UserDefaults.standard.data(forKey: "Cereais") else {
-            return nil
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
@@ -108,7 +113,7 @@ class UserDefaultsManager {
     
     static func fetchLaticinios() -> [Food]? {
         guard let data = UserDefaults.standard.data(forKey: "Laticinios") else {
-            return nil
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
@@ -116,17 +121,17 @@ class UserDefaultsManager {
     }
     
     //Vegetais
-    static func setVegetais(model: [Food]) {
-        let vegetais: [Food] = model.filter {
+    static func setLegumesEVerduras(model: [Food]) {
+        let legumesEVerduras: [Food] = model.filter {
             $0.isSelected
         }
-        let data = try? JSONEncoder().encode(vegetais)
-        UserDefaults.standard.set(data, forKey: "Vegetais")
+        let data = try? JSONEncoder().encode(legumesEVerduras)
+        UserDefaults.standard.set(data, forKey: "Legumes e verduras")
     }
     
-    static func fetchVegetais() -> [Food]? {
-        guard let data = UserDefaults.standard.data(forKey: "Vegetais") else {
-            return nil
+    static func fetchLegumesEVerduras() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Legumes e verduras") else {
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
@@ -139,12 +144,12 @@ class UserDefaultsManager {
             $0.isSelected
         }
         let data = try? JSONEncoder().encode(carnesEOvos)
-        UserDefaults.standard.set(data, forKey: "CarnesEOvos")
+        UserDefaults.standard.set(data, forKey: "Carnes e ovos")
     }
     
     static func fetchCarnesEOvos() -> [Food]? {
-        guard let data = UserDefaults.standard.data(forKey: "CarnesEOvos") else {
-            return nil
+        guard let data = UserDefaults.standard.data(forKey: "Carnes e ovos") else {
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
@@ -162,7 +167,7 @@ class UserDefaultsManager {
     
     static func fetchFrutas() -> [Food]? {
         guard let data = UserDefaults.standard.data(forKey: "Frutas") else {
-            return nil
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
@@ -170,24 +175,24 @@ class UserDefaultsManager {
     }
     
     //Tuberculos
-    static func setTuberculos(model: [Food]) {
-        let tuberculos: [Food] = model.filter {
+    static func setRaizesETuberculos(model: [Food]) {
+        let raizesETuberculos: [Food] = model.filter {
             $0.isSelected
         }
-        let data = try? JSONEncoder().encode(tuberculos)
-        UserDefaults.standard.set(data, forKey: "Tuberculos")
+        let data = try? JSONEncoder().encode(raizesETuberculos)
+        UserDefaults.standard.set(data, forKey: "Raízes e Tuberculos")
     }
     
-    static func fetchTuberculos() -> [Food]? {
-        guard let data = UserDefaults.standard.data(forKey: "Tuberculos") else {
-            return nil
+    static func fetchRaizesETuberculos() -> [Food]? {
+        guard let data = UserDefaults.standard.data(forKey: "Raízes e Tuberculos") else {
+            return []
         }
         
         let model = try? JSONDecoder().decode([Food].self, from: data)
         return model
     }
     
-    //Verifica se o onboarding já foi preenchido
+    // Verifica se o onboarding já foi preenchido
     static func setOnboardingCompleted(model: Bool) {
         UserDefaults.standard.setValue(model, forKey: "isOnboardingCompleted")
     }
@@ -196,6 +201,21 @@ class UserDefaultsManager {
         UserDefaults.standard.bool(forKey: "isOnboardingCompleted")
     }
     
+    // Semanas
+    static func setWeeks(model: [Week]) {
+        print("UserDefaults: \(model)")
+        let data = try? JSONEncoder().encode(model)
+        UserDefaults.standard.set(data, forKey: "Semanas")
+    }
+    
+    static func fetchWeeks() -> [Week]? {
+        guard let data = UserDefaults.standard.data(forKey: "Semanas") else {
+            return []
+        }
+        
+        let model = try? JSONDecoder().decode([Week].self, from: data)
+        return model
+    }
     
 }
 
