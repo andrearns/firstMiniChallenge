@@ -128,15 +128,15 @@ class MealManager {
         var isPlanned = false
         
         // Cria o café da manhã
-        let breakfast = generateMeal(type: .breakfast, mealOption: sortMealOption(mealOptions: appData.breakfastOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+        let breakfast = generateMeal(type: .breakfast, mealOption: sortMealOption(mealOptions: appData.breakfastOptions), diet: diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
         meals.append(breakfast)
         
         // Cria o almoço
-        let lunch = generateMeal(type: .lunch, mealOption: sortMealOption(mealOptions: appData.lunchOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+        let lunch = generateMeal(type: .lunch, mealOption: sortMealOption(mealOptions: appData.lunchOptions), diet: diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
         meals.append(lunch)
         
         // Cria o lanche
-        let snack = generateMeal(type: .snack, mealOption: sortMealOption(mealOptions: appData.snackOptions), diet: userData.diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
+        let snack = generateMeal(type: .snack, mealOption: sortMealOption(mealOptions: appData.snackOptions), diet: diet, feijoes: feijoes, cereaisCafeELanche: cereaisCafeELanche, cereaisAlmocoEJanta: cereaisAlmocoEJanta, raizesETuberculos: raizesETuberculos, legumesEVerduras: legumesEVerduras, frutas: frutas, castanhasENozes: castanhasENozes, leitesEQueijos: leitesEQueijos, carnesEOvos: carnesEOvos, bebidas: bebidas)
         meals.append(snack)
         
         // Cria a janta baseado no almoço

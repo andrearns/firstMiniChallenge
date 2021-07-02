@@ -17,16 +17,11 @@ struct AppData {
     ]
     
     var allCereais: [Food] = [
-        Food(name: "Arroz integral", category: .cereaisCafeELanche, diet: .veggie),
-        Food(name: "Arroz branco", category: .cereaisCafeELanche, diet: .veggie),
         Food(name: "Milho", category: .cereaisCafeELanche, diet: .veggie),
         Food(name: "Pão", category: .cereaisCafeELanche, diet: .veggie),
         Food(name: "Aveia", category: .cereaisCafeELanche, diet: .veggie),
         Food(name: "Arroz integral", category: .cereaisAlmocoEJanta, diet: .veggie),
         Food(name: "Arroz branco", category: .cereaisAlmocoEJanta, diet: .veggie),
-        Food(name: "Milho", category: .cereaisAlmocoEJanta, diet: .veggie),
-        Food(name: "Pão", category: .cereaisAlmocoEJanta, diet: .veggie),
-        Food(name: "Aveia", category: .cereaisAlmocoEJanta, diet: .veggie)
     ]
     
     var allCereaisCafeDaManha: [Food]{

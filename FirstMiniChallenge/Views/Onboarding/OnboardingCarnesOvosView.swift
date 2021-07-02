@@ -66,7 +66,6 @@ struct OnboardingCarnesOvosView: View {
         .onAppear{
             self.fetchCarnesEOvos()
         }
-        
     }
 }
 

@@ -48,7 +48,7 @@ struct OnboardingLaticiniosView: View {
             }
             VStack{
                 NavigationLink(
-                    destination: OnboardingVegetaisView(),
+                    destination: OnboardingCarnesOvosView(),
                     isActive: $navigationActive,
                     label: {
                         Text("Próximo")

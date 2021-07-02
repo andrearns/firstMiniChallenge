@@ -60,6 +60,7 @@ struct CalendarManager {
             return filteredWeek[0]
         } else {
             let newWeek = createEmptyWeek(date: date)
+            // Review
             userData.weeks.append(newWeek)
             return newWeek
         }

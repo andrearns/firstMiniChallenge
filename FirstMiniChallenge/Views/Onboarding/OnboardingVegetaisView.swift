@@ -9,14 +9,14 @@ import SwiftUI
 
 struct OnboardingVegetaisView: View {
     
-    @State var vegetais = appData.allLegumesEVerduras
+    @State var legumesEVerduras = appData.allLegumesEVerduras
     @State var navigationActive: Bool = false
     
-    func fetchVegetais(){
-        let vegetais = UserDefaultsManager.fetchVegetais() ?? []
-        self.vegetais = appData.allLegumesEVerduras.map{ verde -> Food in
+    func fetchLegumesEVerduras(){
+        let legumesEVerduras = UserDefaultsManager.fetchLegumesEVerduras() ?? []
+        self.legumesEVerduras = appData.allLegumesEVerduras.map{ verde -> Food in
             var verde = verde
-            if !vegetais.filter({ vegetal in
+            if !legumesEVerduras.filter({ vegetal in
                 verde.id == vegetal.id
             }).isEmpty{
                 verde.isSelected = true
@@ -40,14 +40,14 @@ struct OnboardingVegetaisView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack{
-                    ForEach(Array(zip(vegetais, vegetais.indices)), id: \.1) { vegetal,i in
-                        OnboardingFoodSelectionView(food: self.$vegetais[i], didSelected: vegetal.isSelected)
+                    ForEach(Array(zip(legumesEVerduras, legumesEVerduras.indices)), id: \.1) { vegetal,i in
+                        OnboardingFoodSelectionView(food: self.$legumesEVerduras[i], didSelected: vegetal.isSelected)
                     }
                 }
             }
             VStack{
                 NavigationLink(
-                    destination: OnboardingCarnesOvosView(),
+                    destination: OnboardingCereaisView(),
                     isActive: $navigationActive,
                     label: {
                         Text("Próximo")
@@ -57,14 +57,14 @@ struct OnboardingVegetaisView: View {
                             .cornerRadius(10)
                             .onTapGesture {
                                 navigationActive = true
-                                UserDefaultsManager.setVegetais(model: vegetais)
-                                self.fetchVegetais()
+                                UserDefaultsManager.setLegumesEVerduras(model: legumesEVerduras)
+                                self.fetchLegumesEVerduras()
                             }
                     })
             }.padding(.bottom,50)
         }.edgesIgnoringSafeArea(.all)
         .onAppear{
-            self.fetchVegetais()
+            self.fetchLegumesEVerduras()
         }
     }
 }
